@@ -38,7 +38,7 @@
 - retrospective
 
 8. How will you survive (Will you eat together? How will you break the tension? What is your fun times plan?)
-- timtams
+- TimTams
 - boardgame
 - try and have a laugh
 - cuppa tea
@@ -47,21 +47,48 @@
 Things to think of WHILE planning your project and AFTER discussing the things above:
 1. What is your MVP? How much work do you think it will take to achieve it?
 - a landing page to create a board with the person's name, a page to enter comments/compliments for the person, and a final page to display all the comments. 
-- we'll need 3 routes, a post route to create the board table, a post route to create comments, a get route to display all the comments.
-- stretch: beautiful css, authentication(log in and send link), update and delete comments.
+- we'll need 3 routes, a post route for the board table, a post route for comments(texts or images), a get route to display all the comments.
+- stretch: beautiful css, patch and delete route to update and delete comments, authentication(log in and send link), update and delete comments.
 
-3. What tech will you be using? Is there anything you need to research? If you’re using our stack, will you use Redux?
-- We'll try to use Redux.
+2. What tech will you be using? Is there anything you need to research? If you’re using our stack, will you use Redux?
+- We'll try to use Redux
+- the uploading photos, and how to store images in the database
+- css frameworks
 
-5. GitFlow. How will you arrange your work?
-6. Roles. Which will you use? Who will be accountable for which areas?
-7. What might a day look like? What agile rituals will happen?
-8. When during the day will you do the hard tech?
-9. Will you go outside as a team?
-10. Documentation. Set up a repo and a readme, start adding things to it
-11. Set up a kanban board (To Do, Up Next, In Progress, Done)
-12. Draw your wireframes, make some user stories, do some DB diagrams, global store plans, etc.
-13. What data will be interacted with on what pages?
+3. GitFlow. How will you arrange your work?
+- before merging to main, have each other to check and merge pull request
+- have a dev branch after MVP finished
+- decide on the branch name: feature-name
+- delete the branch when the feature is finished, and start a new branch
+
+4. Roles. Which will you use? Who will be accountable for which areas?
+- Frontend Lead: Andrea
+- Gitkeeper: Cassie
+- Scrum Master: Chris
+- Product owner: Emma
+
+5. What might a day look like? What agile rituals will happen?
+- go with individual needs (have breaks)
+- have a stand-up in the morning, before lunch, mid-afternoon, and be flexible.
+
+6. When during the day will you do the hard tech?
+- in the morning
+
+7. Will you go outside as a team?
+- possibly
+- do an outside stand-up
+
+8. Documentation. Set up a repo and a readme, start adding things to it
+- done
+
+10. Set up a kanban board (To Do, Up Next, In Progress, Done)
+- 
+
+
+11. Draw your wireframes, make some user stories, do some DB diagrams, global store plans, etc.
+
+
+12. What data will be interacted with on what pages?
 
 Once you’ve planned the technical side, come show us the following (and make them accessible to us):
 - MVP (what is and is not part of MVP?)
