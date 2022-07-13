@@ -19,16 +19,29 @@
 - askfor help from facilitators
 
 5. How will you make sure everyone feels included?
+- check-in with each other
+- ask for help when needed
+
 6. How will you decide who needs to be present for which conversations
+- mainly everyone would be involved, unless it's a specific problem
+
 7. How will we work (what roles and what agile rituals will we use etc)
 - Frontend Lead: Andrea
 - Gitkeeper: Cassie
 - Scrum Master: Chris
 - Product owner: Emma
 
-8. How will you survive (Will you eat together? How will you break the tension? What is your fun times plan?)
-Put all this in a document you can refer to, a README is a good place, or wherever all your documentation will be and come show us!
+-reflect 
+-standup (10-min timer)
+-sprints
+-pivots
+-retrospective
 
+8. How will you survive (Will you eat together? How will you break the tension? What is your fun times plan?)
+- timtams
+- boardgame
+- try and have a laugh
+- cuppa tea
 
 
 Things to think of WHILE planning your project and AFTER discussing the things above:
