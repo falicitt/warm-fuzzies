@@ -1,13 +1,13 @@
 1. Wellbeing (when I’m stressed ... I need...) (general needs eg. kids, illness, sleep etc)
-- a good laugh
-- reassurance
-- time alone / take breaks
-- discuss the problem
+- a good laugh - Andrea
+- reassurance - Chris
+- time alone / take breaks - Emma
+- discuss the problem - Cassie
 
 2. Expectation setting and agreements (what do we each want out of this time, what hours will we keep, what do we do when conflict arises, how will we communicate, especially what hours work will happen over the weekend)
 - finish the MVP
-- work normal hours on weekdays and Saturday if needed
-- have stand-ups
+- work normal hours on weekdays (9am - 12.30pm and 1.30-5.00pm) and Saturday (10am to max 5pm) if needed
+- have stand-ups (9am, before lunch 12.30pm and around 3.00pm, plus on demand)
 - present each piece of work when finished and get feedback from the team
 - have each other to check and merge pull request
 
@@ -16,11 +16,11 @@
 - don't take it personally
 
 4. How will you, individually and as a team, get the help you need (both technically and non-technically)?
-- askfor help from facilitators
+- askfor help from facilitators, after 15mins of struggling.
 
 5. How will you make sure everyone feels included?
-- check-in with each other
-- ask for help when needed
+- check-in with each other, formally each morning and as needed.
+- ask for help when needed, from team members.
 
 6. How will you decide who needs to be present for which conversations
 - mainly everyone would be involved, unless it's a specific problem
@@ -31,9 +31,15 @@
 - Scrum Master: Chris
 - Product owner: Emma
 
-- reflect 
-- standup (10-min timer)
+- reflect (after each sprint)
+- standup (10-min timer) - as above
 - sprints
+  - MVP functionality
+  - MVP CSS
+  - Stretch 1 (edit/delete comments)
+  - Stretch 2 (edit/delete cards)
+  - Stretch 3 (themes)
+  - Stretch 4 (authentification)
 - pivots
 - retrospective
 
