@@ -93,7 +93,7 @@ Things to think of WHILE planning your project and AFTER discussing the things a
 
 
 11. Draw your wireframes, make some user stories, do some DB diagrams, global store plans, etc.
-
+  ![database diagram](/dbDiagram.png)
 
 12. What data will be interacted with on what pages?
 
