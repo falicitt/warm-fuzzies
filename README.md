@@ -83,7 +83,7 @@ Things to think of WHILE planning your project and AFTER discussing the things a
 - done
 
 10. Set up a kanban board (To Do, Up Next, In Progress, Done)
-- 
+* [Warm Fuzzies Kanban Board](https://dev-academy-aotearoa.slack.com/archives/C03P9Q5G2CS/p1657682519907639)
 
 
 11. Draw your wireframes, make some user stories, do some DB diagrams, global store plans, etc.
