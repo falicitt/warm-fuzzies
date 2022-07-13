@@ -68,15 +68,16 @@ Things to think of WHILE planning your project and AFTER discussing the things a
 - Product owner: Emma
 
 5. What might a day look like? What agile rituals will happen?
-- go with individual needs (have breaks)
+- go with individual needs with breaks
 - have a stand-up in the morning, before lunch, mid-afternoon, and be flexible.
 
 6. When during the day will you do the hard tech?
 - in the morning
+- whenever I feel ready
 
 7. Will you go outside as a team?
 - possibly
-- do an outside stand-up
+- we'll do an outside stand-up
 
 8. Documentation. Set up a repo and a readme, start adding things to it
 - done
