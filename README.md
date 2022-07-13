@@ -1,8 +1,8 @@
 1. Wellbeing (when I’m stressed ... I need...) (general needs eg. kids, illness, sleep etc)
-- a good laugh - Andrea
-- reassurance - Chris
-- time alone / take breaks - Emma
-- discuss the problem - Cassie
+- a good laugh - Andrea (she will be screaming "we've failed!")
+- reassurance - Chris (will voice stress)
+- time alone / take breaks - Emma (go quiet, scarily quiet)
+- discuss the problem - Cassie (asking questions and complaining)
 
 2. Expectation setting and agreements (what do we each want out of this time, what hours will we keep, what do we do when conflict arises, how will we communicate, especially what hours work will happen over the weekend)
 - finish the MVP
@@ -12,8 +12,8 @@
 - have each other to check and merge pull request
 
 3. How will you make decisions together? How will you handle conflict?
-- be honest and say how you feel early
-- don't take it personally
+- conflict:  be honest and say how you feel early.  Don't take it personally when people share.
+- decisions:  majority vote, with advice from facilitator as them acting as tie-breaker if needed.
 
 4. How will you, individually and as a team, get the help you need (both technically and non-technically)?
 - askfor help from facilitators, after 15mins of struggling.
