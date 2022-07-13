@@ -1,60 +1,50 @@
-# Fullstack Collection App
+1. Wellbeing (when I’m stressed ... I need...) (general needs eg. kids, illness, sleep etc)
+- a good laugh
+- reassurance
+- time alone / take breaks
+- discuss the problem
 
-This repo is designed to provide space to code a fullstack app. It contains node modules and folders for databases, routes, api requests, react components, and redux actions and creators. Let's get going!
+2. Expectation setting and agreements (what do we each want out of this time, what hours will we keep, what do we do when conflict arises, how will we communicate, especially what hours work will happen over the weekend)
+- finish the MVP
+- work normal hours on weekdays and Saturday if needed
+- have stand-ups
+- present each piece of work when finished and get feedback from the team
+- have each other to check and merge pull request
 
-```
-npm install
-git checkout -b <branchname>
-npm run dev
-```
+3. How will you make decisions together? How will you handle conflict?
+- be honest and say how you feel early
+- don't take it personally
 
-## Notes
+4. How will you, individually and as a team, get the help you need (both technically and non-technically)?
+- askfor help from facilitators
 
-A few notes to keep you out of trouble:
-- When running knex, run `npm run knex <command>`, e.g. `npm run knex migrate:latest` rather than using `npx`
-- When running webpack, run `npm run webpack <extra commands>`, e.g. `npm run webpack`, rather than using `npx`
+5. How will you make sure everyone feels included?
+6. How will you decide who needs to be present for which conversations
+7. How will we work (what roles and what agile rituals will we use etc)
+- Frontend Lead: Andrea
+- Gitkeeper: Cassie
+- Scrum Master: Chris
+- Product owner: Emma
 
-## How to start
+8. How will you survive (Will you eat together? How will you break the tension? What is your fun times plan?)
+Put all this in a document you can refer to, a README is a good place, or wherever all your documentation will be and come show us!
 
-First, decide what you would like to keep a collection of. This could be a repo for keeping track of movies, books, gifs, cars, rocks, anything you fancy!
 
-**Note:** the aim is to have some simple data. If you think you might need more than one database table, or have lots of details you want to store, how could you simplify the information you're keeping track of? Leave more complex data until later in the project. For example, I want to keep track of books that I want to read, ones that I have read, and ones that I own. To start with though, let's keep track of the books themselves. My data might look like:
 
-|id|title|author|
-|---|---|---|
-| 1 | Ready Player One | Ernest Cline |
-| 2 | Throwing Rocks at the Google Bus | Douglas Rushkoff |
+Things to think of WHILE planning your project and AFTER discussing the things above:
+1. What is your MVP? How much work do you think it will take to achieve it?
+2. What tech will you be using? Is there anything you need to research? If you’re using our stack, will you use Redux?
+3. GitFlow. How will you arrange your work?
+4. Roles. Which will you use? Who will be accountable for which areas?
+5. What might a day look like? What agile rituals will happen?
+6. When during the day will you do the hard tech?
+7. Will you go outside as a team?
+8. Documentation. Set up a repo and a readme, start adding things to it
+9. Set up a kanban board (To Do, Up Next, In Progress, Done)
+10. Draw your wireframes, make some user stories, do some DB diagrams, global store plans, etc.
+11. What data will be interacted with on what pages?
 
-Our first job is getting something showing on the front end from our database. Here's a list of steps in case they are useful. You can build in any order you like though ;)
-
-### Back End
-
-1.  Design a database to store a list of your things (e.g. books)
-1.  Build the migrations and seed data
-1.  Build an API (back end route) to get the information from your database
-1.  Test your API with Insomnia
-
-### Front End
-
-1.  Build a React Component with static html
-1.  Build Redux Reducer. Start with a hardcoded initial state, for example:
-```js
-const initialState = [{ id: 1, title: 'Ready Player One', author: 'Ernest Cline' }]
-```
-3.  Use `useSelector` to display the redux state you hardcoded in the React Component
-1.  Build an API Client in the front end to request the information from your routes
-1.  Build Thunk Actions to use the API and get the information
-1.  Build Redux Actions to save task data from the thunk
-1.  Use `useDispatch` and `useEffect` to dispatch the thunk when your app loads
-
-## Next steps
-
-At this stage we should be able to view our information. Below are suggested next steps, though you might prioritize these in another order.
-
-- Include the ability to add a new record (will need a form in your components)
-- Include the ability to remove/delete records
-- Include the ability to update records (e.g. for correcting typos)
-  - You might have some other information (e.g. unread books vs. read books) that should be included in your database design, but this may require adjusting your database design - start simple!
-- Is there any complex data you chose to not include earlier or any way you could expand this dataset?
-- Could you add an external API (maybe an inspirational quote in the footer?)
-- If you haven't already, CSS!
+Once you’ve planned the technical side, come show us the following (and make them accessible to us):
+- MVP (what is and is not part of MVP?)
+- Wireframes
+- User Stories
