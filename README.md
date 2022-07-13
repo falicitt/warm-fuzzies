@@ -31,11 +31,11 @@
 - Scrum Master: Chris
 - Product owner: Emma
 
--reflect 
--standup (10-min timer)
--sprints
--pivots
--retrospective
+- reflect 
+- standup (10-min timer)
+- sprints
+- pivots
+- retrospective
 
 8. How will you survive (Will you eat together? How will you break the tension? What is your fun times plan?)
 - timtams
