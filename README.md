@@ -46,16 +46,22 @@
 
 Things to think of WHILE planning your project and AFTER discussing the things above:
 1. What is your MVP? How much work do you think it will take to achieve it?
-2. What tech will you be using? Is there anything you need to research? If you’re using our stack, will you use Redux?
-3. GitFlow. How will you arrange your work?
-4. Roles. Which will you use? Who will be accountable for which areas?
-5. What might a day look like? What agile rituals will happen?
-6. When during the day will you do the hard tech?
-7. Will you go outside as a team?
-8. Documentation. Set up a repo and a readme, start adding things to it
-9. Set up a kanban board (To Do, Up Next, In Progress, Done)
-10. Draw your wireframes, make some user stories, do some DB diagrams, global store plans, etc.
-11. What data will be interacted with on what pages?
+- a landing page to create a board with the person's name, a page to enter comments/compliments for the person, and a final page to display all the comments. 
+- we'll need 3 routes, a post route to create the board table, a post route to create comments, a get route to display all the comments.
+- stretch: beautiful css, authentication(log in and send link), update and delete comments.
+
+3. What tech will you be using? Is there anything you need to research? If you’re using our stack, will you use Redux?
+- We'll try to use Redux.
+
+5. GitFlow. How will you arrange your work?
+6. Roles. Which will you use? Who will be accountable for which areas?
+7. What might a day look like? What agile rituals will happen?
+8. When during the day will you do the hard tech?
+9. Will you go outside as a team?
+10. Documentation. Set up a repo and a readme, start adding things to it
+11. Set up a kanban board (To Do, Up Next, In Progress, Done)
+12. Draw your wireframes, make some user stories, do some DB diagrams, global store plans, etc.
+13. What data will be interacted with on what pages?
 
 Once you’ve planned the technical side, come show us the following (and make them accessible to us):
 - MVP (what is and is not part of MVP?)
