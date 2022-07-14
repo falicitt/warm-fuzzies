@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux'
-
+import cards from './cards'
 import newMessage from './newMessage'
 
 export default combineReducers({
-  newMessage: newMessage,
+  cards,
+  newMessage,
 })

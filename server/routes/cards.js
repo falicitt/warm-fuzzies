@@ -4,6 +4,18 @@ const db = require('../db/DB-Functions/cards')
 
 module.exports = router
 
+router.post('/', (req, res) => {
+  const card = req.body
+  db.insertCard(card)
+    .then((idArr) => {
+      const id = idArr[0]
+      return db.getCardById(id)
+    })
+    .then((cardObj) => res.json(cardObj))
+    .catch((err) => res.status(500).json({message: err.message}))
+})
+
+
 router.post('/:id/add', (req, res) => {
   const newMessage = req.body
 
