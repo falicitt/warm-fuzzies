@@ -1,9 +1,8 @@
 const cards = (state = [], action) => {
-  const { type, payload } = action
 
-  switch (type) {
+  switch (action.type) {
     case 'CREATE_CARD':
-      return [...state, payload]
+      return action.payload
     default:
       return state
   }

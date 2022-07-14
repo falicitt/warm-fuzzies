@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import { postCard } from "../apis/cards";
 import { useDispatch, useSelector } from "react-redux";
 import { addCard } from "../actions/cards";
-
+import CardTitle from "./CardTitle";
 
 function CreateCard() {
   const dispatch = useDispatch();
@@ -27,6 +27,7 @@ function CreateCard() {
 
   return (
     <>
+      <CardTitle />
       <h2>Make your friend happy with some nice messages</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="person_name">Your friend's name</label>

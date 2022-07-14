@@ -5,7 +5,7 @@ import { postCard } from '../apis/cards'
 export function createCard(newCard) {
   return {
     type: 'CREATE_CARD',
-    paylod: newCard
+    payload: newCard
   }
 }
 
