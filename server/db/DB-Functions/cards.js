@@ -5,7 +5,7 @@ function insertCard(newCard, db = conn) {
 }
 
 function getCardById(id, db = conn) {
-  return('cards').where('id', id).first().select()
+  return db('cards').where('id', id).first().select()
 }
 
 module.exports = {
