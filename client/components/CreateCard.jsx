@@ -1,38 +1,38 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addCard } from '../actions/cards';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { addCard } from '../actions/cards'
+import { useNavigate } from 'react-router-dom'
 
 function CreateCard() {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
-  const cardsId = useSelector((state) => state.cards[0]?.id);
+  const cardsId = useSelector((state) => state.cards[0]?.id)
 
   const [newCard, setNewCard] = useState({
     name: '',
     person_name: '',
     created_at: new Date(),
-  });
+  })
 
   const handleTyping = (e) => {
     setNewCard({
       ...newCard,
       [e.target.name]: e.target.value,
-    });
-  };
+    })
+  }
 
   const handleSubmit = (e) => {
-    const card = newCard;
-    e.preventDefault();
-    dispatch(addCard(card));
-  };
+    const card = newCard
+    e.preventDefault()
+    dispatch(addCard(card))
+  }
 
   useEffect(() => {
     if (cardsId) {
-      navigate(`/card/${cardsId}/add`);
+      navigate(`/card/${cardsId}/add`)
     }
-  }, [cardsId]);
+  }, [cardsId])
 
   return (
     <>
@@ -50,7 +50,7 @@ function CreateCard() {
         <button>Create card</button>
       </form>
     </>
-  );
+  )
 }
 
-export default CreateCard;
+export default CreateCard

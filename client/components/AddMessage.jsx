@@ -1,30 +1,30 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router';
-import { createMessage } from '../actions/messages';
-import { useNavigate } from 'react-router-dom';
-import CardTitle from './CardTitle';
+import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { useParams } from 'react-router'
+import { createMessage } from '../actions/messages'
+import { useNavigate } from 'react-router-dom'
+import CardTitle from './CardTitle'
 
 function AddMessage() {
-  const { id } = useParams();
+  const { id } = useParams()
 
   // const newMessage = useSelector(state => state.newMessage)
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const [newMessage, setNewMessage] = useState({
     name: '',
     message: '',
     image: '',
     card_id: id,
-  });
+  })
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(createMessage(newMessage));
-    navigate(`/card/${id}`);
-  };
+    e.preventDefault()
+    dispatch(createMessage(newMessage))
+    navigate(`/card/${id}`)
+  }
 
   return (
     <>
@@ -71,7 +71,7 @@ function AddMessage() {
         <button>Add</button>
       </form>
     </>
-  );
+  )
 }
 
-export default AddMessage;
+export default AddMessage

@@ -1,20 +1,20 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { useParams } from 'react-router-dom'
 
-import { getMessages } from '../actions/messages';
+import { getMessages } from '../actions/messages'
 
-import CardTitle from './CardTitle';
+import CardTitle from './CardTitle'
 
 function DisplayCard() {
-  const messages = useSelector((state) => state.messages);
+  const messages = useSelector((state) => state.messages)
 
-  const dispatch = useDispatch();
-  const { id } = useParams();
+  const dispatch = useDispatch()
+  const { id } = useParams()
 
   useEffect(() => {
-    dispatch(getMessages(id));
-  }, []);
+    dispatch(getMessages(id))
+  }, [])
 
   return (
     <>
@@ -28,7 +28,7 @@ function DisplayCard() {
         ))}
       </div>
     </>
-  );
+  )
 }
 
-export default DisplayCard;
+export default DisplayCard
