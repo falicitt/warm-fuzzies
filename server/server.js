@@ -1,7 +1,8 @@
 const express = require('express')
 const path = require('path')
-const cardsRoutes = require('./routes/cards')
+
 const server = express()
+const cardsRoutes = require('./routes/cards')
 
 server.use(express.json())
 server.use(express.static(path.join(__dirname, 'public')))

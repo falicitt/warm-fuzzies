@@ -1,20 +1,29 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { useSelector } from 'react-redux';
+import { Routes, Route } from 'react-router-dom'
+import AddMessage from './AddMessage'
+import CreateCard from "./CreateCard"
 import DisplayCard from './DisplayCard'
 
-function App () {
+function App() {
+const cards = useSelector((state) => state.cards)
+
+const id = cards.id
+
   return (
     <>
       <header className="header">
-        <h1>My Collection</h1>
+        <h1>Warm Fuzzies</h1>
       </header>
       <section className="main">
         <Routes>
-          <Route path='/card/:id/' element={<DisplayCard/>} ></Route>
+          <Route path='/' element={<CreateCard />} />
+          <Route path='/card/:id/add' element={<AddMessage />} />
+          <Route path='/card/:id' element={<DisplayCard/>} />
         </Routes>
       </section>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
