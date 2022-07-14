@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {
   fetchMessages,
 } from '../apis/messages'
@@ -33,3 +34,27 @@ export function getMessages(id) {
 
 
 
+=======
+import { postMessage } from "../apis/messages";
+
+export const ADD_MESSAGE = 'ADD_MESSAGE'
+
+export function addMessage(newMessage) {
+  return {
+    type: ADD_MESSAGE,
+    payload: newMessage
+  }
+}
+
+export function createMessage(newMessage) {
+  
+    return (dispatch => {
+      dispatch(addMessage(newMessage))
+      return postMessage(newMessage)
+      .catch((err) => {
+        const errMessage = err.response?.text || err.message
+        return dispatch(showError(errMessage))
+      })
+    })
+}
+>>>>>>> 875a9bc955cd11e9a90ba89ce4c56dca828cd68f
