@@ -1,21 +1,35 @@
-import React from "react"
-import { useSelector } from "react-redux"
+import React, { useEffect } from "react"
+import { useSelector , useDispatch } from "react-redux"
+import { useParams } from 'react-router-dom'
+
+import { getMessages } from "../actions/messages"
+
 
 function DisplayCard () {
 
-  const allMessages = useSelector((reduxState) => reduxState.allMessages)
-  console.log('This is from DisplayCard: ', allMessages)
+  const messages = useSelector(state => state.messages)
 
+  const dispatch = useDispatch()
+  const { id } = useParams()
+  
+  useEffect(() => {
+    dispatch(getMessages(id))
+  }, [])
+
+  
   return (
 
   <>
   <div className='container'>
-    {allMessages.message}
+    {messages.map(message => 
+    <li key={message.id}> 
+    <p>{message.name}</p>
+    <p>{message.message}</p>
+    </li>)}
   </div>
   </>
 
   )
 }
-
 
 export default DisplayCard

@@ -1,7 +1,5 @@
 import request from 'superagent'
 
-export function getAllMessages() {
-  return request.get('/api/v1/messages').then((resp) => resp.body)
+export function fetchMessages(id) {
+  return request.get('/api/v1/card/' + id).then((resp) => resp.body)
 }
-
-

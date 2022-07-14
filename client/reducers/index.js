@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
-// import stuff from './stuff'
+import allMessagesReducer from './allMessages'
 
 export default combineReducers({
-  // stuff
+  messages: allMessagesReducer,
 })
