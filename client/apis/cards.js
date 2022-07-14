@@ -7,3 +7,7 @@ export function postCard(card) {
     .then((res) => res.body)
     .catch((err) => console.log(err, 'error consuming api postCard'))
 }
+
+export function fetchOneCard(id) {
+
+}
