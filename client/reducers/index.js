@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
-// import stuff from './stuff'
+import newMessage from './newMessage'
 
 export default combineReducers({
-  // stuff
+  newMessage
 })
