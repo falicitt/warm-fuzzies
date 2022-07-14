@@ -1,9 +1,14 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import { Routes, Route } from 'react-router-dom'
 import AddMessage from './AddMessage'
 import CreateCard from "./CreateCard";
 
 function App() {
+const cards = useSelector((state) => state.cards)
+
+const id = cards.id
+
   return (
     <>
       <header className="header">
@@ -13,7 +18,7 @@ function App() {
         
         <Routes>
           <Route path='/' element={<CreateCard />} />
-          <Route path='/card/:id/add' element={<AddMessage />} />
+          <Route path={`/card/:id/add`} element={<AddMessage />} />
         </Routes>
       </section>
     </>
