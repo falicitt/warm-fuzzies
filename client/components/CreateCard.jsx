@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import { postCard } from "../apis/cards";
 import { useDispatch, useSelector } from "react-redux";
 import { addCard } from "../actions/cards";
 import { useNavigate } from 'react-router-dom'
@@ -10,9 +9,6 @@ function CreateCard() {
   const navigate = useNavigate()
 
   const cardsId = useSelector((state) => state.cards[0]?.id)
-  console.log(cardsId) 
-
-  
 
   const [newCard, setNewCard] = useState({
     name: "",
@@ -32,8 +28,6 @@ function CreateCard() {
     const card = newCard;
     e.preventDefault()
     dispatch(addCard(card))
-    console.log(cardsId) 
-    // setCardDispatched(true)
   };
 
   useEffect(() => {

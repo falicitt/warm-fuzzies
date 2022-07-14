@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router'
 import { createMessage } from '../actions/messages'
+import { useNavigate } from 'react-router-dom'
 
 function AddMessage () {
 
@@ -10,6 +11,7 @@ function AddMessage () {
   // const newMessage = useSelector(state => state.newMessage)
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const [newMessage, setNewMessage] = useState({
     name: '', 
@@ -20,6 +22,7 @@ function AddMessage () {
     const handleSubmit=(e)=>{
       e.preventDefault()
       dispatch(createMessage(newMessage))
+      navigate(`/card/${id}`)
     }
 
 

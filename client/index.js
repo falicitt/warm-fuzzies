@@ -8,7 +8,6 @@ import 'bootstrap/dist/css/bootstrap.css'
 import reducers from './reducers'
 import App from './components/App'
 
-// import ReactDOM from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

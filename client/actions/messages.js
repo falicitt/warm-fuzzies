@@ -1,6 +1,15 @@
-import { postMessage } from "../apis/messages";
+import {
+  fetchMessages,
+  postMessage,
+} from '../apis/messages'
+
+// type variables
+
+export const SHOW_MESSAGES = 'SHOW_MESSAGES'
 
 export const ADD_MESSAGE = 'ADD_MESSAGE'
+
+// action creators
 
 export function addMessage(newMessage) {
   return {
@@ -20,3 +29,26 @@ export function createMessage(newMessage) {
       })
     })
 }
+
+
+
+export function showMessages(messagesArray) {
+  return {
+    type: SHOW_MESSAGES,
+    payload: messagesArray,
+  }
+}
+
+// thunks
+
+export function getMessages(id) {
+  return (dispatch) => {
+    // eslint-disable-next-line promise/catch-or-return
+    fetchMessages(id) // from API
+      // then dispatch, send redux what we got
+      .then((messagesArray) => {
+        dispatch(showMessages(messagesArray))
+      })
+  }
+}
+
