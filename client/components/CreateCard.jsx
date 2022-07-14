@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addCard } from "../actions/cards";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom'
+
 
 function CreateCard() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  const cardsId = useSelector((state) => state.cards[0]?.id);
-  console.log(cardsId);
+  const cardsId = useSelector((state) => state.cards[0]?.id)
 
   const [newCard, setNewCard] = useState({
     name: "",
@@ -24,17 +24,17 @@ function CreateCard() {
   };
 
   const handleSubmit = (e) => {
+    
     const card = newCard;
-    e.preventDefault();
-    dispatch(addCard(card));
-    console.log(cardsId);
+    e.preventDefault()
+    dispatch(addCard(card))
   };
 
   useEffect(() => {
     if (cardsId) {
-      navigate(`/card/${cardsId}/add`);
+      navigate(`/card/${cardsId}/add`)
     }
-  }, [cardsId]);
+  }, [cardsId])
 
   return (
     <>
