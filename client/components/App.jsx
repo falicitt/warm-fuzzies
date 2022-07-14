@@ -1,16 +1,17 @@
-import React from 'react'
+import React from "react";
+import CreateCard from "./CreateCard";
 
-function App () {
+function App() {
   return (
     <>
       <header className="header">
-        <h1>My Collection</h1>
+        <h1>Warm Fuzzies</h1>
       </header>
       <section className="main">
-        {/* add your code here */}
+        <CreateCard />
       </section>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
