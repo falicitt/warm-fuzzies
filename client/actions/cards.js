@@ -5,7 +5,7 @@ import { postCard } from '../apis/cards'
 export function createCard(newCard) {
   return {
     type: 'CREATE_CARD',
-    paylod: newCard
+    payload: newCard
   }
 }
 
@@ -14,7 +14,10 @@ export function createCard(newCard) {
 export function addCard(newCard) {
   return (dispatch) =>{
     postCard(newCard)
-      .then((cardDetails) => dispatch(createCard(cardDetails)))
+      .then((cardDetails) => {
+        dispatch(createCard(cardDetails))
+        // return cardDetails.id
+      })
       .catch((err) => console.log(err.message))
   }
 }

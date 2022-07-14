@@ -1,8 +1,8 @@
-
-
 const express = require('express')
 const router = express.Router()
 const db = require('../db/DB-Functions/cards')
+
+module.exports = router
 
 router.post('/', (req, res) => {
   const card = req.body
@@ -16,5 +16,13 @@ router.post('/', (req, res) => {
 })
 
 
+router.post('/:id/add', (req, res) => {
+  const newMessage = req.body
 
-module.exports = router
+  db.addMessage(newMessage)
+  .then((idArr) => {
+    newMessage.id = idArr[0]
+    res.json(newMessage)
+  })
+  .catch(err => res.status(500).json({dberr: err.message}))
+})
