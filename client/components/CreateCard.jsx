@@ -1,10 +1,15 @@
-import React, { useState } from "react";
-// import { postCard } from "../apis/cards";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addCard } from "../actions/cards";
+import { useNavigate } from "react-router-dom";
 
 function CreateCard() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const cardsId = useSelector((state) => state.cards[0]?.id);
+  console.log(cardsId);
+
   const [newCard, setNewCard] = useState({
     name: "",
     person_name: "",
@@ -19,10 +24,17 @@ function CreateCard() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
     const card = newCard;
+    e.preventDefault();
     dispatch(addCard(card));
+    console.log(cardsId);
   };
+
+  useEffect(() => {
+    if (cardsId) {
+      navigate(`/card/${cardsId}/add`);
+    }
+  }, [cardsId]);
 
   return (
     <>
