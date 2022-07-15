@@ -6,10 +6,7 @@ import CreateCard from './CreateCard'
 import DisplayCard from './DisplayCard'
 
 function App() {
-  const cards = useSelector((state) => state.cards)
-
-  const id = cards.id
-
+ 
   return (
     <>
       <header className='header'>
