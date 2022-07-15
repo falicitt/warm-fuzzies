@@ -1,12 +1,12 @@
 import {
   fetchMessages,
-  postMessage,
+  postMessage, deleteTheMessage
 } from '../apis/messages'
 
 // type variables
 
 export const SHOW_MESSAGES = 'SHOW_MESSAGES'
-
+export const DELETE_ONE_MESSAGE = 'DELETE_ONE_MESSAGE'
 export const ADD_MESSAGE = 'ADD_MESSAGE'
 
 // action creators
@@ -40,8 +40,9 @@ export function showMessages(messagesArray) {
 }
 
 export function deleteOneMessage (message) {
-  returntype:DELETE_ONE_MESSAGE
-  payload: message
+  return {type:DELETE_ONE_MESSAGE,
+  payload: message.body
+  }
 }
 
 // thunks
@@ -57,10 +58,12 @@ export function getMessages(id) {
   }
 }
 export function deleteMessage(id) {
-  return (dispatch)
-  deleteMovie(id)
+  return (dispatch) => {
+  deleteTheMessage(id)
   .then ((messageToBeDeleted) => {
     console.log('deleted..')
     dispatch(deleteOneMessage(messageToBeDeleted))
   })
+
+}
 }

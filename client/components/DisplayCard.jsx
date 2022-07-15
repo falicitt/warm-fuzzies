@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
-import { getMessages } from '../actions/messages'
+import { getMessages, deleteMessage } from '../actions/messages'
 
 import CardTitle from './CardTitle'
 
@@ -11,9 +11,10 @@ function DisplayCard(props) {
   const messages = useSelector((state) => state.messages)
   
   const handleDelete =(e) => {
-    
+  
     const messageId = e.target.value
-    // dispatch(removeMessage(message.id))
+    console.log(messageId)
+    dispatch(deleteMessage(messageId))
   }
 
   const dispatch = useDispatch()

@@ -43,3 +43,17 @@ router.get('/:id', (req, res) => {
     })
     .catch((err) => res.status(500).json({ msg: err.message }))
 })
+
+router.delete('/message/:id', (req, res) => {
+  const id = req.params.id
+  console.log('route')
+  db.deleteTheMessage(id)
+   
+    .then((id) => {
+      res.json(id)
+    })
+    .catch((err) => {
+      console.log('route err', err)
+      res.status(500).json({ msg: err.message })
+    })
+})
