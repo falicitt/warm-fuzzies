@@ -1,4 +1,4 @@
-const cards = (state = [], action) => {
+const card = (state = [], action) => {
 
   switch (action.type) {
     case 'CREATE_CARD':
@@ -8,4 +8,4 @@ const cards = (state = [], action) => {
   }
 }
 
-export default cards
+export default card

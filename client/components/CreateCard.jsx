@@ -7,8 +7,7 @@ function CreateCard() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const cardsId = useSelector((state) => state.cards[0]?.id)
-
+  
   const [newCard, setNewCard] = useState({
     name: '',
     person_name: '',
@@ -28,11 +27,13 @@ function CreateCard() {
     dispatch(addCard(card))
   }
 
-  useEffect(() => {
-    if (cardsId) {
-      navigate(`/card/${cardsId}/add`)
+  const cardId = useSelector((state) => state.card?.id)
+
+  useEffect(() => { 
+    if (cardId) { 
+      navigate(`/card/${cardId}/add`)
     }
-  }, [cardsId])
+  }, [cardId])
 
   return (
     <>

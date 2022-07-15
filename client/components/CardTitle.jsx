@@ -1,14 +1,13 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 function CardTitle() {
-  const cards = useSelector((globalState) => globalState.cards)
-  console.log(cards.name)
+  const card = useSelector((globalState) => globalState.card)
 
   return (
     <div className='card_title'>
       <h2>
-        {cards.name} {cards.person_name}
+        {card.name} {card.person_name}
       </h2>
     </div>
   )
