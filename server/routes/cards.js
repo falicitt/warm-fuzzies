@@ -38,3 +38,29 @@ router.post('/:id/add', (req, res) => {
   })
   .catch(err => res.status(500).json({dberr: err.message}))
 })
+
+router.get('/:id', (req, res) => {
+  // use database function getAllMessages
+  const id = Number(req.params.id)
+  db.getAllMessages(id)
+    .then((theMessages) => {
+      // then will be passed the result of the function getAllMessages
+      // console.log(theMessages)
+      res.json(theMessages)
+    })
+    .catch((err) => res.status(500).json({ msg: err.message }))
+})
+
+router.delete('/message/:id', (req, res) => {
+  const id = req.params.id
+  console.log('route')
+  db.deleteTheMessage(id)
+   
+    .then((id) => {
+      res.json(id)
+    })
+    .catch((err) => {
+      console.log('route err', err)
+      res.status(500).json({ msg: err.message })
+    })
+})

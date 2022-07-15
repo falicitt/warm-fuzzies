@@ -1,10 +1,5 @@
-// NEED DB CONNECTION
-// easier to leave stuff in connection.js and import it in here or any other db files you need.
-const connection = require('../connection')
 
-function getAllMessages(id, db = connection) {
-  return db('messages').where('card_id', id).select()
-}
+const connection = require('../connection')
 
 function addMessage( newMessage, db = connection) {
   return db('messages').insert(newMessage)
@@ -19,9 +14,19 @@ function getCardById(id, db = connection) {
   return db('cards').where('id', id).first().select()
 }
 
+function getAllMessages(id, db = connection) {
+  return db('messages').where('card_id', id).select()
+}
+
+function deleteTheMessage(id, db = connection) {
+  return db('messages').where('id',id).delete()
+}
+
+
 module.exports = {
   addMessage,
   insertCard,
+  getAllMessages,
   getCardById,
-  getAllMessages
+  deleteTheMessage
 }
