@@ -5,10 +5,6 @@ import { editMessage } from '../apis/messages'
 
 function EditMessage(props) {
 
-  const [activeIndex, setActiveIndex] = useState(null)
-
-  const handleUpdate = (i)=> { setActiveIndex(i) }
-
   const [message, setMessage] = useState({
     id: props.id,
     name: props.name,
@@ -32,14 +28,9 @@ function EditMessage(props) {
     })
   }
 
-
-
   return (
     <>
-    <button onClick={() => handleUpdate(props.id)}>Edit</button>
-
-    {activeIndex === props.id?
-
+    {
       <form onSubmit={handleSubmit(props.id)}>
 
         <div>
@@ -57,10 +48,9 @@ function EditMessage(props) {
           <input id='image' name='image' type='text' value={message.image} onChange={handleChange} />
         </div>
 
-
         <button>Done</button>
       </form>
-     :''}
+    }
     </>
   )
 }

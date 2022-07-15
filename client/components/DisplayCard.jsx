@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
@@ -17,15 +17,22 @@ function DisplayCard() {
     dispatch(getMessages(id))
   }, [])
 
+  const [activeIndex, setActiveIndex] = useState(null)
+
+  const handleUpdate = (i) => { setActiveIndex(i) }
+
   return (
     <>
       <CardTitle />
       <div className='container'>
         {messages.map((message) => (
+          activeIndex === message.id ?
+          <EditMessage cardId={id} id={message.id} name={message.name} image={message.image} message={message.message} />
+          :
           <li key={message.id}>
             <p>{message.name}</p>
             <p>{message.message}</p>
-            <EditMessage cardId={id} id={message.id} name={message.name} image={message.image} message={message.message} />
+            <button onClick={() => handleUpdate(message.id)}>Edit</button>
           </li>
         ))}
       </div>
