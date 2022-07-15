@@ -34,9 +34,7 @@ function DisplayCard(props) {
             <p>{message.message}</p>
             <button onClick={handleDelete} value={message.id}>Delete</button>
           </li>
-          
-          
-           
+
             
         ))}
       </div>
