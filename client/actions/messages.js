@@ -4,13 +4,12 @@ import {
 } from '../apis/messages'
 
 // type variables
-
 export const SHOW_MESSAGES = 'SHOW_MESSAGES'
 
 export const ADD_MESSAGE = 'ADD_MESSAGE'
 
 // action creators
-
+// add one message
 export function addMessage(newMessage) {
   return {
     type: ADD_MESSAGE,
@@ -25,21 +24,18 @@ export function createMessage(newMessage) {
       return postMessage(newMessage)
       .catch((err) => {
         const errMessage = err.response?.text || err.message
-        return dispatch(showError(errMessage))
+        console.log(errMessage)
       })
     })
 }
 
-
-
+//get all messages
 export function showMessages(messagesArray) {
   return {
     type: SHOW_MESSAGES,
     payload: messagesArray,
   }
 }
-
-// thunks
 
 export function getMessages(id) {
   return (dispatch) => {
@@ -51,4 +47,26 @@ export function getMessages(id) {
       })
   }
 }
+
+//update one message
+// export function editOneMessage(newMessage) {
+//   return {
+//     type: 'UPDATE_MESSAGE',
+//     payload: newMessage
+//   }
+// }
+
+// export function updateMessage(newMessage) {
+//   return (dispatch) => {
+//     editMessage(newMessage.id, newMessage)//update database
+//     // .then(() => dispatch(editOneMessage(newMessage)))//update state
+//     // .then(()=> dispatch(getMessages(cardId)))//calling another thunk to show all messages
+//     .catch((err) => {
+//       const errMessage = err.response?.text || err.message
+//       console.log(errMessage)
+//     })
+//   }
+// }
+
+
 

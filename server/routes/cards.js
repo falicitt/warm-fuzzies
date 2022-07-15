@@ -20,7 +20,6 @@ router.post('/', (req, res) => {
     .catch((err) => res.status(500).json({message: err.message}))
 })
 
-
 router.post('/:id/add', (req, res) => {
   const newMessage = req.body
 
@@ -42,4 +41,15 @@ router.get('/:id', (req, res) => {
       res.json(theMessages)
     })
     .catch((err) => res.status(500).json({ msg: err.message }))
+})
+
+router.patch('/message/:id', (req, res) => {
+  const details = req.body
+  const id = Number(req.params.id)
+
+  db.editMessage(id, details)
+  .then(() => {
+    res.json(details)
+  })
+  .catch(err => res.status(500). json({dberr: err.message}))
 })

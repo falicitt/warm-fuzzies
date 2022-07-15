@@ -6,6 +6,7 @@ const allMessagesReducer = (state = [], action) => {
   switch (action.type) {
     case SHOW_MESSAGES:
       return action.payload
+
     default:
       return state
   }

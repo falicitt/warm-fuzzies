@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router'
 import { createMessage } from '../actions/messages'
 import { useNavigate } from 'react-router-dom'
@@ -7,8 +7,6 @@ import CardTitle from './CardTitle'
 
 function AddMessage() {
   const { id } = useParams()
-
-  // const newMessage = useSelector(state => state.newMessage)
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
