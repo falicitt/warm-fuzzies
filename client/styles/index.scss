@@ -7,4 +7,48 @@ body {
   font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 2rem 2rem 2rem 0;
+  padding: 1.5rem;
+  width: 250px;
+  box-shadow: 0 0 28px 4px rgba(0,0,0,0.1);
+  transition: transform .3s ease;
+  cursor: pointer;
+  /* transform: rotate(5deg); */
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.card__title {
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
+.card__image {
+  display: flex;
+  justify-content: flex-end;
+  height: 150px;
+}
+.card__image img {
+  border-radius: 10%;
+}
+
+/* NOTE CSS */
+
+.note {
+  background-size: cover;
+  top: 100px;
+  left: 300px;
+  height: 200px;
+  width: 200px;
+  padding: 20px;
+}
+
 

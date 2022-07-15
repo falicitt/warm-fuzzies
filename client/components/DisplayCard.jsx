@@ -6,7 +6,7 @@ import { getMessages, deleteMessage } from '../actions/messages'
 
 import CardTitle from './CardTitle'
 
-function DisplayCard(props) {
+function DisplayCard() {
  
   const messages = useSelector((state) => state.messages)
   
@@ -27,14 +27,13 @@ function DisplayCard(props) {
   return (
     <>
       <CardTitle />
-      <div className='container'>
+      <div className='cards-container'>
         {messages.map((message) => (
           <li key={message.id}>
             <p>{message.name}</p>
             <p>{message.message}</p>
             <button onClick={handleDelete} value={message.id}>Delete</button>
           </li>
-
             
         ))}
       </div>
@@ -43,3 +42,18 @@ function DisplayCard(props) {
 }
 
 export default DisplayCard
+
+// IDEAS
+{/* <div className="cards-container">
+<div className="card" style={{ transform: 'rotate(1deg)' }}>
+  <div className="card__title">A lovely message for Ben</div>
+  <div className="card__body">
+    <p>From me</p>
+    <div className="card__image">
+      <img
+        src="https://www.voicesofyouth.org/sites/voy/files/images/2020-08/finding-sunshine.jpg"
+        alt=""
+      />
+    </div>
+  </div>
+</div> */}
