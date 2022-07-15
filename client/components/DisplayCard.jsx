@@ -16,14 +16,6 @@ function DisplayCard() {
     dispatch(getMessages(id))
   }, [])
 
-  const handleDelete= (e) => {
-    const messageId = e.target.value
-    console.log(messageId)
-    console.log('delete clicked :)', messageId)
-    // dispatch thunk
-    // dispatch(removeMessage(messageId))
-  }
-
   return (
     <>
       <CardTitle />
@@ -41,7 +33,6 @@ function DisplayCard() {
             <div className="card__image">
             <img src={message.image} alt="cat"/>
             </div>
-            <button className="btn btn-outline-secondary" onClick={handleDelete} value={message.id}>Delete</button>
             </div>
             </div>
 
