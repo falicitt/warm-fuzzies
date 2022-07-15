@@ -1,13 +1,15 @@
-
 const connection = require('../connection')
 
-function addMessage( newMessage, db = connection) {
+function addMessage(newMessage, db = connection) {
   return db('messages').insert(newMessage)
 }
 
-
 function insertCard(newCard, db = connection) {
   return db('cards').insert(newCard)
+}
+
+function updateCard(id, details, db = connection) {
+  return db('cards').where('id', id).update(details)
 }
 
 function getCardById(id, db = connection) {
@@ -22,5 +24,6 @@ module.exports = {
   addMessage,
   insertCard,
   getAllMessages,
-  getCardById
+  getCardById,
+  updateCard,
 }

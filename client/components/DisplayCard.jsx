@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
 import { getMessages } from '../actions/messages'
+import { updateTheCard } from '../apis/cards' 
 
 import CardTitle from './CardTitle'
 
@@ -15,6 +16,14 @@ function DisplayCard() {
   useEffect(() => {
     dispatch(getMessages(id))
   }, [])
+  
+
+  const [completeCard, setCompleteCard] = useState({complete: false})
+
+  const handleClick = () => {
+    setCompleteCard({complete: true})
+    updateTheCard(id, completeCard)
+  }
 
   return (
     <>
@@ -27,6 +36,7 @@ function DisplayCard() {
           </li>
         ))}
       </div>
+      {!completeCard.complete && <button onClick={handleClick}>Mark this card as complete</button>}
     </>
   )
 }

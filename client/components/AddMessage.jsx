@@ -8,8 +8,6 @@ import CardTitle from './CardTitle'
 function AddMessage() {
   const { id } = useParams()
 
-  // const newMessage = useSelector(state => state.newMessage)
-
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -24,6 +22,13 @@ function AddMessage() {
     e.preventDefault()
     dispatch(createMessage(newMessage))
     navigate(`/card/${id}`)
+  }
+  
+  const [completeCard, setCompleteCard] = useState({complete: false})
+
+  const handleClick = () => {
+    setCompleteCard({complete: true})
+    updateTheCard(id, completeCard)
   }
 
   return (
@@ -68,7 +73,7 @@ function AddMessage() {
           />
         </div>
 
-        <button>Add</button>
+        {!completeCard.complete && <button>Add</button>}
       </form>
     </>
   )
