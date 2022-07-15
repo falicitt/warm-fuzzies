@@ -39,9 +39,9 @@ export function showMessages(messagesArray) {
   }
 }
 
-export function deleteOneMessage (message) {
+export function deleteOneMessage (id) {
   return {type:DELETE_ONE_MESSAGE,
-  payload: message.body
+  payload: id
   }
 }
 
@@ -60,10 +60,14 @@ export function getMessages(id) {
 export function deleteMessage(id) {
   return (dispatch) => {
   deleteTheMessage(id)
-  .then ((messageToBeDeleted) => {
+  .then (() => {
     console.log('deleted..')
-    dispatch(deleteOneMessage(messageToBeDeleted))
+    dispatch(deleteOneMessage(id))
   })
+  .then(() => {
+    dispatch(getMessages())
+  })
+  .catch((err) => console.log(err))
 
 }
 }
