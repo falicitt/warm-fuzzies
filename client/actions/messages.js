@@ -1,13 +1,14 @@
 import {
   fetchMessages,
   postMessage,
+  deleteTheMessage,
 } from '../apis/messages'
 
 // type variables
 
 export const SHOW_MESSAGES = 'SHOW_MESSAGES'
-
 export const ADD_MESSAGE = 'ADD_MESSAGE'
+export const DELETE_ONE_MESSAGE = 'DELETE_ONE_MESSAGE'
 
 // action creators
 
@@ -18,6 +19,15 @@ export function addMessage(newMessage) {
   }
 }
 
+export function deleteOneMessage(message) {
+  return {
+    type: DELETE_ONE_MESSAGE,
+    payload: message,
+  }
+}
+
+// thunks
+
 export function createMessage(newMessage) {
   
     return (dispatch => {
@@ -25,7 +35,7 @@ export function createMessage(newMessage) {
       return postMessage(newMessage)
       .catch((err) => {
         const errMessage = err.response?.text || err.message
-        return dispatch(showError(errMessage))
+        console.log(errMessage)
       })
     })
 }
@@ -49,6 +59,23 @@ export function getMessages(id) {
       .then((messagesArray) => {
         dispatch(showMessages(messagesArray))
       })
+  }
+}
+
+// delete API deleteTheMessage
+
+export function deleteMessage(id) {
+  return (dispatch) => {
+    // API
+    deleteTheMessage(id)
+      .then((messageToBeDeleted) => {
+        console.log('deleted...hopefully')
+        dispatch(deleteOneMessage(messageToBeDeleted))
+      })
+      .then(() => {
+        dispatch(getMessages())
+      })
+      .catch((err) => console.log(err))
   }
 }
 
