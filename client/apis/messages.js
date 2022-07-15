@@ -12,4 +12,11 @@ export function postMessage(newMessage) {
   .then(res => res.body)
   .catch(err => console.log('api error', err))
 }
-
+export function deleteTheMessage(id) {
+  console.log('delete api called')
+  return request.delete(`/api/v1/card/message/${id}`)
+  .then((resp) => {
+    console.log('delete api end', resp)
+    return resp
+  })
+}
