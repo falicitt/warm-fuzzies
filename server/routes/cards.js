@@ -1,16 +1,9 @@
-<<<<<<< HEAD
-// ROUTES WE NEED
-// path	method	data	response
-// /api/v1/cards	GET	--	Array of message objects
-// /api/v1/cards	POST	New message object	Object containing new id
-
-=======
->>>>>>> 875a9bc955cd11e9a90ba89ce4c56dca828cd68f
 const express = require('express')
 const router = express.Router()
 const db = require('../db/DB-Functions/cards')
 
-<<<<<<< HEAD
+module.exports = router
+
 router.get('/:id', (req, res) => {
   // use database function getAllMessages
   const id = Number(req.params.id)
@@ -22,10 +15,6 @@ router.get('/:id', (req, res) => {
     })
     .catch((err) => res.status(500).json({ msg: err.message }))
 })
-
-module.exports = router
-=======
-module.exports = router
 
 router.post('/', (req, res) => {
   const card = req.body
@@ -49,4 +38,3 @@ router.post('/:id/add', (req, res) => {
   })
   .catch(err => res.status(500).json({dberr: err.message}))
 })
->>>>>>> 875a9bc955cd11e9a90ba89ce4c56dca828cd68f

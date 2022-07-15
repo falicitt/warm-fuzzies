@@ -1,11 +1,10 @@
-<<<<<<< HEAD
-import {
-  fetchMessages,
-} from '../apis/messages'
+import { postMessage, fetchMessages } from "../apis/messages";
 
 // type variables
 
 export const SHOW_MESSAGES = 'SHOW_MESSAGES'
+
+export const ADD_MESSAGE = 'ADD_MESSAGE'
 
 // action creators
 
@@ -13,6 +12,13 @@ export function showMessages(messagesArray) {
   return {
     type: SHOW_MESSAGES,
     payload: messagesArray,
+  }
+}
+
+export function addMessage(newMessage) {
+  return {
+    type: ADD_MESSAGE,
+    payload: newMessage
   }
 }
 
@@ -32,20 +38,6 @@ export function getMessages(id) {
   }
 }
 
-
-
-=======
-import { postMessage } from "../apis/messages";
-
-export const ADD_MESSAGE = 'ADD_MESSAGE'
-
-export function addMessage(newMessage) {
-  return {
-    type: ADD_MESSAGE,
-    payload: newMessage
-  }
-}
-
 export function createMessage(newMessage) {
   
     return (dispatch => {
@@ -57,4 +49,5 @@ export function createMessage(newMessage) {
       })
     })
 }
->>>>>>> 875a9bc955cd11e9a90ba89ce4c56dca828cd68f
+
+
