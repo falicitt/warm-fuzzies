@@ -39,6 +39,11 @@ export function showMessages(messagesArray) {
   }
 }
 
+export function deleteOneMessage (message) {
+  returntype:DELETE_ONE_MESSAGE
+  payload: message
+}
+
 // thunks
 
 export function getMessages(id) {
@@ -51,4 +56,11 @@ export function getMessages(id) {
       })
   }
 }
-
+export function deleteMessage(id) {
+  return (dispatch)
+  deleteMovie(id)
+  .then ((messageToBeDeleted) => {
+    console.log('deleted..')
+    dispatch(deleteOneMessage(messageToBeDeleted))
+  })
+}

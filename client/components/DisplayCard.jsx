@@ -6,8 +6,15 @@ import { getMessages } from '../actions/messages'
 
 import CardTitle from './CardTitle'
 
-function DisplayCard() {
+function DisplayCard(props) {
+ 
   const messages = useSelector((state) => state.messages)
+  
+  const handleDelete =(e) => {
+    
+    const messageId = e.target.value
+    // dispatch(removeMessage(message.id))
+  }
 
   const dispatch = useDispatch()
   const { id } = useParams()
@@ -24,7 +31,12 @@ function DisplayCard() {
           <li key={message.id}>
             <p>{message.name}</p>
             <p>{message.message}</p>
+            <button onClick={handleDelete} value={message.id}>Delete</button>
           </li>
+          
+          
+           
+            
         ))}
       </div>
     </>
