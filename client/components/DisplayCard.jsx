@@ -2,12 +2,20 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
-import { getMessages } from '../actions/messages'
+import { getMessages, deleteMessage } from '../actions/messages'
 
 import CardTitle from './CardTitle'
 
 function DisplayCard() {
+ 
   const messages = useSelector((state) => state.messages)
+  
+  const handleDelete =(e) => {
+  
+    const messageId = e.target.value
+    console.log(messageId)
+    dispatch(deleteMessage(messageId))
+  }
 
   const dispatch = useDispatch()
   const { id } = useParams()
@@ -21,22 +29,12 @@ function DisplayCard() {
       <CardTitle />
       <div className='cards-container'>
         {messages.map((message) => (
-          // <li key={message.id}>
-          //   <p>{message.name}</p>
-          //   <p>{message.message}</p>
-
-          // WHERE TO PUT CARD CONTENTS
-          <div key={message.id} className="card" style={{ transform: 'rotate(0deg)' }}>
-            <div className="card_title">{message.message}</div>
-            <div className="card__body">
-              <p>From {message.name}</p>
-            <div className="card__image">
-            <img src={message.image} alt="cat"/>
-            </div>
-            </div>
-            </div>
-
-          // </li>
+          <li key={message.id}>
+            <p>{message.name}</p>
+            <p>{message.message}</p>
+            <button onClick={handleDelete} value={message.id}>Delete</button>
+          </li>
+            
         ))}
       </div>
     </>

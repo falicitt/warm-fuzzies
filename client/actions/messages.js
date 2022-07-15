@@ -1,11 +1,13 @@
 import {
   fetchMessages,
-  postMessage
+  postMessage, 
+  deleteTheMessage
 } from '../apis/messages'
 
 // type variables
 
 export const SHOW_MESSAGES = 'SHOW_MESSAGES'
+export const DELETE_ONE_MESSAGE = 'DELETE_ONE_MESSAGE'
 export const ADD_MESSAGE = 'ADD_MESSAGE'
 
 // action creators
@@ -17,20 +19,11 @@ export function addMessage(newMessage) {
   }
 }
 
-// thunks
-
-export function createMessage(newMessage) {
-  
-    return (dispatch => {
-      dispatch(addMessage(newMessage))
-      return postMessage(newMessage)
-      .catch((err) => {
-        const errMessage = err.response?.text || err.message
-        console.log(errMessage)
-      })
-    })
+export function deleteOneMessage (id) {
+  return {type:DELETE_ONE_MESSAGE,
+  payload: id
+  }
 }
-
 
 export function showMessages(messagesArray) {
   return {
@@ -52,5 +45,30 @@ export function getMessages(id) {
   }
 }
 
+export function createMessage(newMessage) {
+  
+    return (dispatch => {
+      dispatch(addMessage(newMessage))
+      return postMessage(newMessage)
+      .catch((err) => {
+        const errMessage = err.response?.text || err.message
+        console.log(errMessage)
+      })
+    })
+}
 
+
+export function deleteMessage(id) {
+  return (dispatch) => {
+    deleteTheMessage(id)
+      .then(() => {
+        console.log("deleted..")
+        dispatch(deleteOneMessage(id))
+      })
+      .then(() => {
+        dispatch(getMessages())
+      })
+      .catch((err) => console.log(err))
+  }
+}
 
