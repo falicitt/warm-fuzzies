@@ -14,7 +14,7 @@ function AddMessage() {
   const [newMessage, setNewMessage] = useState({
     name: '',
     message: '',
-    image: '',
+    image: null,
     card_id: id,
   })
 
@@ -33,11 +33,12 @@ function AddMessage() {
         <div>
           <label htmlFor='image'>Image:</label>
           <input
-            type='text'
+            type='file'
             id='image'
             placeholder='your image'
+            // onChange={(e) => console.log('e.target', e.target.files[0])}
             onChange={(e) =>
-              setNewMessage({ ...newMessage, image: e.target.value })
+              setNewMessage({ ...newMessage, image: e.target.files[0] })
             }
           />
         </div>
