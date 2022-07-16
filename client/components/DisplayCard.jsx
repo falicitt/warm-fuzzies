@@ -29,12 +29,23 @@ function DisplayCard() {
       <CardTitle />
       <div className='cards-container'>
         {messages.map((message) => (
-          <li key={message.id}>
-            <p>{message.name}</p>
-            <p>{message.message}</p>
-            <button onClick={handleDelete} value={message.id}>Delete</button>
-          </li>
-            
+          // <li key={message.id}>
+          //   <p>{message.name}</p>
+          //   <p>{message.message}</p>
+
+          // WHERE TO PUT CARD CONTENTS
+          <div key={message.id} className="card" style={{ transform: 'rotate(0deg)' }}>
+            <div className="card_title">{message.message}</div>
+            <div className="card__body">
+              <p>From {message.name}</p>
+            <div className="card__image">
+            <img src={message.image} alt="cat"/>
+            </div>
+            <button className="btn btn-outline-secondary" onClick={handleDelete} value={message.id}>Delete</button>
+            </div>
+            </div>
+
+          // </li>
         ))}
       </div>
     </>
