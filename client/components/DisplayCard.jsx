@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
 import { getMessages, deleteMessage } from '../actions/messages'
 
 import CardTitle from './CardTitle'
+import EditMessage from './EditMessage'
 
 function DisplayCard() {
  
@@ -24,11 +25,24 @@ function DisplayCard() {
     dispatch(getMessages(id))
   }, [])
 
+  const [activeIndex, setActiveIndex] = useState(null)
+
+  const handleUpdate = (i) => { setActiveIndex(i) }
+
   return (
     <>
       <CardTitle />
       <div className='cards-container'>
         {messages.map((message) => (
+          activeIndex === message.id ?
+          <EditMessage cardId={id} id={message.id} name={message.name} image={message.image} message={message.message} />
+          :
+          // <li key={message.id}>
+          //   <p>{message.name}</p>
+          //   <img src={message.image} />
+          //   <p>{message.message}</p>
+          //   <button onClick={() => handleUpdate(message.id)}>Edit</button>
+          // </li>
           // <li key={message.id}>
           //   <p>{message.name}</p>
           //   <p>{message.message}</p>
@@ -37,13 +51,16 @@ function DisplayCard() {
           <div key={message.id} className="card" style={{ transform: 'rotate(0deg)' }}>
             <div className="card_title">{message.message}</div>
             <div className="card__body">
-              <p>From {message.name}</p>
-            <div className="card__image">
-            <img src={message.image} alt="cat"/>
+              
+                <p>From {message.name}</p>
+                <div className="card__image">
+                  <img src={message.image} alt="cat"/>
+                </div>
+
+                <button onClick={() => handleUpdate(message.id)}>Edit</button>
+                <button className="btn btn-outline-secondary" onClick={handleDelete} value={message.id}>Delete</button>
             </div>
-            <button className="btn btn-outline-secondary" onClick={handleDelete} value={message.id}>Delete</button>
-            </div>
-            </div>
+          </div>
 
           // </li>
         ))}
