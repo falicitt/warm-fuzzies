@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router'
 import { createMessage } from '../actions/messages'
 import { useNavigate } from 'react-router-dom'
 import CardTitle from './CardTitle'
+import { getTheCard } from '../apis/cards'
 
 function AddMessage() {
   const { id } = useParams()
@@ -24,17 +25,25 @@ function AddMessage() {
     navigate(`/card/${id}`)
   }
   
-  const [completeCard, setCompleteCard] = useState({complete: false})
+  const [cardStatus, setCardStatus] = useState(null)
 
-  const handleClick = () => {
-    setCompleteCard({complete: true})
-    updateTheCard(id, completeCard)
-  }
+
+  useEffect(() => {
+    getTheCard(id)
+    .then((cardObj) => {
+      setCardStatus(cardObj.complete)
+      console.log('the cardObj', cardObj.complete)
+    })
+    .catch(err => console.log(err))
+
+  }, [])
+  
 
   return (
     <>
       <CardTitle />
-      <div>Add your message</div>
+      {cardStatus ? 'This card is complete, sorry you can not add more messages to it': <div>
+      <h2>Add your message</h2>
 
       <form onSubmit={handleSubmit}>
         <div>
@@ -73,8 +82,9 @@ function AddMessage() {
           />
         </div>
 
-        {!completeCard.complete && <button>Add</button>}
+        <button>Add</button>
       </form>
+      </div>}
     </>
   )
 }

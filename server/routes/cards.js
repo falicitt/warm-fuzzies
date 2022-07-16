@@ -53,7 +53,7 @@ router.patch('/:id', (req, res) => {
     .catch((err) => res.status(500).json({ msg: err.message }))
 })
 
-router.get('/:id/add', (req, res) => {
+router.get('/card/:id', (req, res) => {
   const id = req.params.id
   db.getCardById(id)
     .then((card) => res.json(card))

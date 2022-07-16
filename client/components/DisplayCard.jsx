@@ -1,29 +1,56 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 import { getMessages } from '../actions/messages'
-import { updateTheCard } from '../apis/cards' 
+import { updateTheCard, getTheCard } from '../apis/cards'
+ 
 
 import CardTitle from './CardTitle'
 
 function DisplayCard() {
   const messages = useSelector((state) => state.messages)
-
+  
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const { id } = useParams()
 
   useEffect(() => {
     dispatch(getMessages(id))
   }, [])
+
   
+  const [cardStatus, setCardStatus] = useState(null)
 
-  const [completeCard, setCompleteCard] = useState({complete: false})
 
+  useEffect(() => {
+    getTheCard(id)
+    .then((cardObj) => {
+      setCardStatus(cardObj.complete)
+      console.log('the cardObj', cardObj.complete)
+    })
+    .catch(err => console.log(err))
+
+  }, [])
+
+   
   const handleClick = () => {
-    setCompleteCard({complete: true})
-    updateTheCard(id, completeCard)
+    let result = window.confirm('Once completed the this card can not be edited or added to')  
+    if(result) {
+      updateTheCard(id, {complete: true})
+      setCardStatus(true)
+    } else {
+      updateTheCard(id, {complete: false})
+      setCardStatus(false)
+    }
+
+  } 
+
+
+  const redirectToAdd = () => {
+    navigate(`/card/${id}/add`)
   }
+  
 
   return (
     <>
@@ -36,7 +63,8 @@ function DisplayCard() {
           </li>
         ))}
       </div>
-      {!completeCard.complete && <button onClick={handleClick}>Mark this card as complete</button>}
+      {!cardStatus && <button onClick={redirectToAdd}>Add a message to this card</button>}  
+      {!cardStatus && <button onClick={handleClick}>Mark this card as complete</button>}
     </>
   )
 }
