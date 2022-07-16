@@ -7,7 +7,7 @@ const allMessagesReducer = (state = [], action) => {
     case SHOW_MESSAGES:
       return action.payload
     case DELETE_ONE_MESSAGE:
-        return state.filter(message => message.id !== action.payload.id)
+      return state.filter((message) => message.id !== action.payload.id)
     default:
       return state
   }
