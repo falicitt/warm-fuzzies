@@ -64,3 +64,13 @@ router.delete('/message/:id', (req, res) => {
       res.status(500).json({ msg: err.message })
     })
 })
+
+router.patch ('/:id',(req, res) => {
+  const details = req.body
+  const id = Number(req.params.id)
+  db.editCard(id, details)
+  .then(() => {
+    res.json(details)
+  })
+  .catch((err) => res.status(500).json({ dberr: err.message }))
+})

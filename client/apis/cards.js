@@ -11,3 +11,9 @@ export function postCard(card) {
 export function fetchOneCard(id) {
 
 }
+
+export function editCard (id, editedCard ) {
+  return request.patch(`/api/v1/card/${id}`)
+  .send(editedCard)
+  .then(res => res.body)
+}
