@@ -48,25 +48,5 @@ export function getMessages(id) {
   }
 }
 
-//update one message
-// export function editOneMessage(newMessage) {
-//   return {
-//     type: 'UPDATE_MESSAGE',
-//     payload: newMessage
-//   }
-// }
-
-// export function updateMessage(newMessage) {
-//   return (dispatch) => {
-//     editMessage(newMessage.id, newMessage)//update database
-//     // .then(() => dispatch(editOneMessage(newMessage)))//update state
-//     // .then(()=> dispatch(getMessages(cardId)))//calling another thunk to show all messages
-//     .catch((err) => {
-//       const errMessage = err.response?.text || err.message
-//       console.log(errMessage)
-//     })
-//   }
-// }
-
 
 
