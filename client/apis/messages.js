@@ -6,11 +6,28 @@ export function fetchMessages(id) {
 
 export function postMessage(newMessage) {
   return request
-  .post('/api/v1/card/:id/add')
-  .send(newMessage)
-  .then(res => res.body)
-  .catch(err => console.log('api error', err))
+    .post('/api/v1/card/:id/add')
+    .send(newMessage)
+    .then((res) => res.body)
+    .catch((err) => console.log('api error', err))
 }
+
+export function postImage(imgObj) {
+  return request
+    .post('/upload')
+    .send(imgObj)
+    .then((res) => res.body)
+    .catch((err) => console.log('image upload failed', err))
+}
+
+export function editMessage(id, newMessage) {
+  return request
+    .patch(`/api/v1/card/message/${id}`)
+    .send(newMessage)
+    .then((res) => res.body)
+}
+
+
 export function deleteTheMessage(id) {
   console.log('delete api called')
   return request.delete(`/api/v1/card/message/${id}`)
