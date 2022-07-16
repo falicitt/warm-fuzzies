@@ -20,8 +20,9 @@ export function addMessage(newMessage) {
 }
 
 export function deleteOneMessage (id) {
-  return {type:DELETE_ONE_MESSAGE,
-  payload: id
+  return {
+    type:DELETE_ONE_MESSAGE,
+    payload: id
   }
 }
 
@@ -58,15 +59,15 @@ export function createMessage(newMessage) {
 }
 
 
-export function deleteMessage(id) {
+export function deleteMessage(messageId, cardId) {
   return (dispatch) => {
-    deleteTheMessage(id)
+    deleteTheMessage(messageId)
       .then(() => {
         console.log("deleted..")
-        dispatch(deleteOneMessage(id))
+        dispatch(deleteOneMessage(messageId))
       })
       .then(() => {
-        dispatch(getMessages())
+        dispatch(getMessages(cardId))
       })
       .catch((err) => console.log(err))
   }
