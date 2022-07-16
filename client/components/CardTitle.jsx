@@ -7,9 +7,6 @@ function CardTitle(props) {
   const card = useSelector((globalState) => globalState.card)
   const [newCard, setNewCard] =useState(card)
     
-
-  
-
  const [edit, setEdit] = useState(false) 
  const handleClick = () => {
   setEdit(true)
@@ -23,29 +20,24 @@ function CardTitle(props) {
 }
   const handleSubmit = (evt) => {
     evt.preventDefault() 
-    editCard(props.id, newCard)
+    console.log(newCard)
+    editCard(props.cardId, newCard)
+    .catch(err => console.log(err))
   }
+
   return (
     edit === true? 
     <form onSubmit={handleSubmit}>
-
-
-<div>
           <label htmlFor='name'>Card Name:</label>
           <input id='name' name='name' type='text' initialvalue={card.name} 
           onChange={handleChange} 
           />
-        </div>
-
-        <div>
+        
           <label htmlFor='person_name'>Your Friend's Name:</label>
           <input id='person_name' name='person_name' type='text' initialvalue={card.person_name} 
           onChange={handleChange} 
           />
-        </div>
-
        
-
         <button>Done</button>
 
     </form> :
