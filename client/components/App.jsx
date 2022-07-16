@@ -13,6 +13,7 @@ function App() {
       </header>
       <section className='main'>
         <Routes>
+          <Route path='/card/:id/' element={<DisplayCard/>} ></Route>
           <Route path='/' element={<CreateCard />} />
           <Route path='/card/:id/add' element={<AddMessage />} />
           <Route path='/card/:id' element={<DisplayCard />} />

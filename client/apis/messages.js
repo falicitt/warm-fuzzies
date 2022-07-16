@@ -26,3 +26,13 @@ export function editMessage(id, newMessage) {
     .send(newMessage)
     .then((res) => res.body)
 }
+
+
+export function deleteTheMessage(id) {
+  console.log('delete api called')
+  return request.delete(`/api/v1/card/message/${id}`)
+  .then((resp) => {
+    console.log('delete api end', resp)
+    return resp
+  })
+}

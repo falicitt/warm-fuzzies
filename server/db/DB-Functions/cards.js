@@ -24,10 +24,16 @@ function editMessage(id, details, db = connection) {
   .where('id', id)
 }
 
+function deleteTheMessage(id, db = connection) {
+  return db('messages').where('id',id).delete()
+}
+
+
 module.exports = {
   addMessage,
   insertCard,
   getAllMessages,
   getCardById,
-  editMessage
+  editMessage,
+  deleteTheMessage
 }
