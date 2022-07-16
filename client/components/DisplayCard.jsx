@@ -31,6 +31,7 @@ function DisplayCard() {
           :
           <li key={message.id}>
             <p>{message.name}</p>
+            <img src={message.image} />
             <p>{message.message}</p>
             <button onClick={() => handleUpdate(message.id)}>Edit</button>
           </li>

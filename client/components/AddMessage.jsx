@@ -4,6 +4,7 @@ import { useParams } from 'react-router'
 import { createMessage } from '../actions/messages'
 import { useNavigate } from 'react-router-dom'
 import CardTitle from './CardTitle'
+import { postImage } from '../apis/messages'
 
 function AddMessage() {
   const { id } = useParams()
@@ -14,14 +15,22 @@ function AddMessage() {
   const [newMessage, setNewMessage] = useState({
     name: '',
     message: '',
-    image: null,
+    image: '',
     card_id: id,
   })
 
+  const [image, setImage] = useState('')
+
   const handleSubmit = (e) => {
     e.preventDefault()
+    const formData = new FormData()
+    formData.append('image', image)
+    
     dispatch(createMessage(newMessage))
-    navigate(`/card/${id}`)
+    postImage(formData)
+      .then(() => navigate(`/card/${id}`))
+      .catch(err => console.log('handle submit error', err))
+    
   }
 
   return (
@@ -36,9 +45,10 @@ function AddMessage() {
             type='file'
             id='image'
             placeholder='your image'
-            // onChange={(e) => console.log('e.target', e.target.files[0])}
-            onChange={(e) =>
-              setNewMessage({ ...newMessage, image: e.target.files[0] })
+            onChange={(e) => {
+              setNewMessage({ ...newMessage, image: `/uploads/${e.target.files[0].name}` })
+              setImage(e.target.files[0])
+            }
             }
           />
         </div>
