@@ -21,8 +21,11 @@ function CardTitle(props) {
   const handleSubmit = (evt) => {
     evt.preventDefault() 
     console.log(newCard)
-    editCard(props.cardId, newCard)
+    editCard(newCard)
     .catch(err => console.log(err))
+    
+    setEdit(false)
+    
   }
 
   return (
@@ -40,7 +43,8 @@ function CardTitle(props) {
        
         <button>Done</button>
 
-    </form> :
+    </form> 
+    :
     <div className='card_title'>
       <h2>
         {card.name} {card.person_name}

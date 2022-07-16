@@ -14,9 +14,9 @@ export function getCard(id) {
 }
 
 
-export function editCard (id, editedCard ) {
-  return request.patch(`/api/v1/card/${id}`)
+export function editCard (editedCard) {
+  return request.patch(`/api/v1/card/${editedCard.id}`)
   .send(editedCard)
-  .then(res => res.body)
+  .then(res => {return res.body})
   .catch(err => console.log('api error', err))
 }
