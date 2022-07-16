@@ -14,7 +14,7 @@ function DisplayCard() {
   
     const messageId = e.target.value
     console.log(messageId)
-    dispatch(deleteMessage(messageId))
+    dispatch(deleteMessage(messageId, id))
   }
 
   const dispatch = useDispatch()
