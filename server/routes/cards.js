@@ -50,6 +50,23 @@ router.get('/:id', (req, res) => {
     .catch((err) => res.status(500).json({ msg: err.message }))
 })
 
+router.patch('/:id', (req, res) => {
+  const id = req.params.id
+  const detaildToUpdate = req.body
+
+  db.updateCard(id, detaildToUpdate)
+    .then(() => db.getCardById(id))
+    .then((card) => res.json(card))
+    .catch((err) => res.status(500).json({ msg: err.message }))
+})
+
+router.get('/card/:id', (req, res) => {
+  const id = req.params.id
+  db.getCardById(id)
+    .then((card) => res.json(card))
+    .catch((err) => res.status(500).json({ msg: err.message }))
+})
+
 router.patch('/message/:id', (req, res) => {
   const details = req.body
   const id = Number(req.params.id)
@@ -65,7 +82,7 @@ router.delete('/message/:id', (req, res) => {
   const id = req.params.id
   console.log('route')
   db.deleteTheMessage(id)
-   
+
     .then((id) => {
       res.json(id)
     })
