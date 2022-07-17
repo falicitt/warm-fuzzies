@@ -20,10 +20,20 @@ function getAllMessages(id, db = connection) {
   return db('messages').where('card_id', id).select()
 }
 
+function editMessage(id, details, db = connection) {
+  return db('messages').update(details).where('id', id)
+}
+
+function deleteTheMessage(id, db = connection) {
+  return db('messages').where('id', id).delete()
+}
+
 module.exports = {
   addMessage,
   insertCard,
   getAllMessages,
   getCardById,
   updateCard,
+  editMessage,
+  deleteTheMessage,
 }
