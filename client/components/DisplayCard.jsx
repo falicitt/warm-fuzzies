@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useNavigate } from 'react-router-dom'
+import Masonry from 'react-masonry-css'
  
 import { getMessages, deleteMessage } from '../actions/messages'
 import { updateTheCard, getTheCard } from '../apis/cards'
@@ -91,8 +92,8 @@ function DisplayCard() {
                   <img src={message.image} alt="cat"/>
                 </div>
 
-                <button onClick={() => handleUpdate(message.id)}>Edit</button>
-                <button className="btn btn-outline-secondary" onClick={handleDelete} value={message.id}>Delete</button>
+                {!cardStatus && <button onClick={() => handleUpdate(message.id)}>Edit</button>}
+                {!cardStatus &&<button className="btn btn-outline-secondary" onClick={handleDelete} value={message.id}>Delete</button>}
             </div>
           </div>
 

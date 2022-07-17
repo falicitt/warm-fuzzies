@@ -17,8 +17,7 @@ function CardTitle() {
       .catch((err) => console.log(err))
   }, [])
 
-  // const card = useSelector((globalState) => globalState.card)
-  // const [newCard, setNewCard] = useState(card)
+
   const [edit, setEdit] = useState(false)
 
   const handleClick = () => {
@@ -41,6 +40,17 @@ function CardTitle() {
     }).catch((err) => console.log(err))
     setEdit(false)
   }
+
+  const [cardStatus, setCardStatus] = useState(null)
+
+  useEffect(() => {
+    getTheCard(id)
+      .then((cardObj) => {
+        setCardStatus(cardObj.complete)
+        console.log('the cardObj', cardObj.complete)
+      })
+      .catch((err) => console.log(err))
+  }, [])
 
   return edit === true ? (
     <form onSubmit={handleSubmit}>
@@ -69,7 +79,7 @@ function CardTitle() {
       <h2>
         {cardDetails?.name} {cardDetails?.person_name}
       </h2>
-      <button onClick={handleClick}>editCard</button>
+      {!cardStatus && <button onClick={handleClick}>editCard</button>}
     </div>
   )
 }
