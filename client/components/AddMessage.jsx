@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router'
 import { createMessage } from '../actions/messages'
 import { useNavigate } from 'react-router-dom'
