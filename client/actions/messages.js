@@ -5,13 +5,12 @@ import {
 } from '../apis/messages'
 
 // type variables
-
 export const SHOW_MESSAGES = 'SHOW_MESSAGES'
 export const DELETE_ONE_MESSAGE = 'DELETE_ONE_MESSAGE'
 export const ADD_MESSAGE = 'ADD_MESSAGE'
 
 // action creators
-
+// add one message
 export function addMessage(newMessage) {
   return {
     type: ADD_MESSAGE,
@@ -19,9 +18,23 @@ export function addMessage(newMessage) {
   }
 }
 
+export function createMessage(newMessage) {
+  
+    return (dispatch) => {
+      dispatch(addMessage(newMessage))
+      return postMessage(newMessage)
+      .catch((err) => {
+        const errMessage = err.response?.text || err.message
+        console.log(errMessage)
+      })
+    }
+}
+
+//get all messages
 export function deleteOneMessage (id) {
-  return {type:DELETE_ONE_MESSAGE,
-  payload: id
+  return {
+    type:DELETE_ONE_MESSAGE,
+    payload: id
   }
 }
 
@@ -31,8 +44,6 @@ export function showMessages(messagesArray) {
     payload: messagesArray,
   }
 }
-
-// thunks
 
 export function getMessages(id) {
   return (dispatch) => {
@@ -45,28 +56,28 @@ export function getMessages(id) {
   }
 }
 
-export function createMessage(newMessage) {
+// export function createMessage(newMessage) {
   
-    return (dispatch => {
-      dispatch(addMessage(newMessage))
-      return postMessage(newMessage)
-      .catch((err) => {
-        const errMessage = err.response?.text || err.message
-        console.log(errMessage)
-      })
-    })
-}
+//     return (dispatch => {
+//       dispatch(addMessage(newMessage))
+//       return postMessage(newMessage)
+//       .catch((err) => {
+//         const errMessage = err.response?.text || err.message
+//         console.log(errMessage)
+//       })
+//     })
+// }
 
 
-export function deleteMessage(id) {
+export function deleteMessage(messageId, cardId) {
   return (dispatch) => {
-    deleteTheMessage(id)
+    deleteTheMessage(messageId)
       .then(() => {
         console.log("deleted..")
-        dispatch(deleteOneMessage(id))
+        dispatch(deleteOneMessage(messageId))
       })
       .then(() => {
-        dispatch(getMessages())
+        dispatch(getMessages(cardId))
       })
       .catch((err) => console.log(err))
   }

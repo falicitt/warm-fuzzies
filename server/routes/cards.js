@@ -36,28 +36,55 @@ router.post('/', (req, res) => {
       return db.getCardById(id)
     })
     .then((cardObj) => res.json(cardObj))
-    .catch((err) => res.status(500).json({message: err.message}))
+    .catch((err) => res.status(500).json({ message: err.message }))
 })
-
 
 router.post('/:id/add', (req, res) => {
   const newMessage = req.body
 
   db.addMessage(newMessage)
-  .then((idArr) => {
-    newMessage.id = idArr[0]
-    res.json(newMessage)
-  })
-  .catch(err => res.status(500).json({dberr: err.message}))
+    .then((idArr) => {
+      newMessage.id = idArr[0]
+      res.json(newMessage)
+    })
+    .catch((err) => res.status(500).json({ dberr: err.message }))
 })
 
 
+
+router.patch('/:id', (req, res) => {
+  const id = req.params.id
+  const detaildToUpdate = req.body
+
+  db.updateCard(id, detaildToUpdate)
+    .then(() => db.getCardById(id))
+    .then((card) => res.json(card))
+    .catch((err) => res.status(500).json({ msg: err.message }))
+})
+
+router.get('/card/:id', (req, res) => {
+  const id = req.params.id
+  db.getCardById(id)
+    .then((card) => res.json(card))
+    .catch((err) => res.status(500).json({ msg: err.message }))
+})
+
+router.patch('/message/:id', (req, res) => {
+  const details = req.body
+  const id = Number(req.params.id)
+
+  db.editMessage(id, details)
+    .then(() => {
+      res.json(details)
+    })
+    .catch((err) => res.status(500).json({ dberr: err.message }))
+})
 
 router.delete('/message/:id', (req, res) => {
   const id = req.params.id
   console.log('route')
   db.deleteTheMessage(id)
-   
+
     .then((id) => {
       res.json(id)
     })
