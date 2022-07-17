@@ -36,12 +36,18 @@ function AddMessage() {
   return (
     <>
       <CardTitle />
-      <div>Add your message</div>
+    <>
+      
+      <div className="py-5 text-center text-warning">
+      <h4 className="display-5">Add your message</h4>
+      </div>
 
+      <div>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor='image'>Image:</label>
+          <label className="form-label" htmlFor='image'>Image</label>
           <input
+            className="form-control" 
             type='file'
             id='image'
             placeholder='your image'
@@ -54,8 +60,9 @@ function AddMessage() {
         </div>
 
         <div>
-          <label htmlFor='message'>Message:</label>
+          <label className="form-label" htmlFor='message'>Message</label>
           <input
+            className="form-control"
             type='text'
             id='message'
             placeholder='your message'
@@ -66,8 +73,9 @@ function AddMessage() {
         </div>
 
         <div>
-          <label htmlFor='name'>Your name:</label>
+          <label className="form-label" htmlFor='name'>Your name</label>
           <input
+            className="form-control" 
             type='text'
             id='name'
             placeholder='your name'
@@ -76,10 +84,15 @@ function AddMessage() {
             }
           />
         </div>
-
-        <button>Add</button>
+        <div>
+        <button className="btn btn-outline-secondary">Add</button>
+        </div>
       </form>
+
+</div>
     </>
+    </>
+
   )
 }
 

@@ -8,10 +8,9 @@ import CardTitle from './CardTitle'
 import EditMessage from './EditMessage'
 
 function DisplayCard() {
- 
   const messages = useSelector((state) => state.messages)
-  
-  const handleDelete =(e) => {
+
+  const handleDelete = (e) => {
     const messageId = e.target.value
     console.log(messageId)
     dispatch(deleteMessage(messageId, id))
@@ -26,76 +25,63 @@ function DisplayCard() {
 
   const [activeIndex, setActiveIndex] = useState(null)
 
-  const handleUpdate = (i) => { setActiveIndex(i) }
+  const handleUpdate = (i) => {
+    setActiveIndex(i)
+  }
 
   return (
     <>
       <CardTitle />
-      <div className="cards-container">
-        <div className="row" data-masonry='{"percentPosition": true }'>
-        {messages.map((message) =>
-          activeIndex === message.id ? (
-            <EditMessage
-              cardId={id}
-              id={message.id}
-              name={message.name}
-              image={message.image}
-              message={message.message}
-            />
-          ) : (
-            // <li key={message.id}>
-            //   <p>{message.name}</p>
-            //   <img src={message.image} />
-            //   <p>{message.message}</p>
-            //   <button onClick={() => handleUpdate(message.id)}>Edit</button>
-            // </li>
-            // <li key={message.id}>
-            //   <p>{message.name}</p>
-            //   <p>{message.message}</p>
 
-            // WHERE TO PUT CARD CONTENTS
-            <div
-              key={message.id}
-              className="card"
-              style={{ transform: 'rotate(0deg)' }}
-            >
-              <div className="card_title">{message.message}</div>
-              <div className="card__body">
-                <p>From {message.name}</p>
+      <div className="cards-container">
+        <div className="row">
+          {messages.map((message) =>
+            activeIndex === message.id ? (
+              <EditMessage
+                cardId={id}
+                id={message.id}
+                name={message.name}
+                image={message.image}
+                message={message.message}
+              />
+            ) : (
+              // WHERE TO PUT CARD CONTENTS
+              <div
+                key={message.id}
+                className="card"
+                style={{ transform: 'rotate(0deg)' }}
+              >
                 <div className="card__image">
-                  <img src={message.image} alt="cat" />
+                  <img className="card-img-top" src={message.image} alt="" />
                 </div>
 
-                <div>
-                  <button
-                    className="btn btn-outline-secondary btn-sm"
-                    onClick={() => handleUpdate(message.id)}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className="btn btn-outline-secondary btn-sm"
-                    onClick={handleDelete}
-                    value={message.id}
-                  >
-                    Delete
-                  </button>
+                <div className="card__body">
+                  <div className="card_title">{message.message}</div>
+                  <p>From {message.name}</p>
+
+                  <div>
+                    <button
+                      className="btn btn-outline-secondary btn-sm"
+                      onClick={() => handleUpdate(message.id)}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      className="btn btn-outline-secondary btn-sm"
+                      onClick={handleDelete}
+                      value={message.id}
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          )
-
-          // </li>
-        )}
-      </div>
+            )
+          )}
+        </div>
       </div>
     </>
   )
 }
 
 export default DisplayCard
-
-// IDEAS
-{/* <i className="bi bi-x-circle"></i> */}
-
-

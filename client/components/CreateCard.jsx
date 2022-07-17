@@ -54,12 +54,13 @@ function CreateCard() {
   <div className="mb-3">
     <label htmlFor="exampleInputEmail1" className="form-label">Your friend&apos;s name</label>
     <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-    <div id="emailHelp" className="form-text">We will share your email with everyone else.</div>
+    {/* <div id="emailHelp" className="form-text">We will share your email with everyone else.</div> */}
   </div>
+  
   <div className="mb-3">
     <label htmlFor="exampleInputEmail1" className="form-label">Title for your card</label>
     <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-    <div id="emailHelp" className="form-text">We will share your email with everyone else.</div>
+    {/* <div id="emailHelp" className="form-text">We will share your email with everyone else.</div> */}
   </div>
   <button type="submit" className="btn btn-outline-warning">Create</button>
 </form>
