@@ -32,6 +32,7 @@ function DisplayCard() {
     <>
       <CardTitle />
       <div className="cards-container">
+        <div className="row" data-masonry='{"percentPosition": true }'>
         {messages.map((message) =>
           activeIndex === message.id ? (
             <EditMessage
@@ -86,6 +87,7 @@ function DisplayCard() {
 
           // </li>
         )}
+      </div>
       </div>
     </>
   )
