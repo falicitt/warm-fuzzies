@@ -32,12 +32,14 @@ body {
 }
 
 .card__image {
-  display: flex;
-  justify-content: flex-end;
-  height: 150px;
+  // display: flex;
+  // justify-content: flex-end;
+  // height: 150px;
 }
 .card__image img {
-  border-radius: 10%;
+  border-radius: 5%;
+  width: 300px;
+  margin-bottom: 20px;
 }
 
 /* NOTE CSS */
@@ -52,13 +54,10 @@ body {
 }
 
 
-
 .my-masonry-grid {
-  // display: -webkit-box; /* Not needed if autoprefixing */
-  // display: -ms-flexbox; /* Not needed if autoprefixing */
-  display: flex;
-  // margin-left: -30px; /* gutter size offset */
-  width: auto;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
 }
 .my-masonry-grid_column {
   padding-left: 30px; /* gutter size */

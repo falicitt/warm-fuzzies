@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useNavigate } from 'react-router-dom'
 import Masonry from 'react-masonry-css'
+// import Masonry from 'react-masonry-component'
  
 import { getMessages, deleteMessage } from '../actions/messages'
 import { updateTheCard, getTheCard } from '../apis/cards'
 
 import CardTitle from './CardTitle'
 import EditMessage from './EditMessage'
+
 
 function DisplayCard() {
  
@@ -65,8 +67,9 @@ function DisplayCard() {
 
   const breakpoints = {
     default: 3,
-    1100: 2,
-    700: 1
+    1100: 3,
+    700: 2,
+    400: 1
   }
   
 
@@ -74,15 +77,13 @@ function DisplayCard() {
     <>
       <CardTitle />
 
-      
-        {/* array of JSX items */}
-
-      <div className='cards-container'>
+      <div className='cards-container grid'>
       <Masonry
         // className="grid" data-masonry='{"percentPosition": true }'
         breakpointCols={breakpoints}
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column">
+        
        
         {messages.map((message) => (
           activeIndex === message.id ?
@@ -99,17 +100,15 @@ function DisplayCard() {
           //   <p>{message.message}</p>
 
           // WHERE TO PUT CARD CONTENTS
-          <div key={message.id} className="card" style={{ transform: 'rotate(0deg)' }}>
+          <div key={message.id}  className="card grid-item" style={{ transform: 'rotate(0deg)' }}>
+            <div className="card__image">
+                  <img src={message.image} alt="cat"/>
+            </div>
             <div className="card_title">{message.message}</div>
             <div className="card__body">
-              
-                <p>From {message.name}</p>
-                <div className="card__image">
-                  <img src={message.image} alt="cat"/>
-                </div>
-
-                {!cardStatus && <button onClick={() => handleUpdate(message.id)}>Edit</button>}
-                {!cardStatus &&<button className="btn btn-outline-secondary" onClick={handleDelete} value={message.id}>Delete</button>}
+              <p>From {message.name}</p>
+              {!cardStatus && <button onClick={() => handleUpdate(message.id)}>Edit</button>}
+              {!cardStatus &&<button className="btn btn-outline-secondary" onClick={handleDelete} value={message.id}>Delete</button>}
             </div>
           </div>
 

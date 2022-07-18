@@ -52,35 +52,38 @@ function CardTitle() {
       .catch((err) => console.log(err))
   }, [])
 
-  return edit === true ? (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor='name'>Card Name:</label>
-      <input
-        id='name'
-        name='name'
-        type='text'
-        initialvalue={cardDetails.name}
-        onChange={handleChange}
-      />
+  return (
+    <>
+      {/* <Nav /> */}
+      {edit === true ? (
+        <form onSubmit={handleSubmit}>
+          <label htmlFor='name'>Card Name:</label>
+          <input
+            id='name'
+            name='name'
+            type='text'
+            initialvalue={cardDetails.name}
+            onChange={handleChange}
+          />
 
-      <label htmlFor='person_name'>Your Friend's Name:</label>
-      <input
-        id='person_name'
-        name='person_name'
-        type='text'
-        initialvalue={cardDetails.person_name}
-        onChange={handleChange}
-      />
+          <label htmlFor='person_name'>Your Friend's Name:</label>
+          <input
+            id='person_name'
+            name='person_name'
+            type='text'
+            initialvalue={cardDetails.person_name}
+            onChange={handleChange}
+          />
 
-      <button>Done</button>
-    </form>
-  ) : (
-    <div className='card_title'>
-      <h2>
-        {cardDetails?.name} {cardDetails?.person_name}
-      </h2>
-      {!cardStatus && <button onClick={handleClick}>editCard</button>}
-    </div>
+          <button>Done</button>
+        </form>
+      ) : (
+        <div className='card_title'>
+          <h2> {cardDetails?.name} {cardDetails?.person_name} </h2>
+          {!cardStatus && <button onClick={handleClick}>editCard</button>}
+        </div>
+      )}
+    </>
   )
 }
 
