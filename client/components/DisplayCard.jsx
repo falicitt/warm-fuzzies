@@ -8,6 +8,8 @@ import { updateTheCard, getTheCard } from '../apis/cards'
 import CardTitle from './CardTitle'
 import EditMessage from './EditMessage'
 
+import StackGrid from "react-stack-grid";
+
 function DisplayCard() {
   const navigate = useNavigate()
  
@@ -77,54 +79,18 @@ function DisplayCard() {
     <>
       <CardTitle />
       <div className="page-component">
-      <div className="cards-container">
-        <div className="row">
-          {messages.map((message) =>
-            activeIndex === message.id ? (
-              <EditMessage
-                cardId={id}
-                id={message.id}
-                name={message.name}
-                image={message.image}
-                message={message.message}
-                stopUpdate={stopUpdate}
-              />
-            ) : (
-              // WHERE TO PUT CARD CONTENTS
-              <div
-                key={message.id}
-                className="card"
-                // style={{ transform: 'rotate(0deg)' }}
-              >
-                <div className="card__image">
-                  <img className="card-img-top" src={message.image} alt="" />
-                </div>
 
-                <div className="card__body">
-                  <div className="card_title">{message.message}</div>
-                  <p>From {message.name}</p>
-
-                  <div>
-
-                  {message.id === newMessage?.id && <button className="btn btn-outline-secondary btn-sm" onClick={() => handleUpdate(message.id)}>Edit</button>}
-
-                  {message.id === newMessage?.id && <button className="btn btn-outline-secondary btn-sm" onClick={handleDelete} value={message.id}>Delete</button>}
-                    
-                  </div>
-                  {/* <!-- Trigger/Open The Modal --> */}
-      
-                </div>
-              </div>
-            )
-          )}
-        </div>
+      <div className='buttons'>
+        {!cardStatus && <button
+          className="btn btn-outline-secondary btn-sm"
+          onClick={redirectToAdd}>Add a message to this card</button>}  
+        {!cardStatus && <button
+          className="btn btn-outline-secondary btn-sm px-3"
+          onClick={handleComplete}><span><i className="bi bi-check2-square"></i></span> Mark this card as complete</button>}
+        <button id="myBtn"
+          className="btn btn-outline-secondary btn-sm px-3"
+          onClick={openModal}>Share the card</button>
       </div>
-      </div>
-      <div>
-      {!cardStatus && <button className="btn btn-outline-secondary btn-sm" onClick={redirectToAdd}>Add a message to this card</button>}  
-      {!cardStatus && <button className="btn btn-outline-secondary btn-sm px-3" onClick={handleComplete}><span><i className="bi bi-check2-square"></i></span> Mark this card as complete</button>}
-      <button id="myBtn" className="btn btn-outline-secondary btn-sm px-3" onClick={openModal}>Share the card</button>
-
       {/* <!-- The Modal --> */}
       <div id="myModal" className="modal" style={{display: viewModal}}> 
 
@@ -144,7 +110,52 @@ function DisplayCard() {
         </div>
 
       </div>
+       
+        
+        <StackGrid columnWidth={250}>
+          {messages.map((message) =>
+            activeIndex === message.id ? (
+              <EditMessage
+                cardId={id}
+                id={message.id}
+                name={message.name}
+                image={message.image}
+                message={message.message}
+                stopUpdate={stopUpdate}
+              />
+            ) : (
+              // WHERE TO PUT CARD CONTENTS
+              <div
+                key={message.id}
+                className="card"
+            >
+                 
+                <div className="card__image">
+                  <img className="card-img-top" src={message.image} alt={message.image} />
+                </div>
+
+                <div className="card__body">
+                  <div className="card_title">{message.message}</div>
+                  <p>From {message.name}</p>
+
+                  <div>
+
+                  {message.id === newMessage?.id && <button className="btn btn-outline-secondary btn-sm" onClick={() => handleUpdate(message.id)}>Edit</button>}
+
+                  {message.id === newMessage?.id && <button className="btn btn-outline-secondary btn-sm" onClick={handleDelete} value={message.id}>Delete</button>}
+                    
+                  </div>
+                  {/* <!-- Trigger/Open The Modal --> */}
+                  </div>
+               
+              </div>
+            )
+          )}
+       
+          </StackGrid>
+     
       </div>
+     
     </>
   )
 }

@@ -77,13 +77,15 @@ function CardTitle() {
 
   <>
     <nav
-      className="navbar navbar-expand-lg navbar-light fixed-top mt-1"
+      className="title navbar navbar-expand-lg navbar-light fixed-top mt-1"
       id="mainNav"
     >
       <div className="container">
-        <h1 className="display-3">
+            <h1 className="display-3
+        card__title">
           {cardDetails?.name} {cardDetails?.person_name}
-        </h1>
+            </h1>
+            <button className="btn btn-light btn-sm" onClick={handleClick}>Edit Card Title</button>
         <button
           className="navbar-toggler"
           type="button"
@@ -99,7 +101,7 @@ function CardTitle() {
         <div className="collapse navbar-collapse" id="navbarResponsive">
           <ul className="navbar-nav ms-auto me-4 my-3 my-lg-0">
             <li className="px-2">
-            <button className="btn btn-light btn-sm" onClick={handleClick}>Edit Card</button>
+            <button className="btn btn-light btn-sm" onClick={handleClick}>Edit Card Title</button>
             </li>
             <li className="nav-item">
               <a className="navbar-brand" href="/">

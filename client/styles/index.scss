@@ -1,25 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Oswald&display=swap');
+
 body {
-  position: absolute;
+  // position: absolute;
   top: 0;
   left: 0;
   margin: 0;
   padding: 20px;
-  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.cards-container {
-  display: flex;
-  flex-wrap: wrap;
+button {
+  margin: 1rem;
 }
 
 .card {
-  margin: 2rem 2rem 2rem 0;
-  padding: 1.5rem;
-  width: 250px;
-  box-shadow: 0 0 28px 4px rgba(244, 242, 125, 0.482);
+  margin: .5rem;
+  padding: 1rem;
+  // box-shadow: 0 0 28px 4px rgba(244, 242, 125, 0.482);
   transition: transform .3s ease;
   cursor: pointer;
-  // transform: rotate(5deg);
+  // font-family: 'Gochi Hand', cursive;
+  font-size: 1rem;
+}
+
+.buttons {
+  text-align: center;
 }
 
 .card:hover {
@@ -27,8 +32,15 @@ body {
 }
 
 .card__title {
+  font-family: 'Oswald', sans-serif;
   font-weight: 800;
-  font-size: 1.5rem;
+  font-size: 4rem;
+  
+}
+
+.title {
+  background-color: white;
+  margin: 0;
 }
 
 .card__image {
@@ -60,7 +72,7 @@ body {
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 7; /* Sit on top */
   padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;
