@@ -4,9 +4,10 @@ import { useParams, useNavigate } from 'react-router-dom'
  
 import { getMessages, deleteMessage } from '../actions/messages'
 import { updateTheCard, getTheCard } from '../apis/cards'
-
+import Music from './Music'
 import CardTitle from './CardTitle'
 import EditMessage from './EditMessage'
+
 
 function DisplayCard() {
   const navigate = useNavigate()
@@ -87,7 +88,12 @@ function DisplayCard() {
                 image={message.image}
                 message={message.message}
               />
-            ) : (
+              ) 
+              
+             
+              
+              : (
+              
               // WHERE TO PUT CARD CONTENTS
               <div
                 key={message.id}
@@ -142,9 +148,33 @@ function DisplayCard() {
         </div>
 
       </div>
+        {/* //chris music button// */}
+ 
+      
+      <Music/>
+      
+
       </div>
     </>
   )
 }
+      
 
-export default DisplayCard
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+export default DisplayCard  

@@ -81,6 +81,7 @@
     "express-fileupload": "^1.4.0",
     "knex": "^2.1.0",
     "pg": "^8.7.1",
+    "react-audio-player": "^0.17.0",
     "sqlite3": "^5.0.8",
     "superagent": "7.1.1"
   },

@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import CardTitle from './CardTitle'
 import { getTheCard } from '../apis/cards'
 import { postImage } from '../apis/messages'
+import Player from './Music'
 
 function AddMessage() {
   const { id } = useParams()
@@ -53,6 +54,8 @@ function AddMessage() {
       ) : (
 
       <div className="page-component">
+
+
 
       <div>
         <h5 className="display-6 text-warning">Add your message</h5>
