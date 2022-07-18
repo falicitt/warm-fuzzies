@@ -76,7 +76,7 @@ function DisplayCard() {
     <>
       <CardTitle />
       <div className="page-component">
-      <div className="cards-container">
+      <div className="card-component">
         <div className="row">
           {messages.map((message) =>
             activeIndex === message.id ? (
@@ -94,13 +94,14 @@ function DisplayCard() {
                 className="card"
                 // style={{ transform: 'rotate(0deg)' }}
               >
-                <div className="card__image">
+                <div className="card__image mt-2">
                   <img className="card-img-top" src={message.image} alt="" />
                 </div>
 
-                <div className="card__body">
-                  <div className="card_title">{message.message}</div>
-                  <p>From {message.name}</p>
+                <div className="card__body mt-2">
+                  <div className="card_title">
+                    <h4 className="display-8">{message.message}</h4></div>
+                  <p><em>From {message.name}</em></p>
 
                   <div>
 
