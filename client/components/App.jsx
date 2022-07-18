@@ -8,16 +8,19 @@ function App() {
  
   return (
     <>
-      <header className='header'>
-        <h1>Warm Fuzzies</h1>
-      </header>
+      {/* <header className='header'>
+        <h1>Warm Fuzzies in APP</h1>
+      </header> */}
+
       <section className='main'>
         <Routes>
+          <Route path='/card/:id/' element={<DisplayCard/>} ></Route>
           <Route path='/' element={<CreateCard />} />
           <Route path='/card/:id/add' element={<AddMessage />} />
           <Route path='/card/:id' element={<DisplayCard />} />
         </Routes>
       </section>
+
     </>
   )
 }

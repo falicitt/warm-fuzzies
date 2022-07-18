@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router'
 import { createMessage } from '../actions/messages'
 import { useNavigate } from 'react-router-dom'
 import CardTitle from './CardTitle'
+import { getTheCard } from '../apis/cards'
 import { postImage } from '../apis/messages'
 
 function AddMessage() {
@@ -25,61 +26,97 @@ function AddMessage() {
     e.preventDefault()
     const formData = new FormData()
     formData.append('image', image)
-    
+
     dispatch(createMessage(newMessage))
     postImage(formData)
       .then(() => navigate(`/card/${id}`))
-      .catch(err => console.log('handle submit error', err))
-    
+      .catch((err) => console.log('handle submit error', err))
   }
+
+  const [cardStatus, setCardStatus] = useState(null)
+
+  useEffect(() => {
+    getTheCard(id)
+    .then((cardObj) => {
+      setCardStatus(cardObj.complete)
+      // console.log('the cardObj', cardObj.complete)
+    })
+    .catch(err => console.log(err))
+
+  }, [])
 
   return (
     <>
       <CardTitle cardId={id} />
-      <div>Add your message</div>
+        {cardStatus ? (
+        'This card is complete, sorry you can not add more messages to it'
+      ) : (
 
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor='image'>Image:</label>
-          <input
-            type='file'
-            id='image'
-            placeholder='your image'
-            onChange={(e) => {
-              setNewMessage({ ...newMessage, image: `/uploads/${e.target.files[0].name}` })
-              setImage(e.target.files[0])
-            }
-            }
-          />
-        </div>
+      <div className="page-component">
 
-        <div>
-          <label htmlFor='message'>Message:</label>
-          <input
-            type='text'
-            id='message'
-            placeholder='your message'
-            onChange={(e) =>
-              setNewMessage({ ...newMessage, message: e.target.value })
-            }
-          />
-        </div>
+      <div>
+        <h5 className="display-6 text-warning">Add your message</h5>
+      </div>
 
-        <div>
-          <label htmlFor='name'>Your name:</label>
-          <input
-            type='text'
-            id='name'
-            placeholder='your name'
-            onChange={(e) =>
-              setNewMessage({ ...newMessage, name: e.target.value })
-            }
-          />
-        </div>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label className="form-label" htmlFor="image">
+              Image
+            </label>
+            <input
+              className="form-control"
+              type="file"
+              id="image"
+              placeholder="your image"
+              onChange={(e) => {
+                setNewMessage({
+                  ...newMessage,
+                  image: `/uploads/${e.target.files[0].name}`,
+                })
+                setImage(e.target.files[0])
+              }}
+            />
+          </div>
 
-        <button>Add</button>
-      </form>
-    </>
+          <div>
+            <label className="form-label" htmlFor="message">
+              Message
+            </label>
+            <input
+              className="form-control"
+              type="text"
+              id="message"
+              placeholder="e.g. Well done"
+              onChange={(e) =>
+                setNewMessage({ ...newMessage, message: e.target.value })
+              }
+            />
+          </div>
+
+          <div>
+            <label className="form-label" htmlFor="name">
+              Your name
+            </label>
+            <input
+              className="form-control"
+              type="text"
+              id="name"
+              placeholder=""
+              onChange={(e) =>
+                setNewMessage({ ...newMessage, name: e.target.value })
+              }
+            />
+          </div>
+
+          <div className="mt-2">
+            <button className="btn btn-outline-secondary">Add</button>
+          </div>
+        </form>
+      </div>
+      </div>
+  )}
+  </>
   )
 }
 

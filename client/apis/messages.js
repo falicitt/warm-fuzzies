@@ -8,7 +8,9 @@ export function postMessage(newMessage) {
   return request
     .post('/api/v1/card/:id/add')
     .send(newMessage)
-    .then((res) => res.body)
+    .then((res) => {
+      console.log('new message', res.body)
+      return res.body})
     .catch((err) => console.log('api error', err))
 }
 
@@ -26,3 +28,15 @@ export function editMessage(id, newMessage) {
     .send(newMessage)
     .then((res) => res.body)
 }
+
+
+export function deleteTheMessage(id) {
+  console.log('delete api called')
+  return request.delete(`/api/v1/card/message/${id}`)
+  .then((resp) => {
+    console.log('delete api end', resp)
+    return resp
+  })
+}
+
+
