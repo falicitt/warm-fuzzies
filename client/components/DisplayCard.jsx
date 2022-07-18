@@ -109,7 +109,7 @@ function DisplayCard() {
                 </div>
 
                 <div className="card__body">
-                  <div className="card_title">{message.message}</div>
+                  <div className="card_title">{message.message}</div><br></br>
                   <p>From {message.name}</p>
 
                   <div>
