@@ -81,7 +81,7 @@ function CardTitle() {
       id="mainNav"
     >
       <div className="container">
-        <h1 className="display-3">
+        <h1 className= "main_card_title">
           {cardDetails?.name} {cardDetails?.person_name}
         </h1>
         <button
