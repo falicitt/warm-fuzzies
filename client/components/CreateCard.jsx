@@ -41,9 +41,9 @@ function CreateCard() {
         <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
           <div className="col-10 col-sm-8 col-lg-6">
             <img
-              src="Warm Fuzzies Moodboards.png"
+              src="example-card-tilt.png"
               className="d-block mx-lg-auto img-fluid"
-              alt="Bootstrap Themes"
+              alt="warm fuzzy message card"
               width="700"
               height="500"
               loading="lazy"
