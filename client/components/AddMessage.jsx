@@ -35,7 +35,7 @@ function AddMessage() {
 
   return (
     <>
-      <CardTitle />
+      <CardTitle cardId={id} />
       <div>Add your message</div>
 
       <form onSubmit={handleSubmit}>
