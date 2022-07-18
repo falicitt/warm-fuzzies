@@ -8,7 +8,7 @@ body {
 }
 
 .navbar {
-  background-color: rgb(106, 179, 194);
+  background-color: white;
   padding: 10px;
   width: 100%;
 }
@@ -19,11 +19,11 @@ body {
 // }
 
 .card {
-  margin: 2rem 2rem 2rem 0;
+  margin: 2rem 2rem 0rem 0;
   padding: 1.5rem;
   width: 350px;
   background-color: rgba(244, 205, 107, 0.676);
-  font-size: 18px;
+  font-size: 22px;
   box-shadow: 20px 20px 40px rgba(127, 126, 79, 0.482);
   transition: transform .3s ease;
   cursor: pointer;
@@ -36,24 +36,25 @@ body {
 
 .card__title {
   font-weight: 800;
-  font-size: 1.5rem;
 }
 
-.card__image {
-  // display: flex;
-  // justify-content: flex-end;
-  max-width: 330px;
-}
 .card__image img {
-  border-top-left-radius: 3%;
-  border-top-right-radius: 3%;
-  width: 300px;
+  // border-top-left-radius: 3%;
+  // border-top-right-radius: 3%;
+  width: 350px;
+  margin-left: -25px;
+  margin-top:-25px;
   margin-bottom: 20px;
 }
 
 .page-component {
   margin-top: 100px;
   margin-left: 30px;
+}
+
+.from {
+  text-align: right;
+  font-style: italic;
 }
 
 /* NOTE CSS */
