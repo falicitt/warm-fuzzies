@@ -16,10 +16,10 @@ body {
   margin: 2rem 2rem 2rem 0;
   padding: 1.5rem;
   width: 250px;
-  box-shadow: 0 0 28px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 0 28px 4px rgba(244, 242, 125, 0.482);
   transition: transform .3s ease;
   cursor: pointer;
-  /* transform: rotate(5deg); */
+  // transform: rotate(5deg);
 }
 
 .card:hover {
@@ -34,10 +34,15 @@ body {
 .card__image {
   display: flex;
   justify-content: flex-end;
-  height: 150px;
+  max-width: 250px;
 }
 .card__image img {
   border-radius: 10%;
+}
+
+.page-component {
+  margin-top: 100px;
+  margin-left: 30px;
 }
 
 /* NOTE CSS */
