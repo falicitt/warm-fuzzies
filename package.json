@@ -81,8 +81,7 @@
     "express-fileupload": "^1.4.0",
     "knex": "^2.1.0",
     "pg": "^8.7.1",
-    "react-stack-grid": "^0.7.1",
-    "react-stonecutter": "^0.3.10",
+    "react-smart-masonry": "^2.0.2",
     "sqlite3": "^5.0.8",
     "superagent": "7.1.1"
   },
