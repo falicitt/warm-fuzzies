@@ -62,12 +62,28 @@ function DisplayCard() {
   const [activeIndex, setActiveIndex] = useState(null)
 
   const handleUpdate = (i) => { setActiveIndex(i) }
+
+  const breakpoints = {
+    default: 3,
+    1100: 2,
+    700: 1
+  }
   
 
   return (
     <>
       <CardTitle />
+
+      
+        {/* array of JSX items */}
+
       <div className='cards-container'>
+      <Masonry
+        // className="grid" data-masonry='{"percentPosition": true }'
+        breakpointCols={breakpoints}
+        className="my-masonry-grid"
+        columnClassName="my-masonry-grid_column">
+       
         {messages.map((message) => (
           activeIndex === message.id ?
           <EditMessage cardId={id} id={message.id} name={message.name} image={message.image} message={message.message} />
@@ -99,6 +115,7 @@ function DisplayCard() {
 
           // </li>
         ))}
+        </Masonry>
       </div>
       {!cardStatus && <button onClick={redirectToAdd}>Add a message to this card</button>}  
       {!cardStatus && <button onClick={handleClick}>Mark this card as complete</button>}

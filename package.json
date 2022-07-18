@@ -79,6 +79,7 @@
     "express": "^4.17.2",
     "express-fileupload": "^1.4.0",
     "knex": "^2.1.0",
+    "masonry-layout": "^4.2.2",
     "pg": "^8.7.1",
     "react-masonry-css": "^1.0.16",
     "sqlite3": "^5.0.8",
