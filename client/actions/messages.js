@@ -1,8 +1,4 @@
-import {
-  fetchMessages,
-  postMessage, 
-  deleteTheMessage
-} from '../apis/messages'
+import { fetchMessages, postMessage, deleteTheMessage } from '../apis/messages'
 
 // type variables
 export const SHOW_MESSAGES = 'SHOW_MESSAGES'
@@ -14,7 +10,7 @@ export const ADD_MESSAGE = 'ADD_MESSAGE'
 export function addMessage(newMessage) {
   return {
     type: ADD_MESSAGE,
-    payload: newMessage
+    payload: newMessage,
   }
 }
 
@@ -61,7 +57,7 @@ export function deleteMessage(messageId, cardId) {
   return (dispatch) => {
     deleteTheMessage(messageId)
       .then(() => {
-        console.log("deleted..")
+        console.log('deleted..')
         dispatch(deleteOneMessage(messageId))
       })
       .then(() => {
@@ -70,4 +66,3 @@ export function deleteMessage(messageId, cardId) {
       .catch((err) => console.log(err))
   }
 }
-

@@ -51,7 +51,6 @@ function DisplayCard() {
       setCardStatus(false)
     }
   } 
-
   const redirectToAdd = () => {
     navigate(`/card/${id}/add`)
   }
@@ -76,35 +75,53 @@ function DisplayCard() {
   return (
     <>
       <CardTitle />
-      <div className='cards-container'>
-        {messages.map((message) => (
-          activeIndex === message.id ?
-          <EditMessage cardId={id} id={message.id} name={message.name} image={message.image} message={message.message} />
-          :
-          // WHERE TO PUT CARD CONTENTS
-          <div key={message.id} className="card" style={{ transform: 'rotate(0deg)' }}>
-            
-            <div className="card__body">
-              
-              <div className="card_title">{message.message}</div>
-              <div className="card__image">
-                <img src={message.image} alt="cat"/>
+      <div className="page-component">
+      <div className="cards-container">
+        <div className="row">
+          {messages.map((message) =>
+            activeIndex === message.id ? (
+              <EditMessage
+                cardId={id}
+                id={message.id}
+                name={message.name}
+                image={message.image}
+                message={message.message}
+              />
+            ) : (
+              // WHERE TO PUT CARD CONTENTS
+              <div
+                key={message.id}
+                className="card"
+                // style={{ transform: 'rotate(0deg)' }}
+              >
+                <div className="card__image">
+                  <img className="card-img-top" src={message.image} alt="" />
+                </div>
+
+                <div className="card__body">
+                  <div className="card_title">{message.message}</div>
+                  <p>From {message.name}</p>
+
+                  <div>
+
+                  {message.id === newMessage?.id && <button className="btn btn-outline-secondary btn-sm" onClick={() => handleUpdate(message.id)}>Edit</button>}
+
+                  {message.id === newMessage?.id && <button className="btn btn-outline-secondary btn-sm" onClick={handleDelete} value={message.id}>Delete</button>}
+                    
+                  </div>
+                  {/* <!-- Trigger/Open The Modal --> */}
+      
+                </div>
               </div>
-              <p>From {message.name}</p>
-
-              {message.id === newMessage?.id && <button className="btn btn-outline-secondary" onClick={() => handleUpdate(message.id)}>Edit</button>}
-              {message.id === newMessage?.id && <button className="btn btn-outline-secondary" onClick={handleDelete} value={message.id}>Delete</button>}
-            </div>
-          </div>
-
-        ))}
+            )
+          )}
+        </div>
       </div>
-      {!cardStatus && <button onClick={redirectToAdd}>Add a message to this card</button>}  
-      {!cardStatus && <button onClick={handleComplete}>Mark this card as complete</button>}
-      {/* {!cardStatus && <button onClick={handleClick}>Share the link with your friends to add messages!</button>} */}
-
-      {/* <!-- Trigger/Open The Modal --> */}
-      <button id="myBtn" onClick={openModal}>Share the card</button>
+      </div>
+      <div>
+      {!cardStatus && <button className="btn btn-outline-secondary btn-sm" onClick={redirectToAdd}>Add a message to this card</button>}  
+      {!cardStatus && <button className="btn btn-outline-secondary btn-sm px-3" onClick={handleComplete}><span><i className="bi bi-check2-square"></i></span> Mark this card as complete</button>}
+      <button id="myBtn" className="btn btn-outline-secondary btn-sm px-3" onClick={openModal}>Share the card</button>
 
       {/* <!-- The Modal --> */}
       <div id="myModal" className="modal" style={{display: viewModal}}> 
@@ -120,29 +137,14 @@ function DisplayCard() {
             <p>{`http://localhost:3000/card/${id}`}</p>
           </div>
           <div className="modal-footer">
-            <button onClick={closeModal}>Close</button>
+            <button className="btn btn-outline-secondary btn-sm" onClick={closeModal}>Close</button>
           </div>
         </div>
 
       </div>
-     
+      </div>
     </>
   )
 }
 
 export default DisplayCard
-
-// IDEAS
-{/* <div className="cards-container">
-<div className="card" style={{ transform: 'rotate(1deg)' }}>
-  <div className="card__title">A lovely message for Ben</div>
-  <div className="card__body">
-    <p>From me</p>
-    <div className="card__image">
-      <img
-        src="https://www.voicesofyouth.org/sites/voy/files/images/2020-08/finding-sunshine.jpg"
-        alt=""
-      />
-    </div>
-  </div>
-</div> */}
