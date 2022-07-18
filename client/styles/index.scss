@@ -7,6 +7,12 @@ body {
   font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+.navbar {
+  background-color: rgb(106, 179, 194);
+  padding: 10px;
+  width: 100%;
+}
+
 // .cards-container {
 //   display: flex;
 //   flex-wrap: wrap;
@@ -16,7 +22,9 @@ body {
   margin: 2rem 2rem 2rem 0;
   padding: 1.5rem;
   width: 350px;
-  box-shadow: 0 0 28px 4px rgba(244, 242, 125, 0.482);
+  background-color: rgba(244, 205, 107, 0.676);
+  font-size: 18px;
+  box-shadow: 20px 20px 40px rgba(127, 126, 79, 0.482);
   transition: transform .3s ease;
   cursor: pointer;
   // transform: rotate(5deg);
@@ -37,7 +45,8 @@ body {
   max-width: 330px;
 }
 .card__image img {
-  border-radius: 5%;
+  border-top-left-radius: 3%;
+  border-top-right-radius: 3%;
   width: 300px;
   margin-bottom: 20px;
 }
@@ -49,14 +58,14 @@ body {
 
 /* NOTE CSS */
 
-.note {
-  background-size: cover;
-  top: 100px;
-  left: 300px;
-  height: 200px;
-  width: 200px;
-  padding: 20px;
-}
+// .note {
+//   background-size: cover;
+//   top: 100px;
+//   left: 300px;
+//   height: 200px;
+//   width: 200px;
+//   padding: 20px;
+// }
 
 /* The Modal (background) */
 .modal {
@@ -130,18 +139,3 @@ body {
   // color: white;
 }
 
-
-.my-masonry-grid {
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(3, 1fr);
-}
-.my-masonry-grid_column {
-  padding-left: 30px; /* gutter size */
-  background-clip: padding-box;
-}
-
-/* Style your items */
-.my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
-  margin-bottom: 30px;
-}

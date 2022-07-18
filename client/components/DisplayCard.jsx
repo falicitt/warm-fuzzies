@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useNavigate } from 'react-router-dom'
-import Masonry from 'react-masonry-css'
+import Masonry from 'react-smart-masonry'
  
 import { getMessages, deleteMessage } from '../actions/messages'
 import { updateTheCard, getTheCard } from '../apis/cards'
@@ -63,10 +63,7 @@ function DisplayCard() {
   const handleUpdate = (i) => { setActiveIndex(i) }
 
   const breakpoints = {
-    default: 3,
-    1100: 3,
-    700: 2,
-    400: 1
+    samll: 400, mobile: 700, tablet: 900, desktop: 1400
   }
   
   const stopUpdate = () => { setActiveIndex(null)}
@@ -89,10 +86,7 @@ function DisplayCard() {
       <div className="page-component">
       <div className="cards-container">
         <div>
-        <Masonry
-        breakpointCols={breakpoints}
-        className="my-masonry-grid"
-        columnClassName="my-masonry-grid_column">
+        <Masonry breakpoints={breakpoints} columns={{ samall: 1, mobile: 2, tablet: 3, desktop: 4 }} gap={10} autoArrange={true} >     
           {messages.map((message) =>
             activeIndex === message.id ? (
               <EditMessage
