@@ -59,6 +59,7 @@ function DisplayCard() {
   const [activeIndex, setActiveIndex] = useState(null)
 
   const handleUpdate = (i) => { setActiveIndex(i) }
+  const stopUpdate = () => { setActiveIndex(null)}
 
  //for sending link modal
 
@@ -86,6 +87,7 @@ function DisplayCard() {
                 name={message.name}
                 image={message.image}
                 message={message.message}
+                stopUpdate={stopUpdate}
               />
             ) : (
               // WHERE TO PUT CARD CONTENTS

@@ -22,18 +22,20 @@ function EditMessage(props) {
 
   const dispatch = useDispatch()
 
-  const handleSubmit = (id) => {
+  const handleSubmit = (e) => {
     // eslint-disable-next-line promise/catch-or-return
-    editMessage(id, message)
+    e.preventDefault()
+    editMessage(props.id, message)
     .then(()=> {
       dispatch(getMessages(props.cardId))
+      props.stopUpdate()
     })
   }
 
   return (
     <>
     {
-      <form onSubmit={handleSubmit(props.id)}>
+      <form onSubmit={handleSubmit}>
 
         <div>
           <label className="form-label" htmlFor='name'>Name</label>
