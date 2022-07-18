@@ -9,8 +9,10 @@ import CardTitle from './CardTitle'
 import EditMessage from './EditMessage'
 
 function DisplayCard() {
-  const messages = useSelector((state) => state.messages)
   const navigate = useNavigate()
+ 
+  const messages = useSelector((state) => state.messages)
+  const newMessage = useSelector((state) => state.newMessage)
 
   const handleDelete =(e) => {
     const messageId = e.target.value
@@ -28,7 +30,6 @@ function DisplayCard() {
   
   const [cardStatus, setCardStatus] = useState(null)
 
-
   useEffect(() => {
     getTheCard(id)
     .then((cardObj) => {
@@ -40,7 +41,7 @@ function DisplayCard() {
   }, [])
 
    
-  const handleClick = () => {
+  const handleComplete = () => {
     let result = window.confirm('Once completed the this card can not be edited or added to')  
     if(result) {
       updateTheCard(id, {complete: true})
@@ -49,17 +50,27 @@ function DisplayCard() {
       updateTheCard(id, {complete: false})
       setCardStatus(false)
     }
-
   } 
-  
   const redirectToAdd = () => {
     navigate(`/card/${id}/add`)
   }
-
+  
+  //for toggle the update button for the selected message
   const [activeIndex, setActiveIndex] = useState(null)
 
   const handleUpdate = (i) => { setActiveIndex(i) }
-  
+
+ //for sending link modal
+
+  const [viewModal, setViewModal] = useState("none")
+
+  const openModal = () => {
+    setViewModal("block")
+  }
+
+  const closeModal = () => {
+    setViewModal("none")
+  }
 
   return (
     <>
@@ -92,20 +103,14 @@ function DisplayCard() {
                   <p>From {message.name}</p>
 
                   <div>
-                    <button
-                      className="btn btn-outline-secondary btn-sm"
-                      onClick={() => handleUpdate(message.id)}
-                    >
-                      Edit
-                    </button>
-                    <button
-                      className="btn btn-outline-secondary btn-sm"
-                      onClick={handleDelete}
-                      value={message.id}
-                    >
-                      Delete
-                    </button>
+
+                  {message.id === newMessage?.id && <button className="btn btn-outline-secondary btn-sm" onClick={() => handleUpdate(message.id)}>Edit</button>}
+
+                  {message.id === newMessage?.id && <button className="btn btn-outline-secondary btn-sm" onClick={handleDelete} value={message.id}>Delete</button>}
+                    
                   </div>
+                  {/* <!-- Trigger/Open The Modal --> */}
+      
                 </div>
               </div>
             )
@@ -115,7 +120,28 @@ function DisplayCard() {
       </div>
       <div>
       {!cardStatus && <button className="btn btn-outline-secondary btn-sm" onClick={redirectToAdd}>Add a message to this card</button>}  
-      {!cardStatus && <button className="btn btn-outline-secondary btn-sm px-3" onClick={handleClick}><span><i className="bi bi-check2-square"></i></span> Mark this card as complete</button>}
+      {!cardStatus && <button className="btn btn-outline-secondary btn-sm px-3" onClick={handleComplete}><span><i className="bi bi-check2-square"></i></span> Mark this card as complete</button>}
+      <button id="myBtn" className="btn btn-outline-secondary btn-sm px-3" onClick={openModal}>Share the card</button>
+
+      {/* <!-- The Modal --> */}
+      <div id="myModal" className="modal" style={{display: viewModal}}> 
+
+        {/* <!-- Modal content --> */}
+        <div className="modal-content">
+          <div className="modal-header">
+            {/* <span className="close" onClick={closeModal}>&times;</span> */}
+            <h3>Share the love!</h3>
+          </div>
+          <div className="modal-body">
+            <p>Copy this link and share with your friends to add more messages on it!</p>
+            <p>{`http://localhost:3000/card/${id}`}</p>
+          </div>
+          <div className="modal-footer">
+            <button className="btn btn-outline-secondary btn-sm" onClick={closeModal}>Close</button>
+          </div>
+        </div>
+
+      </div>
       </div>
     </>
   )

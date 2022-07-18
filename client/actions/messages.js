@@ -15,15 +15,16 @@ export function addMessage(newMessage) {
 }
 
 export function createMessage(newMessage) {
-  
-    return (dispatch) => {
-      dispatch(addMessage(newMessage))
-      return postMessage(newMessage)
+    return (dispatch => {
+      postMessage(newMessage)
+      .then((messageDetails) => {
+        dispatch(addMessage(messageDetails))  
+      })
       .catch((err) => {
         const errMessage = err.response?.text || err.message
         console.log(errMessage)
       })
-    }
+})
 }
 
 //get all messages

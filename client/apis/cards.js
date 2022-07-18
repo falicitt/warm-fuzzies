@@ -26,7 +26,7 @@ export function updateTheCard(id, details) {
     .patch('/api/v1/card/' + id)
     .send(details)
     .then((res) => {
-      console.log('updateTheCard:', res.body)
+      // console.log('updateTheCard:', res.body)
       res.body
     })
     .catch((err) => console.log(err, 'error consuming api updateTheCard'))
@@ -36,10 +36,10 @@ export function getTheCard(id) {
   return request
     .get(`/api/v1/card/card/${id}`)
     .then((res) => {
-      console.log('getTheCard:', res.body)
+      // console.log('getTheCard:', res.body)
       return res.body
     })
     .catch((err) => console.log(err, 'error consuming api getTheCard'))
 }
 
-// export function fetchOneCard(id) {}
+

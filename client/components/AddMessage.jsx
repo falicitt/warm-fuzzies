@@ -37,11 +37,12 @@ function AddMessage() {
 
   useEffect(() => {
     getTheCard(id)
-      .then((cardObj) => {
-        setCardStatus(cardObj.complete)
-        console.log('the cardObj', cardObj.complete)
-      })
-      .catch((err) => console.log(err))
+    .then((cardObj) => {
+      setCardStatus(cardObj.complete)
+      // console.log('the cardObj', cardObj.complete)
+    })
+    .catch(err => console.log(err))
+
   }, [])
 
   return (
