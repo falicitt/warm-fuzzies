@@ -113,8 +113,10 @@ function DisplayCard() {
         </div>
       </div>
       </div>
-      {!cardStatus && <button onClick={redirectToAdd}>Add a message to this card</button>}  
-      {!cardStatus && <button onClick={handleClick}>Mark this card as complete</button>}
+      <div>
+      {!cardStatus && <button className="btn btn-outline-secondary btn-sm" onClick={redirectToAdd}>Add a message to this card</button>}  
+      {!cardStatus && <button className="btn btn-outline-secondary btn-sm px-3" onClick={handleClick}><span><i className="bi bi-check2-square"></i></span> Mark this card as complete</button>}
+      </div>
     </>
   )
 }

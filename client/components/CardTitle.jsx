@@ -74,12 +74,7 @@ function CardTitle() {
   ) : (
 
     // SHOW NORMAL CARD TITLE CODE
-    // <div className='card_title'>
-    //   <h2>
-    //     {cardDetails?.name} {cardDetails?.person_name}
-    //   </h2>
-    //   <button onClick={handleClick}>editCard</button>
-    // </div>
+
   <>
     <nav
       className="navbar navbar-expand-lg navbar-light fixed-top mt-1"
@@ -109,7 +104,7 @@ function CardTitle() {
             <li className="nav-item">
               <a className="navbar-brand" href="/">
                 <img
-                  src="/leftsquare.png"
+                  src="/logoTallLHSnav.png"
                   alt="logo"
                   style={{width: "80px"}}
                 />

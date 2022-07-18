@@ -50,16 +50,12 @@ function CreateCard() {
             />
           </div>
           <div className="col-lg-6">
-            <img src="lhLogoSmaller.png" className="img-fluid" alt="logo" />
+            <img src="/logoTallLHSnav.png" className="img-fluid" alt="logo" />
             {/* <h5 className="display-5 fw-bold lh-1 mb-3">Warm Fuzzies</h5> */}
-            <p className="lead">
+            <p className="lead px-2 mt-2">
               Make your friend happy with some nice messages
             </p>
-            <div className="d-grid gap-2 d-md-flex justify-content-md-start">
-              {/* <button type="button" className="btn btn-warning btn-sm px-4 me-md-2">Primary</button>
-              <button type="button" className="btn btn-outline-warning btn-sm px-4">Default</button> */}
-            </div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="px-2 mt-2">
               <div className="mb-3">
                 <label htmlFor="inputFriendName" className="form-label">
                   Your friend&apos;s name
@@ -72,14 +68,7 @@ function CreateCard() {
                 name="person_name"
                 onChange={handleTyping}
                 aria-describedby="friendName"
-
-                // // OLD
-                //   type="email"
-                //   className="form-control"
-                //   id="exampleInputEmail1"
-                //   aria-describedby="emailHelp"
                 />
-                {/* <div id="emailHelp" className="form-text">We will share your email with everyone else.</div> */}
               </div>
 
               <div className="mb-3">
@@ -94,16 +83,8 @@ function CreateCard() {
                 onChange={handleTyping}
                 className="form-control"
                 aria-describedby="cardTitle"
-
-                // OLD
-                
-                  // className="form-control"
-                  // type="text"
-                  // id="person_name"
-                  // aria-describedby="cardTitle"
                 />
-                {/* <div id="emailHelp" className="form-text">We will share your email with everyone else.</div> */}
-              </div>
+             </div>
               <button type="submit" className="btn btn-warning">
                 Create
               </button>
@@ -111,19 +92,6 @@ function CreateCard() {
           </div>
         </div>
       </div>
-      <h2>Make your friend happy with some nice messages</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="person_name">Your friend&apos;s name</label>
-        <input
-          type="text"
-          id="person_name"
-          name="person_name"
-          onChange={handleTyping}
-        />
-        <label htmlFor="name">Title for your card</label>
-        <input type="text" id="name" name="name" onChange={handleTyping} />
-        <button>Create card</button>
-      </form>
     </>
   )
 }
