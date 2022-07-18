@@ -8,7 +8,9 @@ export function postMessage(newMessage) {
   return request
     .post('/api/v1/card/:id/add')
     .send(newMessage)
-    .then((res) => res.body)
+    .then((res) => {
+      console.log('new message', res.body)
+      return res.body})
     .catch((err) => console.log('api error', err))
 }
 
@@ -36,3 +38,5 @@ export function deleteTheMessage(id) {
     return resp
   })
 }
+
+

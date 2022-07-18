@@ -19,10 +19,8 @@ export function createCard(newCard) {
 export function addCard(newCard) {
   return (dispatch) => {
     postCard(newCard)
-      .then((cardDetails) => {
-        dispatch(createCard(cardDetails))
-        // return cardDetails.id
-      })
+      .then((cardDetails) => 
+        {dispatch(createCard(cardDetails))})
       .catch((err) => console.log(err.message))
   }
 }
@@ -36,4 +34,4 @@ export function addCard(newCard) {
 //       })
 //       .catch((err) => console.log(err.message))
 //   }
-// }
+//}
