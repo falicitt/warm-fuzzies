@@ -1,5 +1,5 @@
 body {
-  position: absolute;
+  // position: absolute;
   top: 0;
   left: 0;
   margin: 0;
@@ -7,15 +7,10 @@ body {
   font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.cards-container {
-  display: flex;
-  flex-wrap: wrap;
-}
 
 .card {
-  margin: 2rem 2rem 2rem 0;
-  padding: 1.5rem;
-  width: 250px;
+  margin: 1rem;
+  padding: 1rem;
   box-shadow: 0 0 28px 4px rgba(244, 242, 125, 0.482);
   transition: transform .3s ease;
   cursor: pointer;
