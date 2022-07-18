@@ -104,7 +104,7 @@ function DisplayCard() {
                 className="card"
                 // style={{ transform: 'rotate(0deg)' }}
               >
-                <div className="card__image">
+                <div className="card__image mt-2">
                   <img className="card-img-top" src={message.image} alt="" />
                 </div>
 
