@@ -32,9 +32,10 @@ router.post('/:id/add', (req, res) => {
 
   db.addMessage(newMessage)
     .then((idArr) => {
-      newMessage.id = idArr[0]
-      res.json(newMessage)
+      const id = idArr[0]
+      return db.getMessageById(id)  
     })
+    .then((newMessage) => res.json(newMessage))
     .catch((err) => res.status(500).json({ dberr: err.message }))
 })
 

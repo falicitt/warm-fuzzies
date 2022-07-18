@@ -16,6 +16,10 @@ function getCardById(id, db = connection) {
   return db('cards').where('id', id).first().select()
 }
 
+function getMessageById(id, db = connection) {
+  return db('messages').where('id', id).first().select()
+}
+
 function getAllMessages(id, db = connection) {
   return db('messages').where('card_id', id).select()
 }
@@ -32,6 +36,7 @@ module.exports = {
   addMessage,
   insertCard,
   getAllMessages,
+  getMessageById,
   getCardById,
   updateCard,
   editMessage,
