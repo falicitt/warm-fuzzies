@@ -84,9 +84,14 @@ function DisplayCard() {
     <>
       <CardTitle />
       <div className="page-component">
+<<<<<<< HEAD
       <div className="cards-container">
         <div>
         <Masonry breakpoints={breakpoints} columns={{ samall: 1, mobile: 2, tablet: 3, desktop: 4 }} gap={10} autoArrange={true} >     
+=======
+      <div className="card-component">
+        <div className="row">
+>>>>>>> 095121b495caa6e28b4cae985248fda9a72663a0
           {messages.map((message) =>
             activeIndex === message.id ? (
               <EditMessage
@@ -104,13 +109,20 @@ function DisplayCard() {
                 className="card"
                 // style={{ transform: 'rotate(0deg)' }}
               >
-                <div className="card__image">
+                <div className="card__image mt-2">
                   <img className="card-img-top" src={message.image} alt="" />
                 </div>
 
+<<<<<<< HEAD
                 <div className="card__body">
                   <div className="card_title">{message.message}</div><br></br>
                   <p className="from">{message.name}</p>
+=======
+                <div className="card__body mt-2">
+                  <div className="card_title">
+                    <h4 className="display-8">{message.message}</h4></div>
+                  <p><em>From {message.name}</em></p>
+>>>>>>> 095121b495caa6e28b4cae985248fda9a72663a0
 
                   <div>
 

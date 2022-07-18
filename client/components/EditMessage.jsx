@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { useDispatch } from "react-redux"
 import { getMessages } from '../actions/messages'
 import { editMessage } from '../apis/messages'
-import CardTitle from "./CardTitle"
 
 function EditMessage(props) {
 
@@ -30,6 +29,7 @@ function EditMessage(props) {
       dispatch(getMessages(props.cardId))
       props.stopUpdate()
     })
+    .catch((err) => console.log(err.message))
   }
 
   return (
