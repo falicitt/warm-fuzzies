@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useNavigate } from 'react-router-dom'
 import Masonry from 'react-masonry-css'
-// import Masonry from 'react-masonry-component'
  
 import { getMessages, deleteMessage } from '../actions/messages'
 import { updateTheCard, getTheCard } from '../apis/cards'
@@ -89,12 +88,11 @@ function DisplayCard() {
       <CardTitle />
       <div className="page-component">
       <div className="cards-container">
-      <Masonry
-        // className="grid" data-masonry='{"percentPosition": true }'
+        <div>
+        <Masonry
         breakpointCols={breakpoints}
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column">
-        <div className="row">
           {messages.map((message) =>
             activeIndex === message.id ? (
               <EditMessage
@@ -133,8 +131,8 @@ function DisplayCard() {
               </div>
             )
           )}
+          </Masonry>
         </div>
-        </Masonry>
       </div>
       </div>
       <div>

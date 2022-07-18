@@ -7,15 +7,15 @@ body {
   font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.cards-container {
-  display: flex;
-  flex-wrap: wrap;
-}
+// .cards-container {
+//   display: flex;
+//   flex-wrap: wrap;
+// }
 
 .card {
   margin: 2rem 2rem 2rem 0;
   padding: 1.5rem;
-  width: 250px;
+  width: 350px;
   box-shadow: 0 0 28px 4px rgba(244, 242, 125, 0.482);
   transition: transform .3s ease;
   cursor: pointer;
@@ -32,9 +32,9 @@ body {
 }
 
 .card__image {
-  display: flex;
-  justify-content: flex-end;
-  max-width: 250px;
+  // display: flex;
+  // justify-content: flex-end;
+  max-width: 330px;
 }
 .card__image img {
   border-radius: 5%;
