@@ -80,7 +80,7 @@ function DisplayCard() {
       <CardTitle />
       <div className="page-component">
 
-      <div>
+      <div className='buttons'>
         {!cardStatus && <button
           className="btn btn-outline-secondary btn-sm"
           onClick={redirectToAdd}>Add a message to this card</button>}  
@@ -90,7 +90,7 @@ function DisplayCard() {
         <button id="myBtn"
           className="btn btn-outline-secondary btn-sm px-3"
           onClick={openModal}>Share the card</button>
-
+      </div>
       {/* <!-- The Modal --> */}
       <div id="myModal" className="modal" style={{display: viewModal}}> 
 
@@ -110,7 +110,7 @@ function DisplayCard() {
         </div>
 
       </div>
-        </div>
+       
         
         <StackGrid columnWidth={250}>
           {messages.map((message) =>
@@ -131,7 +131,7 @@ function DisplayCard() {
             >
                  
                 <div className="card__image">
-                  <img className="card-img-top" src={message.image} alt="" />
+                  <img className="card-img-top" src={message.image} alt={message.image} />
                 </div>
 
                 <div className="card__body">
