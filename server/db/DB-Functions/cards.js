@@ -28,6 +28,12 @@ function editMessage(id, details, db = connection) {
   return db('messages').update(details).where('id', id)
 }
 
+function editCard(id, details, db = connection) {
+  return db ('cards')
+  .update(details)
+  .where('id', id)
+}
+
 function deleteTheMessage(id, db = connection) {
   return db('messages').where('id', id).delete()
 }
@@ -38,6 +44,8 @@ module.exports = {
   getAllMessages,
   getMessageById,
   getCardById,
+  deleteTheMessage,
+  editCard,
   updateCard,
   editMessage,
   deleteTheMessage,
