@@ -36,63 +36,70 @@ function AddMessage() {
   return (
     <>
       <CardTitle />
-    <>
-      
-      <div className="py-5 text-center text-warning">
-      <h4 className="display-5">Add your message</h4>
+
+      <div className="page-component">
+
+      <div>
+        <h5 className="display-6 text-warning">Add your message</h5>
       </div>
 
       <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label className="form-label" htmlFor='image'>Image</label>
-          <input
-            className="form-control" 
-            type='file'
-            id='image'
-            placeholder='your image'
-            onChange={(e) => {
-              setNewMessage({ ...newMessage, image: `/uploads/${e.target.files[0].name}` })
-              setImage(e.target.files[0])
-            }
-            }
-          />
-        </div>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label className="form-label" htmlFor="image">
+              Image
+            </label>
+            <input
+              className="form-control"
+              type="file"
+              id="image"
+              placeholder="your image"
+              onChange={(e) => {
+                setNewMessage({
+                  ...newMessage,
+                  image: `/uploads/${e.target.files[0].name}`,
+                })
+                setImage(e.target.files[0])
+              }}
+            />
+          </div>
 
-        <div>
-          <label className="form-label" htmlFor='message'>Message</label>
-          <input
-            className="form-control"
-            type='text'
-            id='message'
-            placeholder='your message'
-            onChange={(e) =>
-              setNewMessage({ ...newMessage, message: e.target.value })
-            }
-          />
-        </div>
+          <div>
+            <label className="form-label" htmlFor="message">
+              Message
+            </label>
+            <input
+              className="form-control"
+              type="text"
+              id="message"
+              placeholder="e.g. Well done"
+              onChange={(e) =>
+                setNewMessage({ ...newMessage, message: e.target.value })
+              }
+            />
+          </div>
 
-        <div>
-          <label className="form-label" htmlFor='name'>Your name</label>
-          <input
-            className="form-control" 
-            type='text'
-            id='name'
-            placeholder='your name'
-            onChange={(e) =>
-              setNewMessage({ ...newMessage, name: e.target.value })
-            }
-          />
-        </div>
-        <div>
-        <button className="btn btn-outline-secondary">Add</button>
-        </div>
-      </form>
-
-</div>
+          <div>
+            <label className="form-label" htmlFor="name">
+              Your name
+            </label>
+            <input
+              className="form-control"
+              type="text"
+              id="name"
+              placeholder=""
+              onChange={(e) =>
+                setNewMessage({ ...newMessage, name: e.target.value })
+              }
+            />
+          </div>
+          <div className="mt-2">
+            <button className="btn btn-outline-secondary">Add</button>
+          </div>
+        </form>
+      </div>
+      </div>
     </>
-    </>
-
   )
 }
 

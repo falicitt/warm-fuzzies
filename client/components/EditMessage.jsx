@@ -32,7 +32,6 @@ function EditMessage(props) {
 
   return (
     <>
-      <CardTitle />
     {
       <form onSubmit={handleSubmit(props.id)}>
 
@@ -51,7 +50,7 @@ function EditMessage(props) {
           <input className="form-control" id='image' name='image' type='text' value={message.image} onChange={handleChange} />
         </div>
 
-        <button className="btn btn-outline-secondary btn-sm">Done</button>
+        <button className="btn btn-outline-secondary btn-sm mt-2">Done</button>
       </form>
 
       

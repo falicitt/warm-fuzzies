@@ -32,7 +32,7 @@ function DisplayCard() {
   return (
     <>
       <CardTitle />
-
+      <div className="page-component">
       <div className="cards-container">
         <div className="row">
           {messages.map((message) =>
@@ -49,7 +49,7 @@ function DisplayCard() {
               <div
                 key={message.id}
                 className="card"
-                style={{ transform: 'rotate(0deg)' }}
+                // style={{ transform: 'rotate(0deg)' }}
               >
                 <div className="card__image">
                   <img className="card-img-top" src={message.image} alt="" />
@@ -79,6 +79,7 @@ function DisplayCard() {
             )
           )}
         </div>
+      </div>
       </div>
     </>
   )
