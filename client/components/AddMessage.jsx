@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router'
 import { createMessage } from '../actions/messages'
 import { useNavigate } from 'react-router-dom'
 import CardTitle from './CardTitle'
+import { getTheCard } from '../apis/cards'
 import { postImage } from '../apis/messages'
 
 function AddMessage() {
@@ -25,17 +26,30 @@ function AddMessage() {
     e.preventDefault()
     const formData = new FormData()
     formData.append('image', image)
-    
+
     dispatch(createMessage(newMessage))
     postImage(formData)
       .then(() => navigate(`/card/${id}`))
-      .catch(err => console.log('handle submit error', err))
-    
+      .catch((err) => console.log('handle submit error', err))
   }
+
+  const [cardStatus, setCardStatus] = useState(null)
+
+  useEffect(() => {
+    getTheCard(id)
+      .then((cardObj) => {
+        setCardStatus(cardObj.complete)
+        console.log('the cardObj', cardObj.complete)
+      })
+      .catch((err) => console.log(err))
+  }, [])
 
   return (
     <>
-      <CardTitle />
+      <CardTitle cardId={id} />
+        {cardStatus ? (
+        'This card is complete, sorry you can not add more messages to it'
+      ) : (
 
       <div className="page-component">
 
@@ -93,13 +107,15 @@ function AddMessage() {
               }
             />
           </div>
+
           <div className="mt-2">
             <button className="btn btn-outline-secondary">Add</button>
           </div>
         </form>
       </div>
       </div>
-    </>
+  )}
+  </>
   )
 }
 

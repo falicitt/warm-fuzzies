@@ -4,6 +4,18 @@ const db = require('../db/DB-Functions/cards')
 
 module.exports = router
 
+router.get('/card/:id', (req, res) => {
+  // use database function getAllMessages
+  const id = Number(req.params.id)
+  db.getCardById(id)
+    .then((card) => {
+      // then will be passed the result of the function getAllMessages
+      // console.log(theMessages)
+      res.json(card)
+    })
+    .catch((err) => res.status(500).json({ msg: err.message }))
+})
+
 router.get('/:id', (req, res) => {
   // use database function getAllMessages
   const id = Number(req.params.id)
@@ -38,15 +50,22 @@ router.post('/:id/add', (req, res) => {
     .catch((err) => res.status(500).json({ dberr: err.message }))
 })
 
-router.get('/:id', (req, res) => {
-  // use database function getAllMessages
-  const id = Number(req.params.id)
-  db.getAllMessages(id)
-    .then((theMessages) => {
-      // then will be passed the result of the function getAllMessages
-      // console.log(theMessages)
-      res.json(theMessages)
-    })
+
+
+router.patch('/:id', (req, res) => {
+  const id = req.params.id
+  const detaildToUpdate = req.body
+
+  db.updateCard(id, detaildToUpdate)
+    .then(() => db.getCardById(id))
+    .then((card) => res.json(card))
+    .catch((err) => res.status(500).json({ msg: err.message }))
+})
+
+router.get('/card/:id', (req, res) => {
+  const id = req.params.id
+  db.getCardById(id)
+    .then((card) => res.json(card))
     .catch((err) => res.status(500).json({ msg: err.message }))
 })
 
@@ -65,7 +84,7 @@ router.delete('/message/:id', (req, res) => {
   const id = req.params.id
   console.log('route')
   db.deleteTheMessage(id)
-   
+
     .then((id) => {
       res.json(id)
     })
@@ -73,4 +92,14 @@ router.delete('/message/:id', (req, res) => {
       console.log('route err', err)
       res.status(500).json({ msg: err.message })
     })
+})
+
+router.patch ('/:id',(req, res) => {
+  const details = req.body
+  const id = Number(req.params.id)
+  db.editCard(id, details)
+  .then(() => {
+    res.json(details)
+  })
+  .catch((err) => res.status(500).json({ dberr: err.message }))
 })
