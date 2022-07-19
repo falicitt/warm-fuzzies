@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
-
+import { useSelector } from 'react-redux'
 import { getTheCard, updateTheCard } from '../apis/cards'
 
 function CardTitle() {
   const { id } = useParams()
+  const token = useSelector((state) => state.loggedInUser.token)
+
   const [cardDetails, setCardDetails] = useState(null)
 
   useEffect(() => {
@@ -12,13 +14,11 @@ function CardTitle() {
       .then((cardObj) => {
         const card = { name: cardObj.name, person_name: cardObj.person_name }
         setCardDetails(card)
-        // console.log('the cardObj', card)
       })
       .catch((err) => console.log(err))
   }, [])
 
-  // const card = useSelector((globalState) => globalState.card)
-  // const [newCard, setNewCard] = useState(card)
+  
   const [edit, setEdit] = useState(false)
 
   const handleClick = () => {
@@ -34,11 +34,10 @@ function CardTitle() {
 
   const handleSubmit = (evt) => {
     evt.preventDefault()
-    console.log(cardDetails)
     updateTheCard(id, {
       name: cardDetails.name,
       person_name: cardDetails.person_name,
-    }).catch((err) => console.log(err))
+    }, token).catch((err) => console.log(err))
     setEdit(false)
   }
 
@@ -55,7 +54,7 @@ function CardTitle() {
         id='name'
         name='name'
         type='text'
-        initialvalue={cardDetails.name}
+        value={cardDetails.name}
         onChange={handleChange}
       />
 
@@ -65,7 +64,7 @@ function CardTitle() {
         id='person_name'
         name='person_name'
         type='text'
-        initialvalue={cardDetails.person_name}
+        value={cardDetails.person_name}
         onChange={handleChange}
       />
       <button className="btn btn-light btn-sm">Done</button>
@@ -74,7 +73,6 @@ function CardTitle() {
   ) : (
 
     // SHOW NORMAL CARD TITLE CODE
-
   <>
     <nav
       className="title navbar navbar-expand-lg navbar-light fixed-top mt-1"

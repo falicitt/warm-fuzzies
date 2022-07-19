@@ -15,6 +15,7 @@ function DisplayCard() {
  
   const messages = useSelector((state) => state.messages)
   const newMessage = useSelector((state) => state.newMessage)
+  const token = useSelector((state) => state.loggedInUser.token)
 
   const handleDelete =(e) => {
     const messageId = e.target.value
@@ -36,7 +37,6 @@ function DisplayCard() {
     getTheCard(id)
     .then((cardObj) => {
       setCardStatus(cardObj.complete)
-      console.log('the cardObj', cardObj.complete)
     })
     .catch(err => console.log(err))
 
@@ -140,9 +140,19 @@ function DisplayCard() {
 
                   <div>
 
-                  {message.id === newMessage?.id && <button className="btn btn-outline-secondary btn-sm" onClick={() => handleUpdate(message.id)}>Edit</button>}
+                  {token? 
+                  <>
+                  <button className="btn btn-outline-secondary btn-sm" onClick={() => handleUpdate(message.id)}>Edit</button>
+                  <button className="btn btn-outline-secondary btn-sm" onClick={handleDelete} value={message.id}>Delete</button>
+                  </>
+                  :
+                   message.id === newMessage?.id && 
+                  <>
+                    <button className="btn btn-outline-secondary btn-sm" onClick={() => handleUpdate(message.id)}>Edit</button>
 
-                  {message.id === newMessage?.id && <button className="btn btn-outline-secondary btn-sm" onClick={handleDelete} value={message.id}>Delete</button>}
+                    <button className="btn btn-outline-secondary btn-sm" onClick={handleDelete} value={message.id}>Delete</button>
+                    </>
+                  }
                     
                   </div>
                   {/* <!-- Trigger/Open The Modal --> */}

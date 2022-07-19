@@ -2,12 +2,21 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addCard } from '../actions/cards'
 import { useNavigate } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
 
 function CreateCard() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  
+  const token = useSelector((state) => state.loggedInUser.token)
+
+  const { loginWithRedirect } = useAuth0()
+
+  function handleSignIn(e) {
+    e.preventDefault()
+    loginWithRedirect()
+  }
+
   const [newCard, setNewCard] = useState({
     name: '',
     person_name: '',
@@ -24,7 +33,7 @@ function CreateCard() {
   const handleSubmit = (e) => {
     const card = newCard
     e.preventDefault()
-    dispatch(addCard(card))
+    dispatch(addCard(card, token))
   }
 
   const cardId = useSelector((state) => state.card?.id)
@@ -39,10 +48,10 @@ function CreateCard() {
     <>
       <div className="container col-xxl-8 px-4 py-5">
         <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
-          <div className="col-10 col-sm-8 col-lg-6">
+          <div className="col-10 col-lg-6">
             <img
               src="Warm Fuzzies Moodboards.png"
-              className="d-block mx-lg-auto img-fluid"
+              className="mx-lg-auto d-none d-lg-block d-xl-block img-fluid"
               alt="Bootstrap Themes"
               width="700"
               height="500"
@@ -55,6 +64,7 @@ function CreateCard() {
             <p className="lead px-2 mt-2">
               Make your friend happy with some nice messages
             </p>
+            {token?
             <form onSubmit={handleSubmit} className="px-2 mt-2">
               <div className="mb-3">
                 <label htmlFor="inputFriendName" className="form-label">
@@ -85,10 +95,16 @@ function CreateCard() {
                 aria-describedby="cardTitle"
                 />
              </div>
+            
               <button type="submit" className="btn btn-warning">
                 Create
-              </button>
+              </button> 
             </form>
+            :
+            <button className="btn btn-warning" onClick={handleSignIn}>
+             log in to create a card
+          </button> 
+}
           </div>
         </div>
       </div>
