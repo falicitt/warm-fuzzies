@@ -32,9 +32,9 @@ export function updateTheCard(id, details) {
     .catch((err) => console.log(err, 'error consuming api updateTheCard'))
 }
 
-export function getTheCard(id) {
+export function getTheCard(cardId) {
   return request
-    .get(`/api/v1/card/card/${id}`)
+    .get(`/api/v1/card/card/${cardId}`)
     .then((res) => {
       // console.log('getTheCard:', res.body)
       return res.body

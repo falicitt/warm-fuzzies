@@ -1,8 +1,8 @@
 import request from 'superagent'
 
-export function fetchMessages(id) {
-  console.log('api:', id)
-  return request.get('/api/v1/card/' + id).then((resp) => resp.body)
+export function fetchMessages(cardId) {
+  console.log('api:', cardId)
+  return request.get('/api/v1/card/' + cardId).then((resp) => resp.body)
 }
 
 export function postMessage(newMessage) {

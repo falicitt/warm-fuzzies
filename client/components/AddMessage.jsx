@@ -8,16 +8,22 @@ import { getTheCard } from '../apis/cards'
 import { postImage } from '../apis/messages'
 
 function AddMessage() {
+
   const { id } = useParams()
+  const destringifiedID = id.slice(0, -5)
+  const cardId = Number(destringifiedID)
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
+  console.log(id)
 
   const [newMessage, setNewMessage] = useState({
     name: '',
     message: '',
     image: '',
-    card_id: id,
+    card_id: cardId,
+    // card_string: id
   })
 
   const [image, setImage] = useState('')
@@ -36,10 +42,10 @@ function AddMessage() {
   const [cardStatus, setCardStatus] = useState(null)
 
   useEffect(() => {
-    getTheCard(id)
+    getTheCard(cardId)
     .then((cardObj) => {
       setCardStatus(cardObj.complete)
-      // console.log('the cardObj', cardObj.complete)
+      console.log('the cardObj', cardObj.complete)
     })
     .catch(err => console.log(err))
 

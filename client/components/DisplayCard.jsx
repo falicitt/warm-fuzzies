@@ -25,8 +25,13 @@ function DisplayCard() {
   const dispatch = useDispatch()
   const { id } = useParams()
 
+  const destringifiedID = id.slice(0, -5)
+  const cardId = Number(destringifiedID)
+
+  // add destringified cardId
+
   useEffect(() => {
-    dispatch(getMessages(id))
+    dispatch(getMessages(cardId))
   }, [])
 
   
