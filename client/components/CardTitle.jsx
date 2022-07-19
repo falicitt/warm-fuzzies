@@ -17,8 +17,7 @@ function CardTitle() {
       .catch((err) => console.log(err))
   }, [])
 
-  // const card = useSelector((globalState) => globalState.card)
-  // const [newCard, setNewCard] = useState(card)
+
   const [edit, setEdit] = useState(false)
 
   const handleClick = () => {
@@ -41,6 +40,18 @@ function CardTitle() {
     }).catch((err) => console.log(err))
     setEdit(false)
   }
+
+  
+  const [cardStatus, setCardStatus] = useState(null)
+
+  useEffect(() => {
+    getTheCard(id)
+      .then((cardObj) => {
+        setCardStatus(cardObj.complete)
+        console.log('the cardObj', cardObj.complete)
+      })
+      .catch((err) => console.log(err))
+  }, [])
 
   return edit === true ? (
 
@@ -81,7 +92,7 @@ function CardTitle() {
       id="mainNav"
     >
       <div className="container">
-        <h1 className="display-3">
+        <h1 className="title">
           {cardDetails?.name} {cardDetails?.person_name}
         </h1>
         <button
@@ -99,7 +110,7 @@ function CardTitle() {
         <div className="collapse navbar-collapse" id="navbarResponsive">
           <ul className="navbar-nav ms-auto me-4 my-3 my-lg-0">
             <li className="px-2">
-            <button className="btn btn-light btn-sm" onClick={handleClick}>Edit Card</button>
+            {!cardStatus && <button className="btn btn-light btn-sm" onClick={handleClick}>Edit Card</button>}
             </li>
             <li className="nav-item">
               <a className="navbar-brand" href="/">
