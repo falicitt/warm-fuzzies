@@ -48,22 +48,13 @@ function AddMessage() {
   return (
     <>
       <CardTitle cardId={id} />
-        {cardStatus ? (
-        'This card is complete, sorry you can not add more messages to it'
+      {cardStatus ? (
+        <p>This card is complete, sorry you can not add more messages to it</p>
       ) : (
-
-      <div className="edit-title">
-
-      <div>
-        <h5 className="display-6 text-warning">Add Your Message</h5>
-      </div>
-
-      <div>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label className="form-label" htmlFor="image">
-              Image
-            </label>
+        <div className='add-form'>
+          <div><h5 className="display-6 text-warning">Add Your Message</h5></div>
+          <form onSubmit={handleSubmit}>
+            <label className="form-label" htmlFor="image">Image</label>
             <input
               className="form-control"
               type="file"
@@ -77,12 +68,8 @@ function AddMessage() {
                 setImage(e.target.files[0])
               }}
             />
-          </div>
 
-          <div>
-            <label className="form-label" htmlFor="message">
-              Message
-            </label>
+            <label className="form-label" htmlFor="message">Message</label>
             <input
               className="form-control"
               type="text"
@@ -92,12 +79,8 @@ function AddMessage() {
                 setNewMessage({ ...newMessage, message: e.target.value })
               }
             />
-          </div>
-
-          <div>
-            <label className="form-label" htmlFor="name">
-              Your name
-            </label>
+          
+            <label className="form-label" htmlFor="name">Your name</label>
             <input
               className="form-control"
               type="text"
@@ -107,16 +90,12 @@ function AddMessage() {
                 setNewMessage({ ...newMessage, name: e.target.value })
               }
             />
-          </div>
-
-          <div className="mt-2">
-            <button className="btn btn-outline-secondary">Add</button>
-          </div>
-        </form>
-      </div>
-      </div>
-  )}
-  </>
+         
+            <div className="mt-2"><button className="btn btn-outline-secondary">Add</button></div>
+          </form>
+        </div>
+      )}
+    </>
   )
 }
 

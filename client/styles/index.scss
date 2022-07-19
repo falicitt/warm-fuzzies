@@ -8,74 +8,76 @@ body {
   font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+// -------------------------  navbar  -------------------------
 .navbar {
   width: 100%;
-  background-color: white;
-  padding: 20px;
   display: grid;
   grid-template-columns: repeat(4(1fr, 3fr, 0,5fr, 0,5fr));
   padding-top: 90px;
-  padding-bottom: 80px;
-  margin-top: -30px;
+  padding-bottom: 60px;
 }
 
 #logo {
   img {
-    width: 14vw;
+    width: 190px;
     position: fixed;
     z-index: 2;
     background-color: white;
-    margin-top: -40px;
+    margin-top: -15px;
+    margin-left: 30px;
   }
 }
 
 .title {
   font-family: 'Brandon Grotesque Regular', sans-serif;
-  font-size: 4vw;
+  font-size: 60px;
   background-color: white;
   position: fixed;
   z-index: 1;
-  width: 100%;
-  padding-bottom: 80px;
+  width: 110%;
+  padding-bottom: 90px;
   padding-top: 90px;
-  padding-top: 20px;
+  padding-left: 570px;
   margin-top: 30px;
-  margin-left: -70px;
-  text-align: center;
-  color: rgb(181, 57, 171);
+  margin-left: -20px;
+  color: #FE027E;
 }
-
-@media(min-width: 300px) and (max-width: 699) {
-  .home {
-    display: block;
-  }
-}
-
 
 .links {
   position: fixed;
   z-index: 1;
-  margin-left: 75%;
-  display: inline;
+  margin-left: 90vw;
+  margin-top: 40px;
+  display: grid;
+  grid-template-rows: repeat(2);
   a {
     padding: 10px;
     font-size: 18px;
   }
 }
 
+
 .bottuns-holder {
   z-index: 3;
   position: fixed;
   background-color: white;
-  margin-left: 30vw;
-  margin-top: -25px;
+  margin-left: 1090px;
+  margin-top: 20px;
+  font-size: 16px;
 }
 
 .edit-title {
-  width: 50%;
-  margin-top: 10%;
-  margin-left: auto;
-  margin-right: auto;
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  margin-top: 50px;
+  background-image: linear-gradient(white , rgba(246, 246, 245, 0.966));
+  padding-top: 40px;
+  padding-left: 34%;
+  padding-right: 35%;
+  padding-bottom: 10px;
+  margin-left: -20px;
+  
 }
 
 .buttons {
@@ -83,14 +85,223 @@ body {
   flex-wrap: wrap;
   position: fixed;
   z-index: 3;
-  margin-top: -125px;
-  margin-left: 35vw;
+  margin-top: -110px;
+  margin-left: 460px;
+  margin-right: 3vw;
   button {
     background-color: white;
     margin-right: 10px;
+    font-size: 16px;
   }
 }
 
+// ------------------------- Cards grid ------------------------- 
+
+.cards-margin {
+  margin-right: -30px;
+  margin-top: 130px;
+}
+.cards-margin2 {
+  margin-left: 2vw;
+  margin-right: 10vw;
+  margin-top: 40px;
+}
+
+// ------------------------- media queries  ------------------------- 
+@media (min-width: 320px)and(max-width: 700px) {
+  .title {
+    font-size: 35px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    padding-left: 170px;
+  }
+  #logo {
+    margin-left: -10px;
+    margin-top: 0px;
+    img {width: 100px;
+    }
+  }
+  .links {
+    margin-left: 85%;
+    margin-top: -10px;
+    a {
+      font-size: 16px;
+      padding-left: 5px;
+      margin-bottom: -15px;
+      margin-top: -5;
+    }
+  }
+  .bottuns-holder {
+    margin-left: 507px;
+    margin-right: 5px;
+    margin-top: -10px;
+    font-size: 12px;
+  }
+  .buttons {
+    margin-left: 20px;
+    margin-top: -60px;
+    button {
+      background-color: white;
+      margin-right: 5px;
+      font-size: 12px;
+    }
+  }
+  .navbar {
+    padding-top: 40px;
+  }
+  .cards-margin {
+    margin-right: -30px;
+    margin-top: 50px;
+  }
+  
+}
+
+@media (min-width: 701px)and(max-width: 850px) {
+  .title {
+    font-size: 42px;
+    padding-bottom: 51px;
+    padding-top: 60px;
+    padding-left: 190px;
+  }
+  #logo {
+    margin-left: -10px;
+    margin-top: 0px;
+    img {width: 120px;
+    }
+  }
+  .links {
+    margin-left: 85%;
+    margin-top: -10px;
+    a {
+      font-size: 16px;
+      padding-left: 5px;
+      margin-bottom: -15px;
+      margin-top: -5;
+    }
+  }
+  .bottuns-holder {
+    margin-left: 578px;
+    margin-right: 5px;
+    margin-top: 0px;
+    font-size: 12px;
+  }
+  .buttons {
+    margin-left: 90px;
+    margin-top: -70px;
+    button {
+      background-color: white;
+      margin-right: 5px;
+      font-size: 12px;
+    }
+  }
+  .navbar {
+    padding-top: 40px;
+  }
+  .cards-margin2 {
+    margin-left: 2vw;
+  }
+  .cards-margin {
+    margin-right: -30px;
+    margin-top: 70px;
+  }
+}
+
+
+@media (min-width: 850px) and (max-width: 1050px) {
+  .title {
+    font-size: 47px;
+    padding-bottom: 82px;
+    padding-left: 250px;
+  }
+  #logo {
+    img {width: 160px;
+    }
+  }
+  .links {
+    margin-left: 86%;
+    margin-top: 35px;
+    a {
+      font-size: 17px;
+      margin-bottom: -7px;
+      margin-top: -5;
+    }
+  }
+  .bottuns-holder {
+    margin-left: 700px;
+    margin-right: 5px;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .buttons {
+    margin-left: 135px;
+    margin-top: -90px;
+    button {
+      background-color: white;
+      margin-right: 10px;
+      font-size: 14px;
+    }
+  }
+  .navbar {
+    padding-top: 65px;
+  }
+  .cards-margin2 {
+    margin-left: 4vw;
+    margin-right: 8vw;
+  }
+  .cards-margin {
+    margin-right: -30px;
+    margin-top: 100px;
+  }
+}
+
+@media (min-width: 1050px) and (max-width: 1400px) {
+  .title {
+    font-size: 55px;
+    padding-bottom: 62px;
+    padding-left: 380px;
+  }
+  #logo {
+    img {width: 160px;
+    }
+  }
+  .links {
+    margin-left: 86%;
+    margin-top: 35px;
+    a {
+      font-size: 17px;
+      margin-bottom: -7px;
+      margin-top: -5;
+    }
+  }
+  .bottuns-holder {
+    margin-left: 837px;
+    margin-right: 5px;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  .buttons {
+    margin-left: 270px;
+    margin-top: -100px;
+    margin-bottom: 0px;
+    button {
+      background-color: white;
+      margin-right: 10px;
+      font-size: 14px;
+    }
+  }
+  .navbar {
+    padding-top: 65px;
+  }
+  .cards-margin2 {
+    margin-left: 6vw;
+    margin-right: 8vw;
+  }
+  .cards-margin {
+    margin-top: 120px;
+  }
+}
+
+// ------------------------- home page ------------------------- 
 .home {
   margin-left: 15%;
   margin-right: auto;
@@ -100,15 +311,31 @@ body {
 }
 
 .home-form {
-  margin-top: 6%;
+  margin-top: 12%;
   width: 30%;
 }
 
 .home-image {
-  margin-top: 3%;
+  margin-top: 7%;
   width: 45%;
 }
 
+
+// ------------------------- Add Message Form ------------------------- 
+.add-form {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  margin-top: 80px;
+  background-color: white;
+  padding-top: 40px;
+  padding-left: 30%;
+  padding-right: 35%;
+  padding-bottom: 10px;
+  
+}
+
+// ------------------------- Display Card ------------------------- 
 .cards-margin {
   margin-left: 80px;
   margin-right: 80px;
@@ -116,13 +343,11 @@ body {
 
 .card {
   margin: 5px;
-  padding: 1.5rem;
+  padding: 1.5rem 1.5rem 0.5rem;
   width: 350px;
-  // background-color: rgba(244, 205, 107, 0.676);
   background-color: white;
   font-size: 20px;
   border: solid 2px rgb(255, 213, 0);
-  // font-family: 'Brandon Grotesque Regular', sans-serif;
   font-family: 'Inter', sans-serif;
   font-weight: 150;
   box-shadow: 10px 10px 40px rgba(127, 126, 79, 0.482);
@@ -139,17 +364,10 @@ body {
 }
 
 .card__image img {
-  // border-top-left-radius: 3%;
-  // border-top-right-radius: 3%;
   width: 346px;
   margin-left: -24px;
   margin-top:-32px;
   margin-bottom: 20px;
-}
-
-.page-component {
-  margin-top: 100px;
-  margin-left: 30px;
 }
 
 .from {
@@ -157,17 +375,6 @@ body {
   font-style: italic;
   font-family: 'Gochi Hand', cursive;
 }
-
-/* NOTE CSS */
-
-// .note {
-//   background-size: cover;
-//   top: 100px;
-//   left: 300px;
-//   height: 200px;
-//   width: 200px;
-//   padding: 20px;
-// }
 
 /* The Modal (background) */
 .modal {

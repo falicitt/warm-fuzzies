@@ -63,7 +63,7 @@ function DisplayCard() {
   const handleUpdate = (i) => { setActiveIndex(i) }
 
   const breakpoints = {
-    samll: 400, mobile: 700, tablet: 900, desktop: 1400
+    samll: 400, mobile: 700, tablet: 1100, desktop: 1500
   }
   
   const stopUpdate = () => { setActiveIndex(null)}
@@ -83,13 +83,13 @@ function DisplayCard() {
   return (
     <>
       <CardTitle />
-      <div className="page-component">
+      <div>
         <div className='buttons'>
           {!cardStatus && <button className="btn btn-outline-secondary btn-sm" onClick={redirectToAdd}>Add a message to this card</button>}  
           {!cardStatus && <button className="btn btn-outline-secondary btn-sm px-3" onClick={handleComplete}><span><i className="bi bi-check2-square"></i></span> Mark this card as complete</button>}
           <button id="myBtn" className="btn btn-outline-secondary btn-sm px-3" onClick={openModal}>Share the card</button>
         </div>
-        <div>
+        <div className='cards-margin2'>
           <div className='cards-margin'>
             <Masonry breakpoints={breakpoints} columns={{ samall: 1, mobile: 2, tablet: 3, desktop: 4 }} gap={5} autoArrange={true} >     
             {messages.map((message) =>
@@ -125,7 +125,7 @@ function DisplayCard() {
       </div>
       <div>
         {/* <!-- The Modal --> */}
-        <div id="myModal" className="modal" style={{display: viewModal}}> 
+        <div id="myModal" className="modal" style={{display: viewModal, zIndex: 3}}> 
           {/* <!-- Modal content --> */}
           <div className="modal-content">
             <div className="modal-header">
