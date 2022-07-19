@@ -5,24 +5,26 @@ const db = require('../db/DB-Functions/cards')
 module.exports = router
 
 router.get('/card/:id/', (req, res) => {
-  // use database function getAllMessages
-  const id = Number(req.params.id)
+  const stringid = req.params.id
+  const destringifiedID = stringid.slice(0, -5)
+  console.log(destringifiedID)
+  const id = Number(destringifiedID)
+
   db.getCardById(id)
     .then((card) => {
-      // then will be passed the result of the function getAllMessages
-      // console.log(theMessages)
       res.json(card)
     })
     .catch((err) => res.status(500).json({ msg: err.message }))
 })
 
 router.get('/:id', (req, res) => {
-  // use database function getAllMessages
-  const id = Number(req.params.id)
+  const stringid = req.params.id
+  const destringifiedID = stringid.slice(0, -5)
+  console.log(destringifiedID)
+  const id = Number(destringifiedID)
+
   db.getAllMessages(id)
     .then((theMessages) => {
-      // then will be passed the result of the function getAllMessages
-      // console.log(theMessages)
       res.json(theMessages)
     })
     .catch((err) => res.status(500).json({ msg: err.message }))
@@ -45,16 +47,17 @@ router.post('/:id/add', (req, res) => {
   db.addMessage(newMessage)
     .then((idArr) => {
       const id = idArr[0]
-      return db.getMessageById(id)  
+      return db.getMessageById(id)
     })
     .then((newMessage) => res.json(newMessage))
     .catch((err) => res.status(500).json({ dberr: err.message }))
 })
 
-
-
 router.patch('/:id', (req, res) => {
-  const id = req.params.id
+  const stringid = req.params.id
+  const destringifiedID = stringid.slice(0, -5)
+  console.log(destringifiedID)
+  const id = Number(destringifiedID)
   const detaildToUpdate = req.body
 
   db.updateCard(id, detaildToUpdate)
@@ -64,7 +67,10 @@ router.patch('/:id', (req, res) => {
 })
 
 router.get('/card/:id', (req, res) => {
-  const id = req.params.id
+  const stringid = req.params.id
+  const destringifiedID = stringid.slice(0, -5)
+  console.log(destringifiedID)
+  const id = Number(destringifiedID)
   db.getCardById(id)
     .then((card) => res.json(card))
     .catch((err) => res.status(500).json({ msg: err.message }))
@@ -95,12 +101,12 @@ router.delete('/message/:id', (req, res) => {
     })
 })
 
-router.patch ('/:id',(req, res) => {
+router.patch('/:id', (req, res) => {
   const details = req.body
   const id = Number(req.params.id)
   db.editCard(id, details)
-  .then(() => {
-    res.json(details)
-  })
-  .catch((err) => res.status(500).json({ dberr: err.message }))
+    .then(() => {
+      res.json(details)
+    })
+    .catch((err) => res.status(500).json({ dberr: err.message }))
 })

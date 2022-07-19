@@ -35,10 +35,11 @@ function CreateCard() {
   }
 
   const cardId = useSelector((state) => state.card?.id)
+  const cardURLstring = useSelector((state) => state.card.card_string)
 
   useEffect(() => { 
     if (cardId) { 
-      navigate(`/card/${cardId}/add`)
+      navigate(`/card/${cardId}${cardURLstring}/add`)
     }
   }, [cardId])
 

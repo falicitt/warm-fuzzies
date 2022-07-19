@@ -12,7 +12,7 @@ function CardTitle() {
       .then((cardObj) => {
         const card = { name: cardObj.name, person_name: cardObj.person_name }
         setCardDetails(card)
-        // console.log('the cardObj', card)
+        console.log('the cardObj', card)
       })
       .catch((err) => console.log(err))
   }, [])

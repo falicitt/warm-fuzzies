@@ -1,6 +1,7 @@
 import request from 'superagent'
 
 export function fetchMessages(id) {
+  console.log('api:', id)
   return request.get('/api/v1/card/' + id).then((resp) => resp.body)
 }
 
@@ -10,7 +11,8 @@ export function postMessage(newMessage) {
     .send(newMessage)
     .then((res) => {
       console.log('new message', res.body)
-      return res.body})
+      return res.body
+    })
     .catch((err) => console.log('api error', err))
 }
 
@@ -29,14 +31,10 @@ export function editMessage(id, newMessage) {
     .then((res) => res.body)
 }
 
-
 export function deleteTheMessage(id) {
   console.log('delete api called')
-  return request.delete(`/api/v1/card/message/${id}`)
-  .then((resp) => {
+  return request.delete(`/api/v1/card/message/${id}`).then((resp) => {
     console.log('delete api end', resp)
     return resp
   })
 }
-
-
