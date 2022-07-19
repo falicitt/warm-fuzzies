@@ -9,20 +9,19 @@ import { postImage } from '../apis/messages'
 
 function AddMessage() {
 
-  const { id } = useParams()
-  const destringifiedID = id.slice(0, -5)
-  const cardId = Number(destringifiedID)
+  const { cardUrl } = useParams()
+  const cardId = Number(cardUrl.slice(0, -5))
+  console.log(cardUrl)
+  console.log(cardId)
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
-
-  console.log(id)
 
   const [newMessage, setNewMessage] = useState({
     name: '',
     message: '',
     image: '',
-    card_id: cardId,
+    card_id: cardId
     // card_string: id
   })
 
@@ -35,7 +34,7 @@ function AddMessage() {
 
     dispatch(createMessage(newMessage))
     postImage(formData)
-      .then(() => navigate(`/card/${id}`))
+      .then(() => navigate(`/card/${cardUrl}`))
       .catch((err) => console.log('handle submit error', err))
   }
 
@@ -53,7 +52,7 @@ function AddMessage() {
 
   return (
     <>
-      <CardTitle cardId={id} />
+      <CardTitle cardId={cardId} />
         {cardStatus ? (
         'This card is complete, sorry you can not add more messages to it'
       ) : (

@@ -7,18 +7,11 @@ function CreateCard() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  // Emma's tinkerings
-
-  const cardString = Math.random().toString(36).slice(2, 7)
-  console.log(cardString)
-
-  // end of tinkerings
-
   const [newCard, setNewCard] = useState({
     name: '',
     person_name: '',
     created_at: new Date(),
-    card_string: cardString
+    card_string: Math.random().toString(36).slice(2, 7)
   })
 
   const handleTyping = (e) => {
@@ -35,11 +28,11 @@ function CreateCard() {
   }
 
   const cardId = useSelector((state) => state.card?.id)
-  const cardURLstring = useSelector((state) => state.card.card_string)
+  const cardString = useSelector((state) => state.card.card_string)
 
   useEffect(() => { 
     if (cardId) { 
-      navigate(`/card/${cardId}${cardURLstring}/add`)
+      navigate(`/card/${cardId}${cardString}/add`)
     }
   }, [cardId])
 

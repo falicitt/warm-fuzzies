@@ -19,16 +19,15 @@ function DisplayCard() {
   const handleDelete =(e) => {
     const messageId = e.target.value
     console.log(messageId)
-    dispatch(deleteMessage(messageId, id))
+    dispatch(deleteMessage(messageId, cardId))
   }
 
   const dispatch = useDispatch()
-  const { id } = useParams()
-
-  const destringifiedID = id.slice(0, -5)
-  const cardId = Number(destringifiedID)
-
-  // add destringified cardId
+  const { cardUrl } = useParams()
+  const cardId = Number(cardUrl.slice(0, -5))
+  const cardString = useSelector((state) => state.card.card_string)
+  console.log(cardUrl)
+  console.log(cardId)
 
   useEffect(() => {
     dispatch(getMessages(cardId))
@@ -38,7 +37,7 @@ function DisplayCard() {
   const [cardStatus, setCardStatus] = useState(null)
 
   useEffect(() => {
-    getTheCard(id)
+    getTheCard(cardId)
     .then((cardObj) => {
       setCardStatus(cardObj.complete)
       console.log('the cardObj', cardObj.complete)
@@ -51,15 +50,15 @@ function DisplayCard() {
   const handleComplete = () => {
     let result = window.confirm('Once completed the this card can not be edited or added to')  
     if(result) {
-      updateTheCard(id, {complete: true})
+      updateTheCard(cardId, {complete: true})
       setCardStatus(true)
     } else {
-      updateTheCard(id, {complete: false})
+      updateTheCard(cardId, {complete: false})
       setCardStatus(false)
     }
   } 
   const redirectToAdd = () => {
-    navigate(`/card/${id}/add`)
+    navigate(`/card/${cardId}${cardString}/add`)
   }
   
   //for toggle the update button for the selected message
@@ -95,7 +94,7 @@ function DisplayCard() {
             {messages.map((message) =>
               activeIndex === message.id ? (
                 <EditMessage
-                  cardId={id}
+                  cardId={message.card_id}
                   id={message.id}
                   name={message.name}
                   image={message.image}
@@ -124,9 +123,9 @@ function DisplayCard() {
         </div>
       </div>
       <div>
-        {!cardStatus && <button className="btn btn-outline-secondary btn-sm" onClick={redirectToAdd}>Add a message to this card</button>}  
-        {!cardStatus && <button className="btn btn-outline-secondary btn-sm px-3" onClick={handleComplete}><span><i className="bi bi-check2-square"></i></span> Mark this card as complete</button>}
-        <button id="myBtn" className="btn btn-outline-secondary btn-sm px-3" onClick={openModal}>Share the card</button>
+        {!cardStatus && <button className="btn btn-light btn-sm px-3 rounded-pill" onClick={redirectToAdd}>Add a message to this card</button>}  
+        {!cardStatus && <button className="btn btn-light btn-sm px-3 rounded-pill" onClick={handleComplete}><span><i className="bi bi-check2-square"></i></span> Mark this card as complete</button>}
+        <button id="myBtn" className="btn btn-light btn-sm px-3 rounded-pill" onClick={openModal}>Share the card</button>
         {/* <!-- The Modal --> */}
         <div id="myModal" className="modal" style={{display: viewModal}}> 
           {/* <!-- Modal content --> */}
@@ -137,7 +136,7 @@ function DisplayCard() {
             </div>
             <div className="modal-body">
               <p>Copy this link and share with your friends to add more messages on it!</p>
-              <p>{`http://localhost:3000/card/${id}`}</p>
+              <p>{`http://localhost:3000/card/${cardId}${cardString}`}</p>
             </div>
             <div className="modal-footer">
               <button className="btn btn-outline-secondary btn-sm" onClick={closeModal}>Close</button>

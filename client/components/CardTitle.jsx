@@ -4,11 +4,15 @@ import { useParams } from 'react-router'
 import { getTheCard, updateTheCard } from '../apis/cards'
 
 function CardTitle() {
-  const { id } = useParams()
+  const { cardUrl } = useParams()
+  const cardId = Number(cardUrl.slice(0, -5))
+  console.log(cardUrl)
+  console.log(cardId)
+
   const [cardDetails, setCardDetails] = useState(null)
 
   useEffect(() => {
-    getTheCard(id)
+    getTheCard(cardId)
       .then((cardObj) => {
         const card = { name: cardObj.name, person_name: cardObj.person_name }
         setCardDetails(card)
@@ -34,7 +38,7 @@ function CardTitle() {
   const handleSubmit = (evt) => {
     evt.preventDefault()
     console.log(cardDetails)
-    updateTheCard(id, {
+    updateTheCard(cardId, {
       name: cardDetails.name,
       person_name: cardDetails.person_name,
     }).catch((err) => console.log(err))
@@ -45,7 +49,7 @@ function CardTitle() {
   const [cardStatus, setCardStatus] = useState(null)
 
   useEffect(() => {
-    getTheCard(id)
+    getTheCard(cardId)
       .then((cardObj) => {
         setCardStatus(cardObj.complete)
         console.log('the cardObj', cardObj.complete)

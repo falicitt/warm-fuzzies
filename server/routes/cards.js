@@ -5,10 +5,7 @@ const db = require('../db/DB-Functions/cards')
 module.exports = router
 
 router.get('/card/:id/', (req, res) => {
-  const stringid = req.params.id
-  const destringifiedID = stringid.slice(0, -5)
-  console.log(destringifiedID)
-  const id = Number(destringifiedID)
+  const id = Number(req.params.id)
 
   db.getCardById(id)
     .then((card) => {
@@ -18,10 +15,7 @@ router.get('/card/:id/', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-  const stringid = req.params.id
-  const destringifiedID = stringid.slice(0, -5)
-  console.log(destringifiedID)
-  const id = Number(destringifiedID)
+  const id = Number(req.params.id)
 
   db.getAllMessages(id)
     .then((theMessages) => {
@@ -54,10 +48,8 @@ router.post('/:id/add', (req, res) => {
 })
 
 router.patch('/:id', (req, res) => {
-  const stringid = req.params.id
-  const destringifiedID = stringid.slice(0, -5)
-  console.log(destringifiedID)
-  const id = Number(destringifiedID)
+  const id = Number(req.params.id)
+
   const detaildToUpdate = req.body
 
   db.updateCard(id, detaildToUpdate)
@@ -67,10 +59,8 @@ router.patch('/:id', (req, res) => {
 })
 
 router.get('/card/:id', (req, res) => {
-  const stringid = req.params.id
-  const destringifiedID = stringid.slice(0, -5)
-  console.log(destringifiedID)
-  const id = Number(destringifiedID)
+  const id = req.params.id
+
   db.getCardById(id)
     .then((card) => res.json(card))
     .catch((err) => res.status(500).json({ msg: err.message }))
@@ -88,7 +78,7 @@ router.patch('/message/:id', (req, res) => {
 })
 
 router.delete('/message/:id', (req, res) => {
-  const id = req.params.id
+  const id = Number(req.params.id)
   console.log('route')
   db.deleteTheMessage(id)
 
