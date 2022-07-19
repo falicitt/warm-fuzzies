@@ -85,8 +85,7 @@
     "jwks-rsa": "^2.0.4",
     "knex": "^2.1.0",
     "pg": "^8.7.1",
-    "react-masonry-css": "^1.0.16",
-    "react-stack-grid": "^0.7.1",
+    "react-smart-masonry": "^2.0.2",
     "sqlite3": "^5.0.8",
     "superagent": "7.1.1"
   },

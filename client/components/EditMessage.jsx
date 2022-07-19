@@ -27,14 +27,19 @@ function EditMessage(props) {
   const handleSubmit = (e) => {
     // eslint-disable-next-line promise/catch-or-return
     e.preventDefault()
-    const formData = new FormData()
-    formData.append('image', image)
+    if(image) {
+      const formData = new FormData()
+      formData.append('image', image)
+      postImage(formData)
+      .catch((err) => console.log('handle submit error', err))
+      }
+  
     editMessage(props.id, message)
     .then(()=> {
-      postImage(formData)
       dispatch(getMessages(props.cardId))
       props.stopUpdate()
     })
+    .catch((err) => console.log(err.message))
   }
 
   return (
