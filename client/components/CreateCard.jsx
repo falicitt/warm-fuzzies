@@ -37,30 +37,18 @@ function CreateCard() {
 
   return (
     <>
-      <div className="container col-xxl-8 px-4 py-5">
-        <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
-          <div className="col-10 col-sm-8 col-lg-6">
-            <img
-              src="example-card-tilt.png"
-              className="d-block mx-lg-auto img-fluid"
-              alt="warm fuzzy message card"
-              width="700"
-              height="500"
-              loading="lazy"
-            />
-          </div>
-          <div className="col-lg-6">
-            <img src="/logoTallLHSnav.png" className="img-fluid" alt="logo" />
-            {/* <h5 className="display-5 fw-bold lh-1 mb-3">Warm Fuzzies</h5> */}
-            <p className="lead px-2 mt-2">
-              Make your friend happy with some nice messages
-            </p>
-            <form onSubmit={handleSubmit} className="px-2 mt-2">
-              <div className="mb-3">
-                <label htmlFor="inputFriendName" className="form-label">
-                  Your friend&apos;s name
-                </label>
-                <input
+      <div className="home">
+        <div className="home-form">
+          <img src="/logoTallLHSnav.png" className="img-fluid" alt="logo" />
+          <p className="lead px-2 mt-2">
+            Make your friend happy with some nice messages
+          </p>
+          <form onSubmit={handleSubmit} className="px-2 mt-2">
+            <div className="mb-3">
+              <label htmlFor="inputFriendName" className="form-label">
+                Your friend&apos;s name
+              </label>
+              <input
                 // NEW
                 type="text"
                 className="form-control"
@@ -69,13 +57,12 @@ function CreateCard() {
                 onChange={handleTyping}
                 aria-describedby="friendName"
                 />
-              </div>
-
-              <div className="mb-3">
-                <label htmlFor="inputCardTitle" className="form-label">
-                  Title for your card
-                </label>
-                <input
+            </div>
+            <div className="mb-3">
+              <label htmlFor="inputCardTitle" className="form-label">
+                 Title for your card
+              </label>
+              <input
                 // NEW
                 type="text" 
                 id="name" 
@@ -84,12 +71,21 @@ function CreateCard() {
                 className="form-control"
                 aria-describedby="cardTitle"
                 />
-             </div>
-              <button type="submit" className="btn btn-warning">
-                Create
-              </button>
-            </form>
-          </div>
+            </div>
+            <button type="submit" className="btn btn-warning">
+              Create
+            </button>
+          </form>
+        </div>
+        <div className="home-image">
+          <img
+            src="example-card-tilt.png"
+            className="d-block mx-lg-auto img-fluid"
+            alt="warm fuzzy message card"
+            width="700"
+            height="500"
+            loading="lazy"
+          />
         </div>
       </div>
     </>

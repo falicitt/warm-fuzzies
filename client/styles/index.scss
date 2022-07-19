@@ -1,35 +1,121 @@
+@import url('http://fonts.cdnfonts.com/css/brandon-grotesque-regular');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Oswald&display=swap');
+
 body {
-  position: absolute;
-  top: 0;
-  left: 0;
   margin: 0;
   padding: 20px;
   font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .navbar {
-  background-color: white;
-  padding: 10px;
   width: 100%;
+  background-color: white;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4(1fr, 3fr, 0,5fr, 0,5fr));
+  padding-top: 90px;
+  padding-bottom: 80px;
+  margin-top: -30px;
 }
 
-// .cards-container {
-//   display: flex;
-//   flex-wrap: wrap;
-// }
-
-@import url('http://fonts.cdnfonts.com/css/brandon-grotesque-regular');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Oswald&display=swap');
-
+#logo {
+  img {
+    width: 14vw;
+    position: fixed;
+    z-index: 2;
+    background-color: white;
+    margin-top: -40px;
+  }
+}
 
 .title {
   font-family: 'Brandon Grotesque Regular', sans-serif;
-  // font-family: 'Inter', sans-serif;
-  font-size: 4rem;
+  font-size: 4vw;
+  background-color: white;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  padding-bottom: 80px;
+  padding-top: 90px;
+  padding-top: 20px;
+  margin-top: 30px;
+  margin-left: -70px;
+  text-align: center;
+  color: rgb(181, 57, 171);
 }
+
+@media(min-width: 300px) and (max-width: 699) {
+  .home {
+    display: block;
+  }
+}
+
+
+.links {
+  position: fixed;
+  z-index: 1;
+  margin-left: 75%;
+  display: inline;
+  a {
+    padding: 10px;
+    font-size: 18px;
+  }
+}
+
+.bottuns-holder {
+  z-index: 3;
+  position: fixed;
+  background-color: white;
+  margin-left: 30vw;
+  margin-top: -25px;
+}
+
+.edit-title {
+  width: 50%;
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  position: fixed;
+  z-index: 3;
+  margin-top: -125px;
+  margin-left: 35vw;
+  button {
+    background-color: white;
+    margin-right: 10px;
+  }
+}
+
+.home {
+  margin-left: 15%;
+  margin-right: auto;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.home-form {
+  margin-top: 6%;
+  width: 30%;
+}
+
+.home-image {
+  margin-top: 3%;
+  width: 45%;
+}
+
+.cards-margin {
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
 .card {
-  margin: 2rem 2rem 0rem 0;
+  margin: 5px;
   padding: 1.5rem;
   width: 350px;
   // background-color: rgba(244, 205, 107, 0.676);
@@ -39,7 +125,7 @@ body {
   // font-family: 'Brandon Grotesque Regular', sans-serif;
   font-family: 'Inter', sans-serif;
   font-weight: 150;
-  box-shadow: 20px 20px 40px rgba(127, 126, 79, 0.482);
+  box-shadow: 10px 10px 40px rgba(127, 126, 79, 0.482);
   transition: transform .3s ease;
   cursor: pointer;
 }

@@ -52,10 +52,10 @@ function AddMessage() {
         'This card is complete, sorry you can not add more messages to it'
       ) : (
 
-      <div className="page-component">
+      <div className="edit-title">
 
       <div>
-        <h5 className="display-6 text-warning">Add your message</h5>
+        <h5 className="display-6 text-warning">Add Your Message</h5>
       </div>
 
       <div>

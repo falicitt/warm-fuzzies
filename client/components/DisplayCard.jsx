@@ -84,9 +84,14 @@ function DisplayCard() {
     <>
       <CardTitle />
       <div className="page-component">
-        <div className="cards-container">
-          <div>
-            <Masonry breakpoints={breakpoints} columns={{ samall: 1, mobile: 2, tablet: 3, desktop: 4 }} gap={10} autoArrange={true} >     
+        <div className='buttons'>
+          {!cardStatus && <button className="btn btn-outline-secondary btn-sm" onClick={redirectToAdd}>Add a message to this card</button>}  
+          {!cardStatus && <button className="btn btn-outline-secondary btn-sm px-3" onClick={handleComplete}><span><i className="bi bi-check2-square"></i></span> Mark this card as complete</button>}
+          <button id="myBtn" className="btn btn-outline-secondary btn-sm px-3" onClick={openModal}>Share the card</button>
+        </div>
+        <div>
+          <div className='cards-margin'>
+            <Masonry breakpoints={breakpoints} columns={{ samall: 1, mobile: 2, tablet: 3, desktop: 4 }} gap={5} autoArrange={true} >     
             {messages.map((message) =>
               activeIndex === message.id ? (
                 <EditMessage
@@ -119,9 +124,6 @@ function DisplayCard() {
         </div>
       </div>
       <div>
-        {!cardStatus && <button className="btn btn-outline-secondary btn-sm" onClick={redirectToAdd}>Add a message to this card</button>}  
-        {!cardStatus && <button className="btn btn-outline-secondary btn-sm px-3" onClick={handleComplete}><span><i className="bi bi-check2-square"></i></span> Mark this card as complete</button>}
-        <button id="myBtn" className="btn btn-outline-secondary btn-sm px-3" onClick={openModal}>Share the card</button>
         {/* <!-- The Modal --> */}
         <div id="myModal" className="modal" style={{display: viewModal}}> 
           {/* <!-- Modal content --> */}
