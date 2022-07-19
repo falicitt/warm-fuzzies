@@ -1,15 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
+import { Link } from 'react-router-dom'
 
-
-// const NavGroup = styled.nav`
-//   float: right;
-// `
-
-// const NavLink = styled(Link)`
-//   margin-right: 30px;
-// `
 
 function Nav() {
 
@@ -44,12 +36,16 @@ function Nav() {
   }
   
   return (
-    <>
-      {/* <NavGroup> */}
-        {/* <NavLink to="/">Home</NavLink> */}
+    <nav>
+
+        <a href="/">Create New Card</a>
         <IfAuthenticated>
+          <a href="/profile">
+            My Profile
+          </a>
+        
           <a href="/" onClick={handleLogoff}>
-            Log off
+            Log out
           </a>
         </IfAuthenticated>
         <IfNotAuthenticated>
@@ -61,7 +57,7 @@ function Nav() {
           </a>
         </IfNotAuthenticated>
       {/* </NavGroup> */}
-    </>
+    </nav>
   )
 }
 
