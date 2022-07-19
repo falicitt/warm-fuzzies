@@ -24,13 +24,16 @@ function AddMessage() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    if(image) {
     const formData = new FormData()
     formData.append('image', image)
+    postImage(formData)
+    .catch((err) => console.log('handle submit error', err))
+    }
 
     dispatch(createMessage(newMessage))
-    postImage(formData)
-      .then(() => navigate(`/card/${id}`))
-      .catch((err) => console.log('handle submit error', err))
+    navigate(`/card/${id}`)
+      
   }
 
   const [cardStatus, setCardStatus] = useState(null)

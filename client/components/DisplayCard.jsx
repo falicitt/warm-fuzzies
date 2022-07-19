@@ -15,6 +15,7 @@ function DisplayCard() {
  
   const messages = useSelector((state) => state.messages)
   const newMessage = useSelector((state) => state.newMessage)
+  const token = useSelector((state) => state.loggedInUser.token)
 
   const handleDelete =(e) => {
     const messageId = e.target.value
@@ -36,7 +37,6 @@ function DisplayCard() {
     getTheCard(id)
     .then((cardObj) => {
       setCardStatus(cardObj.complete)
-      console.log('the cardObj', cardObj.complete)
     })
     .catch(err => console.log(err))
 
@@ -56,20 +56,19 @@ function DisplayCard() {
   const redirectToAdd = () => {
     navigate(`/card/${id}/add`)
   }
+
+  const breakpoints = {
+    samll: 400, mobile: 700, tablet: 900, desktop: 1400
+  }
   
   //for toggle the update button for the selected message
   const [activeIndex, setActiveIndex] = useState(null)
 
   const handleUpdate = (i) => { setActiveIndex(i) }
 
-  const breakpoints = {
-    samll: 400, mobile: 700, tablet: 900, desktop: 1400
-  }
-  
   const stopUpdate = () => { setActiveIndex(null)}
 
  //for sending link modal
-
   const [viewModal, setViewModal] = useState("none")
 
   const openModal = () => {
@@ -83,13 +82,44 @@ function DisplayCard() {
   return (
     <>
       <CardTitle />
-      <div className="page-component">
+        <div className="page-component">
+          <div className='buttons'>
+          {!cardStatus && <button
+            className="btn btn-outline-secondary btn-sm"
+            onClick={redirectToAdd}>Add a message to this card</button>}  
+          {!cardStatus && <button
+            className="btn btn-outline-secondary btn-sm px-3"
+            onClick={handleComplete}><span><i className="bi bi-check2-square"></i></span> Mark this card as complete</button>}
+          <button id="myBtn"
+            className="btn btn-outline-secondary btn-sm px-3"
+            onClick={openModal}>Share the card</button>
+          </div>
+      {/* <!-- The Modal --> */}
+      <div id="myModal" className="modal" style={{display: viewModal}}> 
+
+        {/* <!-- Modal content --> */}
+        <div className="modal-content">
+          <div className="modal-header">
+            {/* <span className="close" onClick={closeModal}>&times;</span> */}
+            <h3>Share the love!</h3>
+          </div>
+          <div className="modal-body">
+            <p>Copy this link and share with your friends to add more messages on it!</p>
+            <p>{`http://localhost:3000/card/${id}`}</p>
+          </div>
+          <div className="modal-footer">
+            <button className="btn btn-outline-secondary btn-sm" onClick={closeModal}>Close</button>
+          </div>
+        </div>
+
+      </div>
         <div className="cards-container">
           <div>
             <Masonry breakpoints={breakpoints} columns={{ samall: 1, mobile: 2, tablet: 3, desktop: 4 }} gap={10} autoArrange={true} >     
             {messages.map((message) =>
               activeIndex === message.id ? (
                 <EditMessage
+                  key={message.id}
                   cardId={id}
                   id={message.id}
                   name={message.name}
@@ -107,8 +137,19 @@ function DisplayCard() {
                     <div className="card_title">{message.message}</div><br></br>
                     <p className="from">{message.name}</p>
                     <div>
-                      {!cardStatus && message.id === newMessage?.id && <button className="btn btn-outline-secondary btn-sm" onClick={() => handleUpdate(message.id)}>Edit</button>}
-                      {!cardStatus && message.id === newMessage?.id && <button className="btn btn-outline-secondary btn-sm" onClick={handleDelete} value={message.id}>Delete</button>}
+                    {token? 
+                  <>
+                  <button className="btn btn-outline-secondary btn-sm" onClick={() => handleUpdate(message.id)}>Edit</button>
+                  <button className="btn btn-outline-secondary btn-sm" onClick={handleDelete} value={message.id}>Delete</button>
+                  </>
+                  :
+                   message.id === newMessage?.id && 
+                  <>
+                    <button className="btn btn-outline-secondary btn-sm" onClick={() => handleUpdate(message.id)}>Edit</button>
+
+                    <button className="btn btn-outline-secondary btn-sm" onClick={handleDelete} value={message.id}>Delete</button>
+                    </>
+                  }
                     </div>
                   </div>
                 </div>
@@ -119,10 +160,7 @@ function DisplayCard() {
         </div>
       </div>
       <div>
-        {!cardStatus && <button className="btn btn-outline-secondary btn-sm" onClick={redirectToAdd}>Add a message to this card</button>}  
-        {!cardStatus && <button className="btn btn-outline-secondary btn-sm px-3" onClick={handleComplete}><span><i className="bi bi-check2-square"></i></span> Mark this card as complete</button>}
-        <button id="myBtn" className="btn btn-outline-secondary btn-sm px-3" onClick={openModal}>Share the card</button>
-        {/* <!-- The Modal --> */}
+
         <div id="myModal" className="modal" style={{display: viewModal}}> 
           {/* <!-- Modal content --> */}
           <div className="modal-content">
@@ -138,10 +176,12 @@ function DisplayCard() {
               <button className="btn btn-outline-secondary btn-sm" onClick={closeModal}>Close</button>
             </div>
           </div>
-        </div>
+        </div> 
       </div>
+     
     </>
   )
 }
 
 export default DisplayCard
+
