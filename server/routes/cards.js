@@ -4,7 +4,7 @@ const db = require('../db/DB-Functions/cards')
 
 module.exports = router
 
-router.get('/card/:id', (req, res) => {
+router.get('/card/:id/', (req, res) => {
   // use database function getAllMessages
   const id = Number(req.params.id)
   db.getCardById(id)

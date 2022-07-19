@@ -7,11 +7,18 @@ function CreateCard() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  
+  // Emma's tinkerings
+
+  const cardString = Math.random().toString(36).slice(2, 7)
+  console.log(cardString)
+
+  // end of tinkerings
+
   const [newCard, setNewCard] = useState({
     name: '',
     person_name: '',
     created_at: new Date(),
+    card_string: cardString
   })
 
   const handleTyping = (e) => {
@@ -41,7 +48,7 @@ function CreateCard() {
         <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
           <div className="col-10 col-sm-8 col-lg-6">
             <img
-              src="example-card-tilt.png"
+              src="example-card-masonry.png"
               className="d-block mx-lg-auto img-fluid"
               alt="warm fuzzy message card"
               width="700"

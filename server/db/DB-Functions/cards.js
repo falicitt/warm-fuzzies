@@ -48,5 +48,4 @@ module.exports = {
   editCard,
   updateCard,
   editMessage,
-  deleteTheMessage,
 }

@@ -5,6 +5,7 @@ exports.up = function (knex) {
     table.string('person_name')
     table.timestamps('created_at')
     table.boolean('complete').defaultsTo(false)
+    table.string('card_string')
   })
 }
 
