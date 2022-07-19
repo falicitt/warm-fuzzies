@@ -6,13 +6,14 @@ function insertCard(newCard, db = connection) {
 
 function updateCard(id, details, user, db = connection) {
   return db('cards')
-  .where('id', id)
-  .then((card) => 
-  { console.log('card', card[0])
-    authorizeUpdate(card[0], user)})
-  .then(() => {
-    return db('cards').where('id', id).update(details)
-  })
+    .where('id', id)
+    .then((card) => {
+      console.log('card', card[0])
+      authorizeUpdate(card[0], user)
+    })
+    .then(() => {
+      return db('cards').where('id', id).update(details)
+    })
 }
 
 function authorizeUpdate(card, auth0Id) {
@@ -51,8 +52,6 @@ function editMessage(id, details, db = connection) {
 function deleteTheMessage(id, db = connection) {
   return db('messages').where('id', id).delete()
 }
-
-
 
 module.exports = {
   addMessage,

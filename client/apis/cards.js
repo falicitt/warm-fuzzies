@@ -6,7 +6,7 @@ export function postCard(card, token) {
     .set('authorization', `Bearer ${token}`)
     .send(card)
     .then((res) => res.body)
-    .catch((err) => console.log(err, 'error consuming api postCard'))
+    .catch((err) => console.log(err.message, 'error consuming api postCard'))
 }
 
 export function updateTheCard(id, details, token) {
@@ -14,21 +14,31 @@ export function updateTheCard(id, details, token) {
   return request
     .patch('/api/v1/card/' + id)
     .set('authorization', `Bearer ${token}`)
-    .send( {details} )
+    .send({ details })
     .then((res) => {
       console.log('res body', res.body)
     })
-    .catch((err) => console.log(err.message, 'error consuming api updateTheCard'))
+    .catch((err) =>
+      console.log(err.message, 'error consuming api updateTheCard')
+    )
 }
 
 export function getTheCard(id) {
   return request
     .get(`/api/v1/card/card/${id}`)
     .then((res) => {
-      // console.log('getTheCard:', res.body)
       return res.body
     })
-    .catch((err) => console.log(err, 'error consuming api getTheCard'))
+    .catch((err) => console.log(err.message, 'error consuming api getTheCard'))
 }
 
-
+export function getCardsByUser(userId) {
+  return request
+    .get(`/api/v1/card/user/${userId}`)
+    .then((res) => {
+      return res.body
+    })
+    .catch((err) =>
+      console.log(err.message, 'error consuming api getCardsByUser')
+    )
+}

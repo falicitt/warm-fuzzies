@@ -10,6 +10,7 @@ module.exports = router
 router.post('/', checkJwt, (req, res) => {
   const auth0Id = req.user?.sub
   req.body.added_by_user = auth0Id
+  console.log('req.body', req.body)
 
   db.insertCard(req.body)
     .then((idArr) => {
@@ -17,7 +18,10 @@ router.post('/', checkJwt, (req, res) => {
       return db.getCardById(id)
     })
     .then((cardObj) => res.json(cardObj))
-    .catch((err) => res.status(500).json({ message: err.message }))
+    .catch((err) =>
+      // res.status(500).json({ message: err.message })
+      console.log('db error', err.message)
+    )
 })
 
 //edit card title
@@ -32,7 +36,6 @@ router.patch('/:id', checkJWT, (req, res) => {
     .catch((err) => res.status(500).json({ msg: err.message }))
 })
 
-
 router.get('/card/:id', (req, res) => {
   const id = Number(req.params.id)
   db.getCardById(id)
@@ -43,8 +46,8 @@ router.get('/card/:id', (req, res) => {
 router.get('/user/:id', (req, res) => {
   const userId = req.params.id
   db.getCardByUser(userId)
-  .then((cardArr) => res.json(cardArr))
-  .catch((err) => res.status(500).json({ msg: err.message }))
+    .then((cardArr) => res.json(cardArr))
+    .catch((err) => res.status(500).json({ msg: err.message }))
 })
 
 router.get('/:id', (req, res) => {
@@ -59,14 +62,13 @@ router.get('/:id', (req, res) => {
     .catch((err) => res.status(500).json({ msg: err.message }))
 })
 
-
 router.post('/:id/add', (req, res) => {
   const newMessage = req.body
 
   db.addMessage(newMessage)
     .then((idArr) => {
       const id = idArr[0]
-      return db.getMessageById(id)  
+      return db.getMessageById(id)
     })
     .then((newMessage) => res.json(newMessage))
     .catch((err) => res.status(500).json({ dberr: err.message }))
@@ -96,4 +98,3 @@ router.delete('/message/:id', (req, res) => {
       res.status(500).json({ msg: err.message })
     })
 })
-
