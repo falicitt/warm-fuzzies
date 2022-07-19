@@ -8,8 +8,6 @@ module.exports = router
 
 //create card
 router.post('/', checkJwt, (req, res) => {
-  // const card = req.body
-
   const auth0Id = req.user?.sub
   req.body.added_by_user = auth0Id
 
@@ -28,9 +26,6 @@ router.patch('/:id', checkJWT, (req, res) => {
   const detailToUpdate = req.body.details
   const auth0Id = req.user?.sub
 
-  console.log('detail to update', req.body.details)
-  console.log('user', req.user?.sub)
-
   db.updateCard(cardId, detailToUpdate, auth0Id)
     .then(() => db.getCardById(cardId))
     .then((card) => res.json(card))
@@ -43,6 +38,13 @@ router.get('/card/:id', (req, res) => {
   db.getCardById(id)
     .then((card) => res.json(card))
     .catch((err) => res.status(500).json({ msg: err.message }))
+})
+
+router.get('/user/:id', (req, res) => {
+  const userId = req.params.id
+  db.getCardByUser(userId)
+  .then((cardArr) => res.json(cardArr))
+  .catch((err) => res.status(500).json({ msg: err.message }))
 })
 
 router.get('/:id', (req, res) => {

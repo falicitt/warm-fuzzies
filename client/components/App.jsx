@@ -8,6 +8,7 @@ import AddMessage from './AddMessage'
 import CreateCard from './CreateCard'
 import DisplayCard from './DisplayCard'
 import Nav from './Nav'
+import Profile from './Profile'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path='/' element={<CreateCard />} />
           <Route path='/card/:id/add' element={<AddMessage />} />
           <Route path='/card/:id' element={<DisplayCard />} />
+          <Route path='/profile' element={<Profile />} />
         </Routes>
       </section>
 
