@@ -8,6 +8,7 @@ import { updateTheCard, getTheCard } from '../apis/cards'
 
 import CardTitle from './CardTitle'
 import EditMessage from './EditMessage'
+import Music from './Music'
 
 
 function DisplayCard() {
@@ -88,20 +89,23 @@ function DisplayCard() {
           {!cardStatus && <button className="btn btn-outline-secondary btn-sm" onClick={redirectToAdd}>Add a message to this card</button>}  
           {!cardStatus && <button className="btn btn-outline-secondary btn-sm px-3" onClick={handleComplete}><span><i className="bi bi-check2-square"></i></span> Mark this card as complete</button>}
           <button id="myBtn" className="btn btn-outline-secondary btn-sm px-3" onClick={openModal}>Share the card</button>
+          {cardStatus? <div className='music-bar'><Music /></div> : <div className='music-bar'>{!<Music />}</div>}
         </div>
         <div className='cards-margin2'>
           <div className='cards-margin'>
             <Masonry breakpoints={breakpoints} columns={{ samall: 1, mobile: 2, tablet: 3, desktop: 4 }} gap={5} autoArrange={true} >     
             {messages.map((message) =>
               activeIndex === message.id ? (
-                <EditMessage
-                  cardId={id}
-                  id={message.id}
-                  name={message.name}
-                  image={message.image}
-                  message={message.message}
-                  stopUpdate={stopUpdate}
-                />
+                <div>
+                  <EditMessage
+                    cardId={id}
+                    id={message.id}
+                    name={message.name}
+                    image={message.image}
+                    message={message.message}
+                    stopUpdate={stopUpdate}
+                  />
+                </div>
               ) : (
               // WHERE TO PUT CARD CONTENTS
                 <div key={message.id} className="card">
