@@ -77,6 +77,14 @@ function DisplayCard() {
 
   const closeModal = () => {
     setViewModal("none")
+    setCopyButton('copy url')
+  }
+
+  const [ copyButton, setCopyButton ] = useState('copy url')
+  const copyUrl = async () => {
+    const text = `http://localhost:3000/card/${id}`
+    await navigator.clipboard.writeText(text)
+    setCopyButton('copied to clipboard')
   }
 
   return (
@@ -105,7 +113,12 @@ function DisplayCard() {
           </div>
           <div className="modal-body">
             <p>Copy this link and share with your friends to add more messages on it!</p>
+            {/* <div className="tooltip"> */}
             <p>{`http://localhost:3000/card/${id}`}</p>
+            
+              <button className="btn btn-outline-secondary btn-sm" onClick={copyUrl}>
+                {copyButton}
+              </button>
           </div>
           <div className="modal-footer">
             <button className="btn btn-outline-secondary btn-sm" onClick={closeModal}>Close</button>
@@ -160,23 +173,6 @@ function DisplayCard() {
         </div>
       </div>
       <div>
-
-        <div id="myModal" className="modal" style={{display: viewModal}}> 
-          {/* <!-- Modal content --> */}
-          <div className="modal-content">
-            <div className="modal-header">
-              {/* <span className="close" onClick={closeModal}>&times;</span> */}
-              <h3>Share the love!</h3>
-            </div>
-            <div className="modal-body">
-              <p>Copy this link and share with your friends to add more messages on it!</p>
-              <p>{`http://localhost:3000/card/${id}`}</p>
-            </div>
-            <div className="modal-footer">
-              <button className="btn btn-outline-secondary btn-sm" onClick={closeModal}>Close</button>
-            </div>
-          </div>
-        </div> 
       </div>
      
     </>
