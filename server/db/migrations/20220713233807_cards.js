@@ -5,8 +5,8 @@ exports.up = function (knex) {
     table.text('person_name')
     table.timestamps('created_at')
     table.boolean('complete').defaultsTo(false)
-    table.string('card_string')
-    table.string('added_by_user').references('users.auth0_id')
+    table.text('card_string')
+    table.text('added_by_user').references('users.auth0_id')
   })
 }
 
