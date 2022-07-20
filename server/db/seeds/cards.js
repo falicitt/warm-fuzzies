@@ -12,7 +12,8 @@ exports.seed = async function (knex) {
       person_name: 'Emma',
       created_at: '2022-07-10 09:24:00',
       complete: false,
-      card_string: 'RndkP'
+      card_string: 'RndkP',
+      added_by_user: 'auth0|62c22897087a31c6a64caada'
     },
     {
       id: 2,
@@ -20,7 +21,8 @@ exports.seed = async function (knex) {
       person_name: 'Chris',
       created_at: '2022-07-10 09:24:00',
       complete: false,
-      card_string: 'lljeP'
+      card_string: 'lljeP',
+      added_by_user: 'auth0|62c22897087a31c6a64caada'
     },
     {
       id: 3,
@@ -28,7 +30,8 @@ exports.seed = async function (knex) {
       person_name: 'Andrea',
       created_at: '2022-07-10 09:24:00',
       complete: false,
-      card_string: 'fskdl'
+      card_string: 'fskdl',
+      added_by_user: 'auth0|62c22897087a31c6a64caada'
     },
     {
       id: 4,
@@ -36,7 +39,8 @@ exports.seed = async function (knex) {
       person_name: 'Cassie',
       created_at: '2022-07-10 09:24:00',
       complete: false,
-      card_string: 'Pmhhd'
+      card_string: 'Pmhhd',
+      added_by_user: 'auth0|62c22897087a31c6a64caada'
     },
   ])
 }

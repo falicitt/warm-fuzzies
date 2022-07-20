@@ -87,7 +87,7 @@ function DisplayCard() {
 
   const [ copyButton, setCopyButton ] = useState('copy url')
   const copyUrl = async () => {
-    const text = `http://localhost:3000/card/${cardUrl}`
+    const text = `https://warmfuzziesnz.herokuapp.com/card/${cardUrl}`
     await navigator.clipboard.writeText(text)
     setCopyButton('copied to clipboard')
   }
@@ -116,7 +116,7 @@ function DisplayCard() {
           <div className="modal-body">
             <p>Copy this link and share with your friends to add more messages on it!</p>
             {/* <div className="tooltip"> */}
-            <p>{`http://localhost:3000/card/${cardUrl}`}</p>
+            <p>{`https://warmfuzziesnz.herokuapp.com/card/${cardUrl}`}</p>
             
               <button className="btn btn-outline-secondary btn-sm" onClick={copyUrl}>
                 {copyButton}

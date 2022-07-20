@@ -4,7 +4,7 @@ exports.up = function (knex) {
     table.text('name');
     table.text('message');
     table.text('image');
-    table.integer('card_id').references("cards.id")
+    table.integer('card_id').references("cards.id");
   });
 };
 
