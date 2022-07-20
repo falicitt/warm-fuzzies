@@ -3,8 +3,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Oswald&display=swap');
 
 body {
+  // position: absolute;
+  top: 0;
+  left: 0;
   margin: 0;
   padding: 20px;
+  font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+button {
+  margin: 1rem;
+}
+
+nav a {
+  padding: 0 1rem;
 }
 
 // -------------------------  navbar  -------------------------
@@ -412,7 +424,10 @@ body {
 }
 
 .card__title {
+  // font-family: 'Oswald', sans-serif;
   font-weight: 800;
+  font-size: 4rem;
+  
 }
 
 .card__image img {
@@ -432,8 +447,8 @@ body {
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  z-index: 7; /* Sit on top */
+  padding-top: 30vh; /* Location of the box */
   left: 0;
   top: 0;
   // width: 100%; /* Full width */
@@ -471,7 +486,6 @@ body {
 
 /* The Close Button */
 .close {
-  // color: white;
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -487,8 +501,7 @@ body {
 .modal-header {
   padding: 10px 16px;
   text-align: center;
-  // background-color: gray;
-  // color: white;
+ 
 }
 
 .modal-body {
@@ -496,8 +509,4 @@ body {
 
 .modal-footer {
   padding: 2px 16px;
-  // background-color: gray;
-  // color: white;
 }
-
-

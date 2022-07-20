@@ -42,11 +42,10 @@ export function showMessages(messagesArray) {
   }
 }
 
-export function getMessages(id) {
+export function getMessages(cardId) {
   return (dispatch) => {
     // eslint-disable-next-line promise/catch-or-return
-    fetchMessages(id) // from API
-      // then dispatch, send redux what we got
+    fetchMessages(cardId) // from API
       .then((messagesArray) => {
         dispatch(showMessages(messagesArray))
       })

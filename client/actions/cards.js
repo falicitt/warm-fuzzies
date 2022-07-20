@@ -16,9 +16,9 @@ export function createCard(newCard) {
 // }
 
 // Thunks
-export function addCard(newCard) {
+export function addCard(newCard, token) {
   return (dispatch) => {
-    postCard(newCard)
+    postCard(newCard, token)
       .then((cardDetails) => 
         {dispatch(createCard(cardDetails))})
       .catch((err) => console.log(err.message))

@@ -8,7 +8,9 @@ import { getTheCard } from '../apis/cards'
 import { postImage } from '../apis/messages'
 
 function AddMessage() {
-  const { id } = useParams()
+
+  const { cardUrl } = useParams()
+  const cardId = Number(cardUrl.slice(0, -5))
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -17,29 +19,32 @@ function AddMessage() {
     name: '',
     message: '',
     image: '',
-    card_id: id,
+    card_id: cardId
   })
 
   const [image, setImage] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    if(image) {
     const formData = new FormData()
     formData.append('image', image)
+    postImage(formData)
+    .catch((err) => console.log('handle submit error', err))
+    }
 
     dispatch(createMessage(newMessage))
-    postImage(formData)
-      .then(() => navigate(`/card/${id}`))
-      .catch((err) => console.log('handle submit error', err))
+    navigate(`/card/${cardUrl}`)
+      
   }
 
   const [cardStatus, setCardStatus] = useState(null)
 
   useEffect(() => {
-    getTheCard(id)
+    getTheCard(cardId)
     .then((cardObj) => {
       setCardStatus(cardObj.complete)
-      // console.log('the cardObj', cardObj.complete)
+      console.log('the cardObj', cardObj.complete)
     })
     .catch(err => console.log(err))
 
@@ -47,9 +52,9 @@ function AddMessage() {
 
   return (
     <>
-      <CardTitle cardId={id} />
-      {cardStatus ? (
-        <p>This card is complete, sorry you can not add more messages to it</p>
+      <CardTitle cardId={cardId} />
+        {cardStatus ? (
+        'This card is complete, sorry you can not add more messages to it'
       ) : (
         <div className='add-form'>
           <div><h5 className="display-6 text-warning">Add Your Message</h5></div>
