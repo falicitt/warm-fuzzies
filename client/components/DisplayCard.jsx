@@ -88,7 +88,7 @@ function DisplayCard() {
 
   const [ copyButton, setCopyButton ] = useState('copy url')
   const copyUrl = async () => {
-    const text = `http://localhost:3000/card/${cardId}${cardString}`
+    const text = `http://localhost:3000/card/${cardUrl}`
     await navigator.clipboard.writeText(text)
     setCopyButton('copied to clipboard')
   }
