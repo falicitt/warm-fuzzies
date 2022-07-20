@@ -17,9 +17,6 @@ function updateCard(id, details, user, db = connection) {
 }
 
 function authorizeUpdate(card, auth0Id) {
-  // console.log(card)
-  console.log('db1', card.added_by_user)
-  console.log('db2', auth0Id)
   if (card.added_by_user !== auth0Id) {
     throw new Error('Unauthorized')
   }

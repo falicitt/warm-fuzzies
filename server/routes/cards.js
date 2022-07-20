@@ -10,7 +10,6 @@ module.exports = router
 router.post('/', checkJwt, (req, res) => {
   const auth0Id = req.user?.sub
   req.body.added_by_user = auth0Id
-  console.log('req.body', req.body)
 
   db.insertCard(req.body)
     .then((idArr) => {

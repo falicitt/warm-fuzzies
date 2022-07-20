@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { useSelector } from 'react-redux'
 import { getTheCard, updateTheCard } from '../apis/cards'
+import Nav from './Nav'
 
 function CardTitle() {
   const { cardUrl } = useParams()
@@ -55,18 +56,10 @@ function CardTitle() {
 
   return edit === true ? (
     <>
-    <nav className="navbar">
-      <a id='logo' href="/">
-        <img src="/logoTallLHSnav.png" alt="logo" className='logo-img'/>
-      </a>
+    <nav>
       <h1 className="title">
         {cardDetails?.name} {cardDetails?.person_name}
       </h1>
-      <div className='links'>
-        <a href="">Register</a>
-        <a href="">Login</a>
-      </div>
-    </nav>
     
     <div className="edit-title">
       <div>
@@ -94,26 +87,18 @@ function CardTitle() {
         <button className="btn btn-light-outline">Done</button>
       </form>
     </div>
+    </nav>
     </>
   ) : (
 
     // SHOW NORMAL CARD TITLE CODE
 
   <div>
-    <nav className="navbar">
-      <a id='logo' href="/">
-        <img src="/logoTallLHSnav.png" alt="logo" className='logo-img'/>
-      </a>
+    <div className="navbar">
       <h1 className="title">
-        {cardDetails?.name} {cardDetails?.person_name}
-      </h1>
-      <div className='links'>
-        <a href="">Register</a>
-        <a href="">Login</a>
-      </div>
-      
-    </nav>
-    {!cardStatus && <button className='bottuns-holder btn btn-outline-secondary btn-sm px-3' onClick={handleClick}>Edit Card</button>}
+        {cardDetails?.name} {cardDetails?.person_name} {!cardStatus && <span className='bottuns-holder btn btn-sm px-3' onClick={handleClick}><i className="bi bi-pencil-fill"></i></span>}
+      </h1>    
+    </div>
   </div>
   )
 }

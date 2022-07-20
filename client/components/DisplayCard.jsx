@@ -9,6 +9,7 @@ import { updateTheCard, getTheCard } from '../apis/cards'
 import CardTitle from './CardTitle'
 import EditMessage from './EditMessage'
 import Music from './Music'
+import Nav from './Nav'
 
 
 function DisplayCard() {
@@ -28,8 +29,8 @@ function DisplayCard() {
   const { cardUrl } = useParams()
   const cardId = Number(cardUrl.slice(0, -5))
   const cardString = useSelector((state) => state.card.card_string)
-  console.log(cardUrl)
-  console.log(cardId)
+  // console.log(cardUrl)
+  // console.log(cardId)
 
   useEffect(() => {
     dispatch(getMessages(cardId))
@@ -59,7 +60,7 @@ function DisplayCard() {
     }
   } 
   const redirectToAdd = () => {
-    navigate(`/card/${cardId}${cardString}/add`)
+    navigate(`/card/${cardUrl}/add`)
   }
   
   //for toggle the update button for the selected message
@@ -82,10 +83,19 @@ function DisplayCard() {
 
   const closeModal = () => {
     setViewModal("none")
+    setCopyButton('copy url')
+  }
+
+  const [ copyButton, setCopyButton ] = useState('copy url')
+  const copyUrl = async () => {
+    const text = `http://localhost:3000/card/${cardUrl}`
+    await navigator.clipboard.writeText(text)
+    setCopyButton('copied to clipboard')
   }
 
   return (
     <>
+      <Nav />
       <CardTitle />
         <div className="page-component">
           <div className='buttons'>
@@ -106,7 +116,12 @@ function DisplayCard() {
           </div>
           <div className="modal-body">
             <p>Copy this link and share with your friends to add more messages on it!</p>
-            <p>{`http://localhost:3000/card/${cardId}${cardString}`}</p>
+            {/* <div className="tooltip"> */}
+            <p>{`http://localhost:3000/card/${cardUrl}`}</p>
+            
+              <button className="btn btn-outline-secondary btn-sm" onClick={copyUrl}>
+                {copyButton}
+              </button>
           </div>
           <div className="modal-footer">
             <button className="btn btn-outline-secondary btn-sm" onClick={closeModal}>Close</button>
@@ -135,7 +150,7 @@ function DisplayCard() {
                     <img className="card-img-top" src={message.image} alt="" />
                   </div>
                   <div className="card__body">
-                    <div className="card_title">{message.message}</div><br></br>
+                    <div className="card_message">{message.message}</div><br></br>
                     <p className="from">{message.name}</p>
                     <div>
                     {token? 
