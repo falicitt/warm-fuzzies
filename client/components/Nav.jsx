@@ -2,11 +2,9 @@ import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 // import { Link } from 'react-router-dom'
 
-
 function Nav() {
 
   const isAuthenticated =  useAuth0().isAuthenticated
-  
   
   function IfAuthenticated({ children }) {
     return isAuthenticated ? <>{children}</> : null
@@ -36,10 +34,19 @@ function Nav() {
   }
   
   return (
-    <nav>
+    <>
+    <div className="nav">
+    <div className="container">
+    <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <a href="/" className="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+      <a href="/"><img src="/smallLogo.svg" alt="logo" className='logo-img my-2' height="60"/></a>
+      </a>
 
-        <a href="/" className="btn btn-light btn-sm mx-2" type="button">Create New Card</a>
-        <IfAuthenticated>
+      <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+      </ul>
+
+      <div className="col-md-3 text-end">
+      <IfAuthenticated>
           <a href="/profile" className="btn btn-light btn-sm mx-2" role="button">
             My Profile
           </a>
@@ -50,13 +57,16 @@ function Nav() {
         </IfAuthenticated>
         <IfNotAuthenticated>
           <a href="/" className="btn btn-light btn-sm mx-2" onClick={handleRegister} role="button">Register</a>
-          {/* <a class="btn btn-primary" href="#" role="button">Link</a> */}
           <a href="/" className="btn btn-light btn-sm mx-2" onClick={handleSignIn} role="button">
             Log in
           </a>
-        </IfNotAuthenticated>
-      {/* </NavGroup> */}
-    </nav>
+       </IfNotAuthenticated>
+      </div>
+    </header>
+  </div>
+  </div>
+
+    </>
   )
 }
 

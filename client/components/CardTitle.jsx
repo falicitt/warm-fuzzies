@@ -56,16 +56,16 @@ function CardTitle() {
   return edit === true ? (
     <>
     <nav className="navbar">
-      <a id='logo' href="/">
+      {/* <a id='logo' href="/">
         <img src="/logoTallLHSnav.png" alt="logo" className='logo-img'/>
-      </a>
+      </a> */}
       <h1 className="title">
         {cardDetails?.name} {cardDetails?.person_name}
       </h1>
-      <div className='links'>
+      {/* <div className='links'>
         <a href="/" className="btn btn-light btn-sm my-2" role="button">Register</a>
         <a href="/" className="btn btn-light btn-sm my-2" role="button">Login</a>
-      </div>
+      </div> */}
     </nav>
     
     <div className="edit-title">
@@ -101,16 +101,16 @@ function CardTitle() {
 
   <div>
     <nav className="navbar">
-      <a id='logo' href="/">
+      {/* <a id='logo' href="/">
         <img src="/logoTallLHSnav.png" alt="logo" className='logo-img'/>
-      </a>
+      </a> */}
       <h1 className="title">
         {cardDetails?.name} {cardDetails?.person_name}
       </h1>
-      <div className='links'>
+      {/* <div className='links'>
         <a href="/" className="btn btn-light btn-sm my-2" role="button">Register</a>
         <a href="/" className="btn btn-light btn-sm my-2" role="button">Login</a>
-      </div>
+      </div> */}
       
     </nav>
     {!cardStatus && <button className='bottuns-holder btn btn-outline-secondary btn-sm px-3' onClick={handleClick}>Edit Card</button>}
