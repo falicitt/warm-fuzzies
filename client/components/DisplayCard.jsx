@@ -146,19 +146,19 @@ function DisplayCard() {
               ) : (
               // WHERE TO PUT CARD CONTENTS
                 <div className='cards-edge'>
-                <div key={message.id} className="card">
-                  <div className="card__image mt-2">
-                    <img className="card-img-top" src={message.image} alt="" />
-                  </div>
-                  <div className="card__body">
-                    <div className="card_message">{message.message}</div><br></br>
-                    <p className="from">{message.name}</p>
-                    <div>
-                    {token? 
-                  <>
-                  <button className="btn btn-outline-secondary btn-sm" onClick={() => handleUpdate(message.id)}>Edit</button>
-                  <button className="btn btn-outline-secondary btn-sm" onClick={handleDelete} value={message.id}>Delete</button>
-                  </>
+                  <div key={message.id} className="card">
+                    <div className="card__image mt-2">
+                      <img className="card-img-top" src={message.image} alt="" />
+                    </div>
+                    <div className="card__body">
+                      <div className="card_message">{message.message}</div><br></br>
+                        <p className="from">{message.name}</p>
+                      <div>
+                      {token? 
+                        <>
+                    <button className="btn btn-outline-secondary btn-sm" onClick={() => handleUpdate(message.id)}>Edit</button>
+                    <button className="btn btn-outline-secondary btn-sm" onClick={handleDelete} value={message.id}>Delete</button>
+                       </>
                   :
                    message.id === newMessage?.id && 
                   <>
