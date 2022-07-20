@@ -19,13 +19,13 @@ function Profile() {
   const tf = new Intl.DateTimeFormat('en-NZ')
   
   return (
-    <>
-      <h1>My Profile</h1>
-      <p>You are logged in as: {email}</p>
-      <h2>My Cards</h2>
+    <div className="profile">
+      <h1 className="title">My Cards</h1>
+  
+      <div className="email">You are logged in as: {email}</div>
       {cards?.map(card => 
       
-        <li key={card.id}>
+        <li key={card.id} className='card'>
           <Link to={`/card/${card.id}`}>
           <p>{card.name} {card.person_name}</p>
           <p>{tf.format(new Date(card.created_at))}</p>
@@ -33,7 +33,7 @@ function Profile() {
         </li>
        
         )}
-    </>
+    </div>
   )
 }
 
