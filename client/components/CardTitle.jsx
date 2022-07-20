@@ -4,13 +4,14 @@ import { useSelector } from 'react-redux'
 import { getTheCard, updateTheCard } from '../apis/cards'
 
 function CardTitle() {
-  const { id } = useParams()
+  const { cardUrl } = useParams()
+  const cardId = Number(cardUrl.slice(0, -5))
   const token = useSelector((state) => state.loggedInUser.token)
 
   const [cardDetails, setCardDetails] = useState(null)
 
   useEffect(() => {
-    getTheCard(id)
+    getTheCard(cardId)
       .then((cardObj) => {
         const card = { name: cardObj.name, person_name: cardObj.person_name }
         setCardDetails(card)
@@ -33,7 +34,8 @@ function CardTitle() {
 
   const handleSubmit = (evt) => {
     evt.preventDefault()
-    updateTheCard(id, {
+    // console.log(cardDetails)
+    updateTheCard(cardId, {
       name: cardDetails.name,
       person_name: cardDetails.person_name,
     }, token).catch((err) => console.log(err))
@@ -44,89 +46,80 @@ function CardTitle() {
   const [cardStatus, setCardStatus] = useState(null)
 
   useEffect(() => {
-    getTheCard(id)
+    getTheCard(cardId)
       .then((cardObj) => {
         setCardStatus(cardObj.complete)
       })
       .catch((err) => console.log(err))
   }, [])
 
-  return ( edit === true ? (
-
-    <div className="page-component">
+  return edit === true ? (
+    <>
+    <nav className="navbar">
+      <a id='logo' href="/">
+        <img src="/logoTallLHSnav.png" alt="logo" className='logo-img'/>
+      </a>
+      <h1 className="card__title">
+        {cardDetails?.name} {cardDetails?.person_name}
+      </h1>
+      <div className='links'>
+        <a href="">Register</a>
+        <a href="">Login</a>
+      </div>
+    </nav>
+    
+    <div className="edit-title">
       <div>
         <h5 className="display-6 text-warning">Edit Card Title</h5>
       </div>
-    <form onSubmit={handleSubmit}>
-      <label className="form-label" htmlFor='name'>Card Name</label>
-      <input
-        className="form-control"
-        id='name'
-        name='name'
-        type='text'
-        value={cardDetails.name}
-        onChange={handleChange}
-      />
-
-      <label className="form-label" htmlFor='person_name'>Friend Name</label>
-      <input
-        className="form-control"
-        id='person_name'
-        name='person_name'
-        type='text'
-        value={cardDetails.person_name}
-        onChange={handleChange}
-      />
-      <button className="btn btn-light btn-sm">Done</button>
-    </form>
+      <form onSubmit={handleSubmit}>
+        <label className="form-label" htmlFor='name'>Card Name</label>
+        <input
+          className="form-control"
+          id='name'
+          name='name'
+          type='text'
+          initialvalue={cardDetails.name}
+          onChange={handleChange}
+        />
+        <label className="form-label" htmlFor='person_name'>Friend Name</label>
+        <input
+          className="form-control"
+          id='person_name'
+          name='person_name'
+          type='text'
+          initialvalue={cardDetails.person_name}
+          onChange={handleChange}
+        />
+        <button className="btn btn-light-outline">Done</button>
+      </form>
     </div>
+    </>
   ) : (
 
     // SHOW NORMAL CARD TITLE CODE
-  <>
-    <nav
-      className="title navbar navbar-expand-lg navbar-light fixed-top mt-1"
-      id="mainNav"
-    >
-      <div className="container">
-        <h1 className="title">
-          {cardDetails?.name} {cardDetails?.person_name}
-            </h1>
-            <button className="btn btn-light btn-sm" onClick={handleClick}>Edit Card Title</button>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="/"
-          aria-controls="navbarResponsive"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          Menu
-          <i className="bi-list"></i>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarResponsive">
-          <ul className="navbar-nav ms-auto me-4 my-3 my-lg-0">
-            <li className="px-2">
-              {/* conditional render edit card button based on card status */}
-            {!cardStatus && <button className="btn btn-light btn-sm" onClick={handleClick}>Edit Card</button>}
-            </li>
-            <li className="nav-item">
-              <a className="navbar-brand" href="/">
-                <img
-                  src="/logoTallLHSnav.png"
-                  alt="logo"
-                  style={{width: "80px"}}
-                />
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </>
 
-  ))
+    <nav className="navbar">
+
+      <a id='logo' href="/">
+        <img src="/logoTallLHSnav.png" alt="logo" className='logo-img'/>
+      </a>
+
+      <div className="card__title">
+      <h1 className="title">
+        {cardDetails?.name} {cardDetails?.person_name}  
+      </h1>
+      {!cardStatus && <span  className='bottuns-holder myicon' onClick={handleClick}><i className="bi bi-pencil-fill"></i></span>}
+      </div>
+     
+      <div className='links'>
+        <a href="">Register</a>
+        <a href="">Login</a>
+      </div>
+      
+      
+    </nav>
+  )
 }
 
 export default CardTitle

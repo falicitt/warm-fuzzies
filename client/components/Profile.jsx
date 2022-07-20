@@ -20,7 +20,7 @@ function Profile() {
   
   return (
     <div className="profile">
-      <h1 className="title">My Cards</h1>
+      <h1 className="profileTitle">My Cards</h1>
   
       <div className="email">You are logged in as: {email}</div>
       {cards?.map(card => 

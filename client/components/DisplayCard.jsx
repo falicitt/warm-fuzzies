@@ -8,6 +8,7 @@ import { updateTheCard, getTheCard } from '../apis/cards'
 
 import CardTitle from './CardTitle'
 import EditMessage from './EditMessage'
+import Music from './Music'
 
 
 function DisplayCard() {
@@ -20,21 +21,25 @@ function DisplayCard() {
   const handleDelete =(e) => {
     const messageId = e.target.value
     console.log(messageId)
-    dispatch(deleteMessage(messageId, id))
+    dispatch(deleteMessage(messageId, cardId))
   }
 
   const dispatch = useDispatch()
-  const { id } = useParams()
+  const { cardUrl } = useParams()
+  const cardId = Number(cardUrl.slice(0, -5))
+  const cardString = useSelector((state) => state.card.card_string)
+  // console.log(cardUrl)
+  // console.log(cardId)
 
   useEffect(() => {
-    dispatch(getMessages(id))
+    dispatch(getMessages(cardId))
   }, [])
 
   
   const [cardStatus, setCardStatus] = useState(null)
 
   useEffect(() => {
-    getTheCard(id)
+    getTheCard(cardId)
     .then((cardObj) => {
       setCardStatus(cardObj.complete)
     })
@@ -46,19 +51,15 @@ function DisplayCard() {
   const handleComplete = () => {
     let result = window.confirm('Once completed the this card can not be edited or added to')  
     if(result) {
-      updateTheCard(id, {complete: true})
+      updateTheCard(cardId, {complete: true}, token)
       setCardStatus(true)
     } else {
-      updateTheCard(id, {complete: false})
+      updateTheCard(cardId, {complete: false}, token)
       setCardStatus(false)
     }
   } 
   const redirectToAdd = () => {
-    navigate(`/card/${id}/add`)
-  }
-
-  const breakpoints = {
-    samll: 400, mobile: 700, tablet: 900, desktop: 1400
+    navigate(`/card/${cardId}${cardString}/add`)
   }
   
   //for toggle the update button for the selected message
@@ -66,6 +67,10 @@ function DisplayCard() {
 
   const handleUpdate = (i) => { setActiveIndex(i) }
 
+  const breakpoints = {
+    samll: 400, mobile: 700, tablet: 1100, desktop: 1500
+  }
+  
   const stopUpdate = () => { setActiveIndex(null)}
 
  //for sending link modal
@@ -82,7 +87,7 @@ function DisplayCard() {
 
   const [ copyButton, setCopyButton ] = useState('copy url')
   const copyUrl = async () => {
-    const text = `http://localhost:3000/card/${id}`
+    const text = `http://localhost:3000/card/${cardId}${cardString}`
     await navigator.clipboard.writeText(text)
     setCopyButton('copied to clipboard')
   }
@@ -92,16 +97,12 @@ function DisplayCard() {
       <CardTitle />
         <div className="page-component">
           <div className='buttons'>
-          {!cardStatus && <button
-            className="btn btn-outline-secondary btn-sm"
-            onClick={redirectToAdd}>Add a message to this card</button>}  
-          {!cardStatus && <button
-            className="btn btn-outline-secondary btn-sm px-3"
-            onClick={handleComplete}><span><i className="bi bi-check2-square"></i></span> Mark this card as complete</button>}
-          <button id="myBtn"
-            className="btn btn-outline-secondary btn-sm px-3"
-            onClick={openModal}>Share the card</button>
+            {!cardStatus && <button className="btn btn-outline-secondary btn-sm" onClick={redirectToAdd}>Add a message to this card</button>}  
+            {!cardStatus && <button className="btn btn-outline-secondary btn-sm px-3" onClick={handleComplete}><span><i className="bi bi-check2-square"></i></span> Mark this card as complete</button>}
+            <button id="myBtn" className="btn btn-outline-secondary btn-sm px-3" onClick={openModal}>Share the card</button>
           </div>
+          <div>{cardStatus? <div className='music-back'><div className='music-bar'><Music /></div></div> : <div className='music-bar'>{!<Music />}</div>}</div>
+
       {/* <!-- The Modal --> */}
       <div id="myModal" className="modal" style={{display: viewModal}}> 
 
@@ -114,7 +115,7 @@ function DisplayCard() {
           <div className="modal-body">
             <p>Copy this link and share with your friends to add more messages on it!</p>
             {/* <div className="tooltip"> */}
-            <p>{`http://localhost:3000/card/${id}`}</p>
+            <p>{`http://localhost:3000/card/${cardId}${cardString}`}</p>
             
               <button className="btn btn-outline-secondary btn-sm" onClick={copyUrl}>
                 {copyButton}
@@ -127,13 +128,13 @@ function DisplayCard() {
 
       </div>
         <div className="cards-container">
-          <div>
-            <Masonry breakpoints={breakpoints} columns={{ samall: 1, mobile: 2, tablet: 3, desktop: 4 }} gap={10} autoArrange={true} >     
+          <div className='cards-margin'>
+            <Masonry breakpoints={breakpoints} columns={{ samall: 1, mobile: 2, tablet: 3, desktop: 4 }} gap={5} autoArrange={true} >     
             {messages.map((message) =>
               activeIndex === message.id ? (
                 <EditMessage
                   key={message.id}
-                  cardId={id}
+                  cardId={message.card_id}
                   id={message.id}
                   name={message.name}
                   image={message.image}
@@ -147,7 +148,7 @@ function DisplayCard() {
                     <img className="card-img-top" src={message.image} alt="" />
                   </div>
                   <div className="card__body">
-                    <div className="card_title">{message.message}</div><br></br>
+                    <div className="card_message">{message.message}</div><br></br>
                     <p className="from">{message.name}</p>
                     <div>
                     {token? 
@@ -171,10 +172,7 @@ function DisplayCard() {
             </Masonry>
           </div>
         </div>
-      </div>
-      <div>
-      </div>
-     
+      </div>    
     </>
   )
 }

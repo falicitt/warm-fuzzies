@@ -8,7 +8,9 @@ import { getTheCard } from '../apis/cards'
 import { postImage } from '../apis/messages'
 
 function AddMessage() {
-  const { id } = useParams()
+
+  const { cardUrl } = useParams()
+  const cardId = Number(cardUrl.slice(0, -5))
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -17,7 +19,7 @@ function AddMessage() {
     name: '',
     message: '',
     image: '',
-    card_id: id,
+    card_id: cardId
   })
 
   const [image, setImage] = useState('')
@@ -32,17 +34,17 @@ function AddMessage() {
     }
 
     dispatch(createMessage(newMessage))
-    navigate(`/card/${id}`)
+    navigate(`/card/${cardUrl}`)
       
   }
 
   const [cardStatus, setCardStatus] = useState(null)
 
   useEffect(() => {
-    getTheCard(id)
+    getTheCard(cardId)
     .then((cardObj) => {
       setCardStatus(cardObj.complete)
-      // console.log('the cardObj', cardObj.complete)
+      console.log('the cardObj', cardObj.complete)
     })
     .catch(err => console.log(err))
 
@@ -50,23 +52,14 @@ function AddMessage() {
 
   return (
     <>
-      <CardTitle cardId={id} />
+      <CardTitle cardId={cardId} />
         {cardStatus ? (
         'This card is complete, sorry you can not add more messages to it'
       ) : (
-
-      <div className="page-component">
-
-      <div>
-        <h5 className="display-6 text-warning">Add your message</h5>
-      </div>
-
-      <div>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label className="form-label" htmlFor="image">
-              Image
-            </label>
+        <div className='add-form'>
+          <div><h5 className="display-6 text-warning">Add Your Message</h5></div>
+          <form onSubmit={handleSubmit}>
+            <label className="form-label" htmlFor="image">Image</label>
             <input
               className="form-control"
               type="file"
@@ -80,12 +73,8 @@ function AddMessage() {
                 setImage(e.target.files[0])
               }}
             />
-          </div>
 
-          <div>
-            <label className="form-label" htmlFor="message">
-              Message
-            </label>
+            <label className="form-label" htmlFor="message">Message</label>
             <input
               className="form-control"
               type="text"
@@ -95,12 +84,8 @@ function AddMessage() {
                 setNewMessage({ ...newMessage, message: e.target.value })
               }
             />
-          </div>
-
-          <div>
-            <label className="form-label" htmlFor="name">
-              Your name
-            </label>
+          
+            <label className="form-label" htmlFor="name">Your name</label>
             <input
               className="form-control"
               type="text"
@@ -110,16 +95,12 @@ function AddMessage() {
                 setNewMessage({ ...newMessage, name: e.target.value })
               }
             />
-          </div>
-
-          <div className="mt-2">
-            <button className="btn btn-outline-secondary">Add</button>
-          </div>
-        </form>
-      </div>
-      </div>
-  )}
-  </>
+         
+            <div className="mt-2"><button className="btn btn-outline-secondary">Add</button></div>
+          </form>
+        </div>
+      )}
+    </>
   )
 }
 

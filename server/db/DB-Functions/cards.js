@@ -63,5 +63,4 @@ module.exports = {
   getCardByUser,
   updateCard,
   editMessage,
-  deleteTheMessage,
 }

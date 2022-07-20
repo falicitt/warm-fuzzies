@@ -21,6 +21,7 @@ function CreateCard() {
     name: '',
     person_name: '',
     created_at: new Date(),
+    card_string: Math.random().toString(36).slice(2, 7)
   })
 
   const handleTyping = (e) => {
@@ -37,34 +38,23 @@ function CreateCard() {
   }
 
   const cardId = useSelector((state) => state.card?.id)
+  const cardString = useSelector((state) => state.card.card_string)
 
   useEffect(() => { 
     if (cardId) { 
-      navigate(`/card/${cardId}/add`)
+      navigate(`/card/${cardId}${cardString}/add`)
     }
   }, [cardId])
 
   return (
     <>
-      <div className="container col-xxl-8 px-4 py-5">
-        <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
-          <div className="col-10 col-lg-6">
-            <img
-              src="example-card-tilt.png"
-              className="d-block mx-lg-auto img-fluid"
-              alt="warm fuzzy message card"
-              width="700"
-              height="500"
-              loading="lazy"
-            />
-          </div>
-          <div className="col-lg-6">
-            <img src="/logoTallLHSnav.png" className="img-fluid" alt="logo" />
-            {/* <h5 className="display-5 fw-bold lh-1 mb-3">Warm Fuzzies</h5> */}
-            <p className="lead px-2 mt-2">
-              Make your friend happy with some nice messages
-            </p>
-            {token?
+      <div className="home">
+        <div className="home-form">
+          <img src="/logoTallLHSnav.png" className="img-fluid" alt="logo" />
+          <p className="lead px-2 mt-2">
+            Make your friend happy with some nice messages
+          </p>
+          {token?
             <form onSubmit={handleSubmit} className="px-2 mt-2">
               <div className="mb-3">
                 <label htmlFor="inputFriendName" className="form-label">
@@ -79,13 +69,12 @@ function CreateCard() {
                 onChange={handleTyping}
                 aria-describedby="friendName"
                 />
-              </div>
-
-              <div className="mb-3">
-                <label htmlFor="inputCardTitle" className="form-label">
-                  Title for your card
-                </label>
-                <input
+            </div>
+            <div className="mb-3">
+              <label htmlFor="inputCardTitle" className="form-label">
+                 Title for your card
+              </label>
+              <input
                 // NEW
                 type="text" 
                 id="name" 
@@ -93,19 +82,27 @@ function CreateCard() {
                 onChange={handleTyping}
                 className="form-control"
                 aria-describedby="cardTitle"
-                />
-             </div>
-            
-              <button type="submit" className="btn btn-warning">
-                Create
-              </button> 
-            </form>
-            :
-            <button className="btn btn-warning" onClick={handleSignIn}>
-             log in to create a card
+              />
+            </div>
+            <button type="submit" className="btn btn-warning">
+              Create
+            </button>
+          </form>
+          :
+            <button className="btn btn-warning rounded-pill" onClick={handleSignIn}>
+             Log In To Create A Card
           </button> 
-}
-          </div>
+        }
+        </div>
+        <div className="home-image">
+          <img
+            src="example-card-tilt.png"
+            className="d-block mx-lg-auto img-fluid"
+            alt="warm fuzzy message card"
+            width="700"
+            height="500"
+            loading="lazy"
+          />
         </div>
       </div>
     </>
