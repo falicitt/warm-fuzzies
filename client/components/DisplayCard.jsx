@@ -5,11 +5,11 @@ import Masonry from 'react-smart-masonry'
  
 import { getMessages, deleteMessage } from '../actions/messages'
 import { updateTheCard, getTheCard } from '../apis/cards'
-
+import Music from './Music'
 import CardTitle from './CardTitle'
 import EditMessage from './EditMessage'
-import Music from './Music'
 import Nav from './Nav'
+
 
 
 function DisplayCard() {
@@ -180,6 +180,6 @@ function DisplayCard() {
     </>
   )
 }
-
+      
 export default DisplayCard
 

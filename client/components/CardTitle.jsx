@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { useSelector } from 'react-redux'
 import { getTheCard, updateTheCard } from '../apis/cards'
-import Nav from './Nav'
 
 function CardTitle() {
   const { cardUrl } = useParams()
