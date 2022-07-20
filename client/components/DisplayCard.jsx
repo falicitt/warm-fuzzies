@@ -20,21 +20,25 @@ function DisplayCard() {
   const handleDelete =(e) => {
     const messageId = e.target.value
     console.log(messageId)
-    dispatch(deleteMessage(messageId, id))
+    dispatch(deleteMessage(messageId, cardId))
   }
 
   const dispatch = useDispatch()
-  const { id } = useParams()
+  const { cardUrl } = useParams()
+  const cardId = Number(cardUrl.slice(0, -5))
+  const cardString = useSelector((state) => state.card.card_string)
+  console.log(cardUrl)
+  console.log(cardId)
 
   useEffect(() => {
-    dispatch(getMessages(id))
+    dispatch(getMessages(cardId))
   }, [])
 
   
   const [cardStatus, setCardStatus] = useState(null)
 
   useEffect(() => {
-    getTheCard(id)
+    getTheCard(cardId)
     .then((cardObj) => {
       setCardStatus(cardObj.complete)
     })
@@ -46,15 +50,15 @@ function DisplayCard() {
   const handleComplete = () => {
     let result = window.confirm('Once completed the this card can not be edited or added to')  
     if(result) {
-      updateTheCard(id, {complete: true})
+      updateTheCard(cardId, {complete: true}, token)
       setCardStatus(true)
     } else {
-      updateTheCard(id, {complete: false})
+      updateTheCard(cardId, {complete: false}, token)
       setCardStatus(false)
     }
   } 
   const redirectToAdd = () => {
-    navigate(`/card/${id}/add`)
+    navigate(`/card/${cardId}${cardString}/add`)
   }
 
   const breakpoints = {
@@ -105,7 +109,7 @@ function DisplayCard() {
           </div>
           <div className="modal-body">
             <p>Copy this link and share with your friends to add more messages on it!</p>
-            <p>{`http://localhost:3000/card/${id}`}</p>
+            <p>{`http://localhost:3000/card/${cardId}${cardString}`}</p>
           </div>
           <div className="modal-footer">
             <button className="btn btn-outline-secondary btn-sm" onClick={closeModal}>Close</button>
@@ -120,7 +124,7 @@ function DisplayCard() {
               activeIndex === message.id ? (
                 <EditMessage
                   key={message.id}
-                  cardId={id}
+                  cardId={message.card_id}
                   id={message.id}
                   name={message.name}
                   image={message.image}
@@ -158,27 +162,7 @@ function DisplayCard() {
             </Masonry>
           </div>
         </div>
-      </div>
-      <div>
-
-        <div id="myModal" className="modal" style={{display: viewModal}}> 
-          {/* <!-- Modal content --> */}
-          <div className="modal-content">
-            <div className="modal-header">
-              {/* <span className="close" onClick={closeModal}>&times;</span> */}
-              <h3>Share the love!</h3>
-            </div>
-            <div className="modal-body">
-              <p>Copy this link and share with your friends to add more messages on it!</p>
-              <p>{`http://localhost:3000/card/${id}`}</p>
-            </div>
-            <div className="modal-footer">
-              <button className="btn btn-outline-secondary btn-sm" onClick={closeModal}>Close</button>
-            </div>
-          </div>
-        </div> 
-      </div>
-     
+      </div>    
     </>
   )
 }

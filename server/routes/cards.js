@@ -24,7 +24,7 @@ router.post('/', checkJwt, (req, res) => {
     )
 })
 
-//edit card title
+//edit card (to mark complete?)
 router.patch('/:id', checkJWT, (req, res) => {
   const cardId = Number(req.params.id)
   const detailToUpdate = req.body.details
@@ -36,13 +36,30 @@ router.patch('/:id', checkJWT, (req, res) => {
     .catch((err) => res.status(500).json({ msg: err.message }))
 })
 
+// edit card (title and name?)
+router.patch('/:id', (req, res) => {
+  const details = req.body
+  const id = Number(req.params.id)
+  db.editCard(id, details)
+    .then(() => {
+      res.json(details)
+    })
+    .catch((err) => res.status(500).json({ dberr: err.message }))
+})
+
+// get card by id (to edit)
 router.get('/card/:id', (req, res) => {
   const id = Number(req.params.id)
+
   db.getCardById(id)
+    .then((card) => {
+      res.json(card)
+    })
     .then((card) => res.json(card))
     .catch((err) => res.status(500).json({ msg: err.message }))
 })
 
+// get card by user (for profile page)
 router.get('/user/:id', (req, res) => {
   const userId = req.params.id
   db.getCardByUser(userId)
@@ -50,18 +67,18 @@ router.get('/user/:id', (req, res) => {
     .catch((err) => res.status(500).json({ msg: err.message }))
 })
 
+// get all messages for a card
 router.get('/:id', (req, res) => {
-  // use database function getAllMessages
   const id = Number(req.params.id)
+
   db.getAllMessages(id)
     .then((theMessages) => {
-      // then will be passed the result of the function getAllMessages
-      // console.log(theMessages)
       res.json(theMessages)
     })
     .catch((err) => res.status(500).json({ msg: err.message }))
 })
 
+// add message to a card
 router.post('/:id/add', (req, res) => {
   const newMessage = req.body
 
@@ -74,6 +91,30 @@ router.post('/:id/add', (req, res) => {
     .catch((err) => res.status(500).json({ dberr: err.message }))
 })
 
+
+// edit card
+router.patch('/:id', (req, res) => {
+  const id = Number(req.params.id)
+
+  const detaildToUpdate = req.body
+
+  db.updateCard(id, detaildToUpdate)
+    .then(() => db.getCardById(id))
+    .then((card) => res.json(card))
+    .catch((err) => res.status(500).json({ msg: err.message }))
+})
+
+// // ???
+// router.get('/card/:id', (req, res) => {
+//   const id = req.params.id
+
+//   db.getCardById(id)
+//     .then((card) => res.json(card))
+//     .catch((err) => res.status(500).json({ msg: err.message }))
+// })
+
+
+// edit message
 router.patch('/message/:id', (req, res) => {
   const details = req.body
   const id = Number(req.params.id)
@@ -85,8 +126,9 @@ router.patch('/message/:id', (req, res) => {
     .catch((err) => res.status(500).json({ dberr: err.message }))
 })
 
+// delete message
 router.delete('/message/:id', (req, res) => {
-  const id = req.params.id
+  const id = Number(req.params.id)
   console.log('route')
   db.deleteTheMessage(id)
 
@@ -98,3 +140,5 @@ router.delete('/message/:id', (req, res) => {
       res.status(500).json({ msg: err.message })
     })
 })
+
+

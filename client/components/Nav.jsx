@@ -38,21 +38,20 @@ function Nav() {
   return (
     <nav>
 
-        <a href="/">Create New Card</a>
+        <a href="/" className="btn btn-light rounded-pill" role="button">Create New Card</a>
         <IfAuthenticated>
-          <a href="/profile">
+          <a href="/profile" className="btn btn-light rounded-pill" role="button">
             My Profile
           </a>
         
-          <a href="/" onClick={handleLogoff}>
+          <a href="/" onClick={handleLogoff} className="btn btn-light rounded-pill" role="button">
             Log out
           </a>
         </IfAuthenticated>
         <IfNotAuthenticated>
-          <a href="/" onClick={handleRegister}>
-            Register
-          </a>
-          <a href="/" onClick={handleSignIn}>
+          <a href="/" className="btn btn-light rounded-pill" onClick={handleRegister} role="button">Register</a>
+          {/* <a class="btn btn-primary" href="#" role="button">Link</a> */}
+          <a href="/" className="btn btn-light rounded-pill" onClick={handleSignIn} role="button">
             Log in
           </a>
         </IfNotAuthenticated>

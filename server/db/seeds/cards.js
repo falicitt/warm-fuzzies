@@ -12,6 +12,7 @@ exports.seed = async function (knex) {
       person_name: 'Emma',
       created_at: '2022-07-10 09:24:00',
       complete: false,
+      card_string: 'RndkP'
     },
     {
       id: 2,
@@ -19,6 +20,7 @@ exports.seed = async function (knex) {
       person_name: 'Chris',
       created_at: '2022-07-10 09:24:00',
       complete: false,
+      card_string: 'lljeP'
     },
     {
       id: 3,
@@ -26,6 +28,7 @@ exports.seed = async function (knex) {
       person_name: 'Andrea',
       created_at: '2022-07-10 09:24:00',
       complete: false,
+      card_string: 'fskdl'
     },
     {
       id: 4,
@@ -33,6 +36,7 @@ exports.seed = async function (knex) {
       person_name: 'Cassie',
       created_at: '2022-07-10 09:24:00',
       complete: false,
+      card_string: 'Pmhhd'
     },
   ])
 }

@@ -19,10 +19,10 @@ function App() {
       <section className='main'>
         <Nav />
         <Routes>
-          <Route path='/card/:id/' element={<DisplayCard/>} ></Route>
+          <Route path='/card/:cardUrl/' element={<DisplayCard/>} ></Route>
           <Route path='/' element={<CreateCard />} />
-          <Route path='/card/:id/add' element={<AddMessage />} />
-          <Route path='/card/:id' element={<DisplayCard />} />
+          <Route path='/card/:cardUrl/add' element={<AddMessage />} />
+          <Route path='/card/:cardUrl' element={<DisplayCard />} />
           <Route path='/profile' element={<Profile />} />
         </Routes>
       </section>

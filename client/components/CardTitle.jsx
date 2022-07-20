@@ -4,13 +4,14 @@ import { useSelector } from 'react-redux'
 import { getTheCard, updateTheCard } from '../apis/cards'
 
 function CardTitle() {
-  const { id } = useParams()
+  const { cardUrl } = useParams()
+  const cardId = Number(cardUrl.slice(0, -5))
   const token = useSelector((state) => state.loggedInUser.token)
 
   const [cardDetails, setCardDetails] = useState(null)
 
   useEffect(() => {
-    getTheCard(id)
+    getTheCard(cardId)
       .then((cardObj) => {
         const card = { name: cardObj.name, person_name: cardObj.person_name }
         setCardDetails(card)
@@ -33,7 +34,8 @@ function CardTitle() {
 
   const handleSubmit = (evt) => {
     evt.preventDefault()
-    updateTheCard(id, {
+    // console.log(cardDetails)
+    updateTheCard(cardId, {
       name: cardDetails.name,
       person_name: cardDetails.person_name,
     }, token).catch((err) => console.log(err))
@@ -44,7 +46,7 @@ function CardTitle() {
   const [cardStatus, setCardStatus] = useState(null)
 
   useEffect(() => {
-    getTheCard(id)
+    getTheCard(cardId)
       .then((cardObj) => {
         setCardStatus(cardObj.complete)
       })

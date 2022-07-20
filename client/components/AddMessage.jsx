@@ -8,7 +8,9 @@ import { getTheCard } from '../apis/cards'
 import { postImage } from '../apis/messages'
 
 function AddMessage() {
-  const { id } = useParams()
+
+  const { cardUrl } = useParams()
+  const cardId = Number(cardUrl.slice(0, -5))
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -17,7 +19,7 @@ function AddMessage() {
     name: '',
     message: '',
     image: '',
-    card_id: id,
+    card_id: cardId
   })
 
   const [image, setImage] = useState('')
@@ -32,17 +34,17 @@ function AddMessage() {
     }
 
     dispatch(createMessage(newMessage))
-    navigate(`/card/${id}`)
+    navigate(`/card/${cardUrl}`)
       
   }
 
   const [cardStatus, setCardStatus] = useState(null)
 
   useEffect(() => {
-    getTheCard(id)
+    getTheCard(cardId)
     .then((cardObj) => {
       setCardStatus(cardObj.complete)
-      // console.log('the cardObj', cardObj.complete)
+      console.log('the cardObj', cardObj.complete)
     })
     .catch(err => console.log(err))
 
@@ -50,7 +52,7 @@ function AddMessage() {
 
   return (
     <>
-      <CardTitle cardId={id} />
+      <CardTitle cardId={cardId} />
         {cardStatus ? (
         'This card is complete, sorry you can not add more messages to it'
       ) : (
