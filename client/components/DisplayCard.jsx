@@ -28,8 +28,6 @@ function DisplayCard() {
   const { cardUrl } = useParams()
   const cardId = Number(cardUrl.slice(0, -5))
   const cardString = useSelector((state) => state.card.card_string)
-  console.log(cardUrl)
-  console.log(cardId)
 
   useEffect(() => {
     dispatch(getMessages(cardId))
@@ -106,7 +104,7 @@ function DisplayCard() {
           </div>
           <div className="modal-body">
             <p>Copy this link and share with your friends to add more messages on it!</p>
-            <p>{`http://localhost:3000/card/${cardId}${cardString}`}</p>
+            <p>{`http://localhost:3000/card/${cardUrl}`}</p>
           </div>
           <div className="modal-footer">
             <button className="btn btn-outline-secondary btn-sm" onClick={closeModal}>Close</button>
