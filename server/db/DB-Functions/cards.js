@@ -1,12 +1,9 @@
 const connection = require('../connection')
 
-<<<<<<< HEAD
-=======
 function addMessage(newMessage, db = connection) {
   return db('messages').insert(newMessage,"id")
 }
 
->>>>>>> 867ff76780c80e1b8f822e4b648c2f64753bca0f
 function insertCard(newCard, db = connection) {
   return db('cards').insert(newCard,"id")
 }

@@ -6,11 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import CardTitle from './CardTitle'
 import { getTheCard } from '../apis/cards'
 import { postImage } from '../apis/messages'
-<<<<<<< HEAD
 import Nav from './Nav'
-=======
-import Player from './Music'
->>>>>>> 867ff76780c80e1b8f822e4b648c2f64753bca0f
 
 function AddMessage() {
 
@@ -62,28 +58,10 @@ function AddMessage() {
         {cardStatus ? (
         'This card is complete, sorry you can not add more messages to it'
       ) : (
-<<<<<<< HEAD
         <div className='add-form'>
           <div><h5 className="display-6 text-warning">Add Your Message</h5></div>
           <form onSubmit={handleSubmit}>
             <label className="form-label" htmlFor="image">Image</label>
-=======
-
-      <div className="page-component">
-
-
-
-      <div>
-        <h5 className="display-6 text-warning">Add your message</h5>
-      </div>
-
-      <div>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label className="form-label" htmlFor="image">
-              Image
-            </label>
->>>>>>> 867ff76780c80e1b8f822e4b648c2f64753bca0f
             <input
               className="form-control"
               type="file"

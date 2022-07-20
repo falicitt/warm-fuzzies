@@ -8,7 +8,6 @@ import { updateTheCard, getTheCard } from '../apis/cards'
 import Music from './Music'
 import CardTitle from './CardTitle'
 import EditMessage from './EditMessage'
-import Music from './Music'
 import Nav from './Nav'
 
 
@@ -97,7 +96,6 @@ function DisplayCard() {
     <>
       <Nav />
       <CardTitle />
-<<<<<<< HEAD
         <div className="page-component">
           <div className='buttons'>
             {!cardStatus && <button className="btn btn-outline-secondary btn-sm" onClick={redirectToAdd}>Add a message to this card</button>}  
@@ -130,14 +128,6 @@ function DisplayCard() {
         </div>
 
       </div>
-=======
-      <div className="page-component">
-        <div>
-      {!cardStatus && <button className="button-position-one btn btn-outline-secondary btn-sm" onClick={redirectToAdd}>Add a message to this card</button>} 
-      {!cardStatus && <button className="bi bi-check2-square button-position-two btn btn-outline-secondary btn-sm px-3" onClick={handleComplete}><span><i ></i></span> Mark this card as complete</button>}
-           <button id="myBtn" className="button-position-three btn btn-outline-secondary btn-sm px-3" onClick={openModal}>Share the card</button> 
-        </div>
->>>>>>> 867ff76780c80e1b8f822e4b648c2f64753bca0f
         <div className="cards-container">
           <div className='cards-margin'>
             <Masonry breakpoints={breakpoints} columns={{ samall: 1, mobile: 2, tablet: 3, desktop: 4 }} gap={5} autoArrange={true} >     
@@ -183,34 +173,7 @@ function DisplayCard() {
             </Masonry>
           </div>
         </div>
-<<<<<<< HEAD
       </div>    
-=======
-      </div>
-      <div>
-        
-
-        {/* <!-- The Modal --> */}
-        <div id="myModal" className="modal" style={{display: viewModal}}> 
-          {/* <!-- Modal content --> */}
-          <div className="modal-content">
-            <div className="modal-header">
-              {/* <span className="close" onClick={closeModal}>&times;</span> */}
-              <h3>Share the love!</h3>
-            </div>
-            <div className="modal-body">
-              <p>Copy this link and share with your friends to add more messages on it!</p>
-              <p>{`http://localhost:3000/card/${id}`}</p>
-            </div>
-            <div className="modal-footer">
-              <button className="btn btn-outline-secondary btn-sm" onClick={closeModal}>Close</button>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <Music/>
->>>>>>> 867ff76780c80e1b8f822e4b648c2f64753bca0f
     </>
   )
 }
@@ -218,24 +181,5 @@ function DisplayCard() {
 
 
 
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<<<<<<< HEAD
 export default DisplayCard
 
-=======
-export default DisplayCard  
->>>>>>> 867ff76780c80e1b8f822e4b648c2f64753bca0f
