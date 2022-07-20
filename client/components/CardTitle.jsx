@@ -63,8 +63,8 @@ function CardTitle() {
         {cardDetails?.name} {cardDetails?.person_name}
       </h1>
       <div className='links'>
-        <a href="">Register</a>
-        <a href="">Login</a>
+        <a href="/" className="btn btn-light btn-sm my-2" role="button">Register</a>
+        <a href="/" className="btn btn-light btn-sm my-2" role="button">Login</a>
       </div>
     </nav>
     
@@ -108,8 +108,8 @@ function CardTitle() {
         {cardDetails?.name} {cardDetails?.person_name}
       </h1>
       <div className='links'>
-        <a href="">Register</a>
-        <a href="">Login</a>
+        <a href="/" className="btn btn-light btn-sm my-2" role="button">Register</a>
+        <a href="/" className="btn btn-light btn-sm my-2" role="button">Login</a>
       </div>
       
     </nav>
