@@ -55,17 +55,10 @@ function CardTitle() {
 
   return edit === true ? (
     <>
-    <nav className="navbar">
-      <a id='logo' href="/">
-        <img src="/logoTallLHSnav.png" alt="logo" className='logo-img'/>
-      </a>
-      <h1 className="card__title">
+    <nav>
+      <h1 className="title">
         {cardDetails?.name} {cardDetails?.person_name}
       </h1>
-      <div className='links'>
-        <a href="">Register</a>
-        <a href="">Login</a>
-      </div>
     </nav>
     
     <div className="edit-title">
@@ -99,26 +92,15 @@ function CardTitle() {
 
     // SHOW NORMAL CARD TITLE CODE
 
-    <nav className="navbar">
-
-      <a id='logo' href="/">
-        <img src="/logoTallLHSnav.png" alt="logo" className='logo-img'/>
-      </a>
-
-      <div className="card__title">
+  <div>
+    <div className="navbar">
       <h1 className="title">
-        {cardDetails?.name} {cardDetails?.person_name}  
-      </h1>
-      {!cardStatus && <span  className='bottuns-holder myicon' onClick={handleClick}><i className="bi bi-pencil-fill"></i></span>}
-      </div>
+        {cardDetails?.name} {cardDetails?.person_name}
+        {!cardStatus && <button className='bottuns-holder btn btn-outline-secondary btn-sm px-3 editcard' onClick={handleClick}>Edit Card</button>}
+      </h1>    
      
-      <div className='links'>
-        <a href="">Register</a>
-        <a href="">Login</a>
-      </div>
-      
-      
-    </nav>
+    </div>
+  </div>
   )
 }
 

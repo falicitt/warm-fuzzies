@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import CardTitle from './CardTitle'
 import { getTheCard } from '../apis/cards'
 import { postImage } from '../apis/messages'
+import Nav from './Nav'
 
 function AddMessage() {
 

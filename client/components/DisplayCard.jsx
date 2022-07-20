@@ -9,6 +9,7 @@ import { updateTheCard, getTheCard } from '../apis/cards'
 import CardTitle from './CardTitle'
 import EditMessage from './EditMessage'
 import Music from './Music'
+import Nav from './Nav'
 
 
 function DisplayCard() {
@@ -94,6 +95,7 @@ function DisplayCard() {
 
   return (
     <>
+      <Nav />
       <CardTitle />
         <div className="page-component">
           <div className='buttons'>
