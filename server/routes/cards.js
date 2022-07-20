@@ -52,10 +52,8 @@ router.get('/card/:id', (req, res) => {
   const id = Number(req.params.id)
 
   db.getCardById(id)
-    .then((card) => {
-      res.json(card)
-    })
-    .then((card) => res.json(card))
+    .then((card) => {res.json(card)})
+    // .then((card) => res.json(card))
     .catch((err) => res.status(500).json({ msg: err.message }))
 })
 
