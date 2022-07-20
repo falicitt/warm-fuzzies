@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from 'react-redux'
 import { getCardsByUser } from '../apis/cards'
 import { Link } from 'react-router-dom'
+import Nav from './Nav'
 
 function Profile() {
   const email = useSelector(state => state.loggedInUser.email)
@@ -19,10 +20,13 @@ function Profile() {
   const tf = new Intl.DateTimeFormat('en-NZ')
   
   return (
+    <>
+    <Nav />
     <div className="profile">
       <h1 className="profileTitle">My Cards</h1>
   
       <div className="email">You are logged in as: {email}</div>
+      <ul className="mycards">
       {cards?.map(card => 
       
         <li key={card.id} className='card'>
@@ -33,7 +37,9 @@ function Profile() {
         </li>
        
         )}
+      </ul>
     </div>
+    </>
   )
 }
 
