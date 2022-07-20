@@ -59,7 +59,7 @@ function DisplayCard() {
     }
   } 
   const redirectToAdd = () => {
-    navigate(`/card/${cardId}${cardString}/add`)
+    navigate(`/card/${cardUrl}/add`)
   }
   
   //for toggle the update button for the selected message
