@@ -10,9 +10,7 @@ export function postMessage(newMessage) {
     .post('/api/v1/card/:id/add')
     .send(newMessage)
     .then((res) => {
-      console.log('new message', res.body)
-      return res.body
-    })
+      return res.body})
     .catch((err) => console.log('api error', err))
 }
 

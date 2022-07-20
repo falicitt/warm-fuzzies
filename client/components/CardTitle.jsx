@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
-
+import { useSelector } from 'react-redux'
 import { getTheCard, updateTheCard } from '../apis/cards'
 
 function CardTitle() {
   const { cardUrl } = useParams()
   const cardId = Number(cardUrl.slice(0, -5))
-  console.log(cardUrl)
-  console.log(cardId)
+  const token = useSelector((state) => state.loggedInUser.token)
 
   const [cardDetails, setCardDetails] = useState(null)
 
@@ -16,11 +15,9 @@ function CardTitle() {
       .then((cardObj) => {
         const card = { name: cardObj.name, person_name: cardObj.person_name }
         setCardDetails(card)
-        console.log('the cardObj', card)
       })
       .catch((err) => console.log(err))
   }, [])
-
 
   const [edit, setEdit] = useState(false)
 
@@ -37,11 +34,11 @@ function CardTitle() {
 
   const handleSubmit = (evt) => {
     evt.preventDefault()
-    console.log(cardDetails)
+    // console.log(cardDetails)
     updateTheCard(cardId, {
       name: cardDetails.name,
       person_name: cardDetails.person_name,
-    }).catch((err) => console.log(err))
+    }, token).catch((err) => console.log(err))
     setEdit(false)
   }
 
@@ -52,12 +49,11 @@ function CardTitle() {
     getTheCard(cardId)
       .then((cardObj) => {
         setCardStatus(cardObj.complete)
-        console.log('the cardObj', cardObj.complete)
       })
       .catch((err) => console.log(err))
   }, [])
 
-  return edit === true ? (
+  return ( edit === true ? (
 
     <div className="page-component">
       <div>
@@ -70,7 +66,7 @@ function CardTitle() {
         id='name'
         name='name'
         type='text'
-        initialvalue={cardDetails.name}
+        value={cardDetails.name}
         onChange={handleChange}
       />
 
@@ -80,7 +76,7 @@ function CardTitle() {
         id='person_name'
         name='person_name'
         type='text'
-        initialvalue={cardDetails.person_name}
+        value={cardDetails.person_name}
         onChange={handleChange}
       />
       <button className="btn btn-light btn-sm">Done</button>
@@ -89,16 +85,16 @@ function CardTitle() {
   ) : (
 
     // SHOW NORMAL CARD TITLE CODE
-
   <>
     <nav
-      className="navbar navbar-expand-lg navbar-light fixed-top mt-1"
+      className="title navbar navbar-expand-lg navbar-light fixed-top mt-1"
       id="mainNav"
     >
       <div className="container">
         <h1 className="title">
           {cardDetails?.name} {cardDetails?.person_name}
-        </h1>
+            </h1>
+            <button className="btn btn-light btn-sm" onClick={handleClick}>Edit Card Title</button>
         <button
           className="navbar-toggler"
           type="button"
@@ -114,6 +110,7 @@ function CardTitle() {
         <div className="collapse navbar-collapse" id="navbarResponsive">
           <ul className="navbar-nav ms-auto me-4 my-3 my-lg-0">
             <li className="px-2">
+              {/* conditional render edit card button based on card status */}
             {!cardStatus && <button className="btn btn-light btn-sm" onClick={handleClick}>Edit Card</button>}
             </li>
             <li className="nav-item">
@@ -131,16 +128,7 @@ function CardTitle() {
     </nav>
   </>
 
-
-
-
-
-
-
-
-
-
-  )
+  ))
 }
 
 export default CardTitle

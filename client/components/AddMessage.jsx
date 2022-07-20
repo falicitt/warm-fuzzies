@@ -11,8 +11,6 @@ function AddMessage() {
 
   const { cardUrl } = useParams()
   const cardId = Number(cardUrl.slice(0, -5))
-  console.log(cardUrl)
-  console.log(cardId)
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -22,20 +20,22 @@ function AddMessage() {
     message: '',
     image: '',
     card_id: cardId
-    // card_string: id
   })
 
   const [image, setImage] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    if(image) {
     const formData = new FormData()
     formData.append('image', image)
+    postImage(formData)
+    .catch((err) => console.log('handle submit error', err))
+    }
 
     dispatch(createMessage(newMessage))
-    postImage(formData)
-      .then(() => navigate(`/card/${cardUrl}`))
-      .catch((err) => console.log('handle submit error', err))
+    navigate(`/card/${cardUrl}`)
+      
   }
 
   const [cardStatus, setCardStatus] = useState(null)
