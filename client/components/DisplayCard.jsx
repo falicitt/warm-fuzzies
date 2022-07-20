@@ -29,11 +29,8 @@ function DisplayCard() {
   const { cardUrl } = useParams()
   const cardId = Number(cardUrl.slice(0, -5))
   const cardString = useSelector((state) => state.card.card_string)
-<<<<<<< HEAD
-=======
   // console.log(cardUrl)
   // console.log(cardId)
->>>>>>> 85fd21621d8f3cb40f3a0cd59697dc2284e7e966
 
   useEffect(() => {
     dispatch(getMessages(cardId))
@@ -119,16 +116,12 @@ function DisplayCard() {
           </div>
           <div className="modal-body">
             <p>Copy this link and share with your friends to add more messages on it!</p>
-<<<<<<< HEAD
-            <p>{`http://localhost:3000/card/${cardUrl}`}</p>
-=======
             {/* <div className="tooltip"> */}
             <p>{`http://localhost:3000/card/${cardUrl}`}</p>
             
               <button className="btn btn-outline-secondary btn-sm" onClick={copyUrl}>
                 {copyButton}
               </button>
->>>>>>> 85fd21621d8f3cb40f3a0cd59697dc2284e7e966
           </div>
           <div className="modal-footer">
             <button className="btn btn-outline-secondary btn-sm" onClick={closeModal}>Close</button>
