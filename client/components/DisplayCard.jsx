@@ -50,10 +50,10 @@ function DisplayCard() {
   const handleComplete = () => {
     let result = window.confirm('Once completed the this card can not be edited or added to')  
     if(result) {
-      updateTheCard(cardId, {complete: true})
+      updateTheCard(cardId, {complete: true}, token)
       setCardStatus(true)
     } else {
-      updateTheCard(cardId, {complete: false})
+      updateTheCard(cardId, {complete: false}, token)
       setCardStatus(false)
     }
   } 

@@ -98,13 +98,13 @@ function CreateCard() {
                 />
              </div>
             
-              <button type="submit" className="btn btn-warning">
+              <button type="submit" className="btn btn-warning rounded-pill">
                 Create
               </button> 
             </form>
             :
-            <button className="btn btn-warning" onClick={handleSignIn}>
-             log in to create a card
+            <button className="btn btn-warning rounded-pill" onClick={handleSignIn}>
+             Log In To Create A Card
           </button> 
 }
           </div>

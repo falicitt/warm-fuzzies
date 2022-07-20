@@ -12,11 +12,8 @@ import Profile from './Profile'
 
 function App() {
 
-<<<<<<< HEAD
-=======
   cacheUser(useAuth0)
  
->>>>>>> a73eb91dc4d13348934a4fff9a146de0f6e419d6
   return (
     <>
       <section className='main'>
@@ -24,14 +21,9 @@ function App() {
         <Routes>
           <Route path='/card/:cardUrl/' element={<DisplayCard/>} ></Route>
           <Route path='/' element={<CreateCard />} />
-<<<<<<< HEAD
-          <Route path='/card/:cardUrl/add/' element={<AddMessage />} />
+          <Route path='/card/:cardUrl/add' element={<AddMessage />} />
           <Route path='/card/:cardUrl' element={<DisplayCard />} />
-=======
-          <Route path='/card/:id/add' element={<AddMessage />} />
-          <Route path='/card/:id' element={<DisplayCard />} />
           <Route path='/profile' element={<Profile />} />
->>>>>>> a73eb91dc4d13348934a4fff9a146de0f6e419d6
         </Routes>
       </section>
 

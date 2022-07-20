@@ -9,10 +9,10 @@ export function postCard(card, token) {
     .catch((err) => console.log(err.message, 'error consuming api postCard'))
 }
 
-export function updateTheCard(id, details, token) {
+export function updateTheCard(cardId, details, token) {
   console.log('details', details)
   return request
-    .patch('/api/v1/card/' + id)
+    .patch('/api/v1/card/' + cardId)
     .set('authorization', `Bearer ${token}`)
     .send({ details })
     .then((res) => {
