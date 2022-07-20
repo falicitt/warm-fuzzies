@@ -1,11 +1,11 @@
 const connection = require('../connection')
 
 function addMessage(newMessage, db = connection) {
-  return db('messages').insert(newMessage)
+  return db('messages').insert(newMessage,"id")
 }
 
 function insertCard(newCard, db = connection) {
-  return db('cards').insert(newCard)
+  return db('cards').insert(newCard,"id")
 }
 
 function updateCard(id, details, db = connection) {
