@@ -32,7 +32,10 @@ router.post('/', (req, res) => {
   const card = req.body
   db.insertCard(card)
     .then((idArr) => {
-      const id = idArr[0]
+      let id = idArr[0]
+      if (typeof id === 'object') {
+        id = id.id
+      } 
       return db.getCardById(id)
     })
     .then((cardObj) => res.json(cardObj))
