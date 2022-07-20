@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { useSelector } from 'react-redux'
 import { getTheCard, updateTheCard } from '../apis/cards'
+import Nav from './Nav'
 
 function CardTitle() {
   const { cardUrl } = useParams()
@@ -59,7 +60,6 @@ function CardTitle() {
       <h1 className="title">
         {cardDetails?.name} {cardDetails?.person_name}
       </h1>
-    </nav>
     
     <div className="edit-title">
       <div>
@@ -87,6 +87,7 @@ function CardTitle() {
         <button className="btn btn-light-outline">Done</button>
       </form>
     </div>
+    </nav>
     </>
   ) : (
 

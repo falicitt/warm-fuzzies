@@ -53,6 +53,7 @@ function AddMessage() {
 
   return (
     <>
+      <Nav />
       <CardTitle cardId={cardId} />
         {cardStatus ? (
         'This card is complete, sorry you can not add more messages to it'
