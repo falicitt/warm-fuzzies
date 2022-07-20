@@ -76,7 +76,24 @@ router.get('/:id', (req, res) => {
     .catch((err) => res.status(500).json({ msg: err.message }))
 })
 
+<<<<<<< HEAD
 // add message to a card
+=======
+router.post('/', (req, res) => {
+  const card = req.body
+  db.insertCard(card)
+    .then((idArr) => {
+      let id = idArr[0]
+      if (typeof id === 'object') {
+        id = id.id
+      } 
+      return db.getCardById(id)
+    })
+    .then((cardObj) => res.json(cardObj))
+    .catch((err) => res.status(500).json({ message: err.message }))
+})
+
+>>>>>>> 867ff76780c80e1b8f822e4b648c2f64753bca0f
 router.post('/:id/add', (req, res) => {
   const newMessage = req.body
 

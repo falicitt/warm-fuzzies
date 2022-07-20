@@ -4,6 +4,9 @@
   "description": "Todo Full Stack",
   "repository": "https://https://github.com/dev-academy-challenges/todo-full-stack",
   "main": "server/index.js",
+  "engines": {
+  "node": "16.x"
+  },
   "scripts": {
     "build": "run-p build:client build:server",
     "build:client": "npm run webpack -- --mode production",
@@ -91,4 +94,6 @@
     "superagent": "7.1.1"
   },
   "browserslist": "> 2%, not dead"
+
+
 }
