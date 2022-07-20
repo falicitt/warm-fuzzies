@@ -26,7 +26,7 @@ function Profile() {
       {cards?.map(card => 
       
         <li key={card.id} className='card'>
-          <Link to={`/card/${card.id}`}>
+          <Link to={`/card/${card.id}${card.card_string}`}>
           <p>{card.name} {card.person_name}</p>
           <p>{tf.format(new Date(card.created_at))}</p>
           </Link>

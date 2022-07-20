@@ -60,7 +60,7 @@ function DisplayCard() {
     }
   } 
   const redirectToAdd = () => {
-    navigate(`/card/${cardId}${cardString}/add`)
+    navigate(`/card/${cardUrl}/add`)
   }
   
   //for toggle the update button for the selected message
@@ -117,7 +117,7 @@ function DisplayCard() {
           <div className="modal-body">
             <p>Copy this link and share with your friends to add more messages on it!</p>
             {/* <div className="tooltip"> */}
-            <p>{`http://localhost:3000/card/${cardId}${cardString}`}</p>
+            <p>{`http://localhost:3000/card/${cardUrl}`}</p>
             
               <button className="btn btn-outline-secondary btn-sm" onClick={copyUrl}>
                 {copyButton}

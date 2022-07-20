@@ -36,25 +36,6 @@ function Nav() {
   }
   
   return (
-    // <nav className='nav'>
-    //     <IfAuthenticated>
-    //       <a href="/profile" className="nav-button btn btn-light btn-sm mx-2" role="button">
-    //         My Profile
-    //       </a>
-        
-    //       <a href="/" onClick={handleLogoff} className="btn btn-light rounded-pill" role="button">
-    //         Log out
-    //       </a>
-    //     </IfAuthenticated>
-    //     <IfNotAuthenticated>
-    //       <a href="/" className="btn btn-light rounded-pill" onClick={handleRegister} role="button">Register</a>
-    //       {/* <a class="btn btn-primary" href="#" role="button">Link</a> */}
-    //       <a href="/" className="btn btn-light rounded-pill" onClick={handleSignIn} role="button">
-    //         Log in
-    //       </a>
-    //     </IfNotAuthenticated>
-    //   {/* </NavGroup> */}
-    // </nav>
     <>
     <div className="nav">
     <div className="container">

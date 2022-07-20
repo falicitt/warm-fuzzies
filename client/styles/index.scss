@@ -42,9 +42,9 @@ nav a {
 }
 
 .title {
-  font-family: 'Brandon Grotesque Regular', sans-serif;
+  font-family: 'Edu SA Beginner', cursive;
   font-size: 5vw;
-  background-color: rgb(204, 171, 171);
+  // background-color: rgb(204, 171, 171);
   position: fixed;
   z-index: 1;
   width: 100%;
@@ -83,20 +83,13 @@ nav a {
 
 .bottuns-holder {
   z-index: 3;
-  position: fixed;
-  background-color: white;
-  margin-left: 1093px;
-  margin-top: 20px;
-  font-size: 16px;
 }
 
 .edit-title {
-  position: fixed;
   z-index: 2;
   width: 100%;
   margin-top: 50px;
   background-image: linear-gradient(white , rgba(246, 246, 245, 0.966));
-  padding-top: 40px;
   padding-left: 34%;
   padding-right: 35%;
   padding-bottom: 10px;
@@ -108,14 +101,15 @@ nav a {
   flex-wrap: wrap;
   position: fixed;
   z-index: 3;
-  margin-top: -140px;
-  margin-left: 460px;
-  margin-right: 3vw;
-  button {
-    background-color: white;
-    margin-right: 10px;
-    font-size: 16px;
-  }
+  margin: auto;
+  text-align: center;
+  
+}
+
+.buttons button {
+  background-color: white;
+  margin-right: 10px;
+  font-size: 16px;
 }
 
 .music-bar {
@@ -393,14 +387,13 @@ nav a {
 
 // ------------------------- Add Message Form ------------------------- 
 .add-form {
-  position: fixed;
+  // position: fixed;
   z-index: 1;
-  width: 100%;
-  margin-top: 80px;
+  width: 40%;
+  margin-top: 40px;
   background-color: white;
-  padding-top: 40px;
-  padding-left: 30%;
-  padding-right: 35%;
+  margin-left: auto;
+  margin-right: auto;
   padding-bottom: 10px;
 }
 
@@ -516,11 +509,6 @@ nav a {
   text-align: center;
 }
 
-.modal-header h3 {
-  font-family: 'Edu SA Beginner', cursive;
-  font-size: 4rem;
-}
-
 .modal-body {
   padding: 10px 16px;}
 
@@ -528,9 +516,18 @@ nav a {
   padding: 2px 16px;
 }
 
-
 .buttons {
   text-align: center;
+}
+
+.home_buttons {
+  text-align: end;
+  padding-top: 2rem;
+  padding-right: 2rem;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 
