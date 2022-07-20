@@ -33,7 +33,7 @@ nav a {
 .caca {
   position: fixed;
   background-color: white;
-  z-index: 2;
+  z-index: 4;
   padding-top: 40px;
   padding-bottom: 40px;
   margin-top: 30px;
@@ -77,12 +77,12 @@ nav a {
   font-size: 5vw;
   background-color: white;
   position: fixed;
-  z-index: 4;
+  z-index: 3;
   width: 100%;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 30px;
+  margin-top: 40px;
   padding-bottom: 15px;
   color: #FE027E;
   margin: auto;
@@ -133,10 +133,10 @@ nav a {
   display: inline-block;
   text-align: center;
   position: fixed;
-  z-index: 2;
+  z-index: 4;
   margin-top: -230px;
   width: 100%;
-  margin-top: -190px;
+  margin-top: -210px;
   margin-left: auto;
   margin-right: auto;
   button {
@@ -150,14 +150,15 @@ nav a {
   width: 50%;
   margin-left: 430px;
   margin-top: -30px;
-  z-index: 2;
+  z-index: 4;
   position: fixed;
 }
 
 .music-back {
+  text-align: center;
   background-color: white;
   width: 100%;
-  z-index: 2;
+  z-index: 4;
   position: fixed;
   padding: 30px;
   margin-top: -90px;
@@ -175,229 +176,6 @@ nav a {
   margin-top: 40px;
 }
 
-// ------------------------- media queries  ------------------------- 
-// @media (min-width: 320px)and(max-width: 700px) {
-//   .title {
-//     font-size: 35px;
-//     padding-bottom: 50px;
-//     padding-top: 50px;
-//     padding-left: 170px;
-//   }
-//   #logo {
-//     margin-left: -10px;
-//     margin-top: 0px;
-//     img {width: 100px;
-//     }
-//   }
-//   .links {
-//     margin-left: 85%;
-//     margin-top: -10px;
-//     a {
-//       font-size: 16px;
-//       padding-left: 5px;
-//       margin-bottom: -15px;
-//       margin-top: -5;
-//     }
-//   }
-//   .bottuns-holder {
-//     margin-left: 526px;
-//     margin-right: 5px;
-//     margin-top: -10px;
-//     font-size: 12px;
-//   }
-//   .buttons {
-//     margin-left: 20px;
-//     margin-top: -110px;
-//     button {
-//       background-color: white;
-//       margin-right: 5px;
-//       font-size: 12px;
-//     }
-//   }
-//   .navbar {
-//     padding-top: 40px;
-//   }
-//   .cards-margin {
-//     margin-right: -30px;
-//     margin-top: 100px;
-//   }
-//   .music-bar {
-//     margin-left: -15px;
-//     margin-top: -30px;
-//   }
-//   .music-back {
-//     padding: 35px;
-//     margin-top: -80px;
-//   }
-  
-// }
-
-// @media (min-width: 701px)and(max-width: 850px) {
-//   .title {
-//     font-size: 42px;
-//     padding-bottom: 51px;
-//     padding-top: 60px;
-//     padding-left: 190px;
-//   }
-//   #logo {
-//     margin-left: -10px;
-//     margin-top: 0px;
-//     img {width: 120px;
-//     }
-//   }
-//   .links {
-//     margin-left: 85%;
-//     margin-top: -10px;
-//     a {
-//       font-size: 16px;
-//       padding-left: 5px;
-//       margin-bottom: -15px;
-//       margin-top: -5;
-//     }
-//   }
-//   .bottuns-holder {
-//     margin-left: 596px;
-//     margin-right: 5px;
-//     margin-top: 0px;
-//     font-size: 12px;
-//   }
-//   .buttons {
-//     margin-left: 90px;
-//     margin-top: -120px;
-//     button {
-//       background-color: white;
-//       margin-right: 5px;
-//       font-size: 12px;
-//     }
-//   }
-//   .navbar {
-//     padding-top: 40px;
-//   }
-//   .cards-margin2 {
-//     margin-left: 2vw;
-//   }
-//   .cards-margin {
-//     margin-right: -30px;
-//     margin-top: 120px;
-//   }
-//   .music-bar {
-//     margin-left: 60px;
-//     margin-top: -30px;
-//   }
-//   .music-back {
-//     padding-top: 40px;
-//     padding-bottom: 35px;
-//     margin-top: -95px;
-//   }
-// }
-
-
-// @media (min-width: 850px) and (max-width: 1050px) {
-//   .title {
-//     font-size: 47px;
-//     padding-bottom: 82px;
-//     padding-left: 250px;
-//   }
-//   #logo {
-//     img {width: 160px;
-//     }
-//   }
-//   .links {
-//     margin-left: 86%;
-//     margin-top: 35px;
-//     a {
-//       font-size: 17px;
-//       margin-bottom: -7px;
-//       margin-top: -5;
-//     }
-//   }
-//   .bottuns-holder {
-//     margin-left: 713px;
-//     margin-right: 5px;
-//     margin-top: 10px;
-//     font-size: 14px;
-//   }
-//   .buttons {
-//     margin-left: 130px;
-//     margin-top: -125px;
-//     button {
-//       background-color: white;
-//       margin-right: 10px;
-//       font-size: 14px;
-//     }
-//   }
-//   .navbar {
-//     padding-top: 65px;
-//   }
-//   .cards-margin2 {
-//     margin-left: 4vw;
-//     margin-right: 8vw;
-//   }
-//   .cards-margin {
-//     margin-right: -30px;
-//     margin-top: 135px;
-//   }
-//   .music-bar {
-//     margin-left: 95px;
-//     margin-top: -25px;
-//   }
-//   .music-back {
-//     padding: 30px;
-//     margin-top: -90px;
-//   }
-
-// }
-
-// @media (min-width: 1050px) and (max-width: 1400px) {
-//   .title {
-//     font-size: 55px;
-//     padding-bottom: 62px;
-//     padding-left: 380px;
-//   }
-//   #logo {
-//     img {width: 160px;
-//     }
-//   }
-//   .links {
-//     margin-left: 86%;
-//     margin-top: 35px;
-//     a {
-//       font-size: 17px;
-//       margin-bottom: -7px;
-//       margin-top: -5;
-//     }
-//   }
-//   .bottuns-holder {
-//     margin-left: 846px;
-//     margin-right: 5px;
-//     margin-top: 20px;
-//     font-size: 14px;
-//   }
-//   .buttons {
-//     margin-left: 270px;
-//     margin-top: -130px;
-//     margin-bottom: 0px;
-//     button {
-//       background-color: white;
-//       margin-right: 10px;
-//       font-size: 14px;
-//     }
-//   }
-//   .navbar {
-//     padding-top: 65px;
-//   }
-//   .cards-margin2 {
-//     margin-left: 6vw;
-//     margin-right: 8vw;
-//   }
-//   .cards-margin {
-//     margin-top: 150px;
-//   }
-//   .music-bar {
-//     margin-left: 238px;
-//     margin-top: -30px;
-//   }
-// }
 
 // ------------------------- home page ------------------------- 
 .home {

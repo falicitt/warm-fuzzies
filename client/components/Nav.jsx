@@ -39,36 +39,32 @@ function Nav() {
     <>
     
     <div className="container">
-      <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
-        <div>
-          <a href="/" className="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none"></a>
-          <a className="poto1" href="/"><img src="/smallLogo.svg" alt="logo" className='logo-img my-2' height="60"/></a>
-        </div>
-      
-
-        {/* <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        </ul> */}
-
-        <div className="col-md-3 text-end poto2">
-        <IfAuthenticated>
-            <a href="/profile" className="btn btn-light btn-sm mx-2" role="button">
-              My Profile
-            </a>
-          
-            <a href="/" onClick={handleLogoff} className="btn btn-light btn-sm mx-2" role="button">
-              Log out
-            </a>
-          </IfAuthenticated>
-          <IfNotAuthenticated>
-            <a href="/" className="btn btn-light btn-sm mx-2" onClick={handleRegister} role="button">Register</a>
-            <a href="/" className="btn btn-light btn-sm mx-2" onClick={handleSignIn} role="button">
-              Log in
-            </a>
-        </IfNotAuthenticated>
-        </div>
-      </header>
+    <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
+      <div className='caca'>
+      <div>
+        <a href="/" className="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none"></a>
+        <a className="poto1" href="/"><img src="/smallLogo.svg" alt="logo" className='logo-img my-2' height="60"/></a>
+      </div>
+      <div className="col-md-3 text-end">
+      <IfAuthenticated>
+          <a href="/profile" className="btn btn-light btn-sm mx-2" role="button">
+            My Profile
+          </a>
+        
+          <a href="/" onClick={handleLogoff} className="btn btn-light btn-sm mx-2" role="button">
+            Log out
+          </a>
+        </IfAuthenticated>
+        <IfNotAuthenticated>
+          <a href="/" className="btn btn-light btn-sm mx-2" onClick={handleRegister} role="button">Register</a>
+          <a href="/" className="btn btn-light btn-sm mx-2" onClick={handleSignIn} role="button">
+            Log in
+          </a>
+       </IfNotAuthenticated>
+      </div>
+      </div>
+    </header>
   </div>
-
     </>
   )
 }
