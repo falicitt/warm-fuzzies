@@ -53,82 +53,69 @@ function CardTitle() {
       .catch((err) => console.log(err))
   }, [])
 
-  return ( edit === true ? (
-
-    <div className="page-component">
+  return edit === true ? (
+    <>
+    <nav className="navbar">
+      <a id='logo' href="/">
+        <img src="/logoTallLHSnav.png" alt="logo" className='logo-img'/>
+      </a>
+      <h1 className="title">
+        {cardDetails?.name} {cardDetails?.person_name}
+      </h1>
+      <div className='links'>
+        <a href="">Register</a>
+        <a href="">Login</a>
+      </div>
+    </nav>
+    
+    <div className="edit-title">
       <div>
         <h5 className="display-6 text-warning">Edit Card Title</h5>
       </div>
-    <form onSubmit={handleSubmit}>
-      <label className="form-label" htmlFor='name'>Card Name</label>
-      <input
-        className="form-control"
-        id='name'
-        name='name'
-        type='text'
-        value={cardDetails.name}
-        onChange={handleChange}
-      />
-
-      <label className="form-label" htmlFor='person_name'>Friend Name</label>
-      <input
-        className="form-control"
-        id='person_name'
-        name='person_name'
-        type='text'
-        value={cardDetails.person_name}
-        onChange={handleChange}
-      />
-      <button className="btn btn-light btn-sm">Done</button>
-    </form>
+      <form onSubmit={handleSubmit}>
+        <label className="form-label" htmlFor='name'>Card Name</label>
+        <input
+          className="form-control"
+          id='name'
+          name='name'
+          type='text'
+          initialvalue={cardDetails.name}
+          onChange={handleChange}
+        />
+        <label className="form-label" htmlFor='person_name'>Friend Name</label>
+        <input
+          className="form-control"
+          id='person_name'
+          name='person_name'
+          type='text'
+          initialvalue={cardDetails.person_name}
+          onChange={handleChange}
+        />
+        <button className="btn btn-light-outline">Done</button>
+      </form>
     </div>
+    </>
   ) : (
 
     // SHOW NORMAL CARD TITLE CODE
-  <>
-    <nav
-      className="title navbar navbar-expand-lg navbar-light fixed-top mt-1"
-      id="mainNav"
-    >
-      <div className="container">
-        <h1 className="title">
-          {cardDetails?.name} {cardDetails?.person_name}
-            </h1>
-            <button className="btn btn-light btn-sm" onClick={handleClick}>Edit Card Title</button>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="/"
-          aria-controls="navbarResponsive"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          Menu
-          <i className="bi-list"></i>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarResponsive">
-          <ul className="navbar-nav ms-auto me-4 my-3 my-lg-0">
-            <li className="px-2">
-              {/* conditional render edit card button based on card status */}
-            {!cardStatus && <button className="btn btn-light btn-sm" onClick={handleClick}>Edit Card</button>}
-            </li>
-            <li className="nav-item">
-              <a className="navbar-brand" href="/">
-                <img
-                  src="/logoTallLHSnav.png"
-                  alt="logo"
-                  style={{width: "80px"}}
-                />
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </>
 
-  ))
+  <div>
+    <nav className="navbar">
+      <a id='logo' href="/">
+        <img src="/logoTallLHSnav.png" alt="logo" className='logo-img'/>
+      </a>
+      <h1 className="title">
+        {cardDetails?.name} {cardDetails?.person_name}
+      </h1>
+      <div className='links'>
+        <a href="">Register</a>
+        <a href="">Login</a>
+      </div>
+      
+    </nav>
+    {!cardStatus && <button className='bottuns-holder btn btn-outline-secondary btn-sm px-3' onClick={handleClick}>Edit Card</button>}
+  </div>
+  )
 }
 
 export default CardTitle

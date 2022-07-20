@@ -8,6 +8,7 @@ import { updateTheCard, getTheCard } from '../apis/cards'
 
 import CardTitle from './CardTitle'
 import EditMessage from './EditMessage'
+import Music from './Music'
 
 
 function DisplayCard() {
@@ -60,16 +61,16 @@ function DisplayCard() {
   const redirectToAdd = () => {
     navigate(`/card/${cardId}${cardString}/add`)
   }
-
-  const breakpoints = {
-    samll: 400, mobile: 700, tablet: 900, desktop: 1400
-  }
   
   //for toggle the update button for the selected message
   const [activeIndex, setActiveIndex] = useState(null)
 
   const handleUpdate = (i) => { setActiveIndex(i) }
 
+  const breakpoints = {
+    samll: 400, mobile: 700, tablet: 1100, desktop: 1500
+  }
+  
   const stopUpdate = () => { setActiveIndex(null)}
 
  //for sending link modal
@@ -88,16 +89,12 @@ function DisplayCard() {
       <CardTitle />
         <div className="page-component">
           <div className='buttons'>
-          {!cardStatus && <button
-            className="btn btn-outline-secondary btn-sm"
-            onClick={redirectToAdd}>Add a message to this card</button>}  
-          {!cardStatus && <button
-            className="btn btn-outline-secondary btn-sm px-3"
-            onClick={handleComplete}><span><i className="bi bi-check2-square"></i></span> Mark this card as complete</button>}
-          <button id="myBtn"
-            className="btn btn-outline-secondary btn-sm px-3"
-            onClick={openModal}>Share the card</button>
+            {!cardStatus && <button className="btn btn-outline-secondary btn-sm" onClick={redirectToAdd}>Add a message to this card</button>}  
+            {!cardStatus && <button className="btn btn-outline-secondary btn-sm px-3" onClick={handleComplete}><span><i className="bi bi-check2-square"></i></span> Mark this card as complete</button>}
+            <button id="myBtn" className="btn btn-outline-secondary btn-sm px-3" onClick={openModal}>Share the card</button>
           </div>
+          <div>{cardStatus? <div className='music-back'><div className='music-bar'><Music /></div></div> : <div className='music-bar'>{!<Music />}</div>}</div>
+
       {/* <!-- The Modal --> */}
       <div id="myModal" className="modal" style={{display: viewModal}}> 
 
@@ -118,8 +115,8 @@ function DisplayCard() {
 
       </div>
         <div className="cards-container">
-          <div>
-            <Masonry breakpoints={breakpoints} columns={{ samall: 1, mobile: 2, tablet: 3, desktop: 4 }} gap={10} autoArrange={true} >     
+          <div className='cards-margin'>
+            <Masonry breakpoints={breakpoints} columns={{ samall: 1, mobile: 2, tablet: 3, desktop: 4 }} gap={5} autoArrange={true} >     
             {messages.map((message) =>
               activeIndex === message.id ? (
                 <EditMessage

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 
 function Nav() {
@@ -38,20 +38,20 @@ function Nav() {
   return (
     <nav>
 
-        <a href="/" className="btn btn-light rounded-pill" role="button">Create New Card</a>
+        <a href="/" className="btn btn-light btn-sm mx-2" type="button">Create New Card</a>
         <IfAuthenticated>
-          <a href="/profile" className="btn btn-light rounded-pill" role="button">
+          <a href="/profile" className="btn btn-light btn-sm mx-2" role="button">
             My Profile
           </a>
         
-          <a href="/" onClick={handleLogoff} className="btn btn-light rounded-pill" role="button">
+          <a href="/" onClick={handleLogoff} className="btn btn-light btn-sm mx-2" role="button">
             Log out
           </a>
         </IfAuthenticated>
         <IfNotAuthenticated>
-          <a href="/" className="btn btn-light rounded-pill" onClick={handleRegister} role="button">Register</a>
+          <a href="/" className="btn btn-light btn-sm mx-2" onClick={handleRegister} role="button">Register</a>
           {/* <a class="btn btn-primary" href="#" role="button">Link</a> */}
-          <a href="/" className="btn btn-light rounded-pill" onClick={handleSignIn} role="button">
+          <a href="/" className="btn btn-light btn-sm mx-2" onClick={handleSignIn} role="button">
             Log in
           </a>
         </IfNotAuthenticated>
