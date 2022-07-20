@@ -95,9 +95,8 @@ function CardTitle() {
   <div>
     <div className="navbar">
       <h1 className="title">
-        {cardDetails?.name} {cardDetails?.person_name}
+        {cardDetails?.name} {cardDetails?.person_name} {!cardStatus && <button className='bottuns-holder btn btn-outline-secondary btn-sm px-3' onClick={handleClick}>Edit Card</button>}
       </h1>    
-      <div>{!cardStatus && <button className='bottuns-holder btn btn-outline-secondary btn-sm px-3' onClick={handleClick}>Edit Card</button>}</div>
     </div>
   </div>
   )
