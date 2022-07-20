@@ -55,7 +55,6 @@ router.get('/card/:id', (req, res) => {
     .then((card) => {
       res.json(card)
     })
-    .then((card) => res.json(card))
     .catch((err) => res.status(500).json({ msg: err.message }))
 })
 
@@ -91,7 +90,6 @@ router.post('/:id/add', (req, res) => {
     .catch((err) => res.status(500).json({ dberr: err.message }))
 })
 
-
 // edit card
 router.patch('/:id', (req, res) => {
   const id = Number(req.params.id)
@@ -112,7 +110,6 @@ router.patch('/:id', (req, res) => {
 //     .then((card) => res.json(card))
 //     .catch((err) => res.status(500).json({ msg: err.message }))
 // })
-
 
 // edit message
 router.patch('/message/:id', (req, res) => {
@@ -140,5 +137,3 @@ router.delete('/message/:id', (req, res) => {
       res.status(500).json({ msg: err.message })
     })
 })
-
-
