@@ -1,6 +1,7 @@
-@import url('http://fonts.cdnfonts.com/css/brandon-grotesque-regular');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@500&display=swap');
+
 
 body {
   // position: absolute;
@@ -10,6 +11,7 @@ body {
 .nav-button {
   margin: 10px 20px;
 }
+
 
 nav a {
   padding: 0 1rem;
@@ -23,9 +25,8 @@ nav a {
 }
 
 .poto2 {
-  position: fixed;
-  margin-top: 80px;
-  margin-left: 50vw;
+  position: absolute;
+  
   z-index: 4;
 }
 
@@ -67,8 +68,12 @@ nav a {
   }
 }
 
+.card__title {
+  text-align: center;
+}
+
 .title {
-  font-family: 'Brandon Grotesque Regular', sans-serif;
+  font-family: 'Edu SA Beginner', cursive;
   font-size: 5vw;
   background-color: white;
   position: fixed;
@@ -80,6 +85,18 @@ nav a {
   margin-top: 30px;
   padding-bottom: 15px;
   color: #FE027E;
+  margin: auto;
+}
+
+.editcard {
+  z-index: 4;
+}
+
+.myicon {
+  position: relative;
+  top: 145px;
+  right: 15vw;
+  color: gray;
 }
 
 .links {
@@ -436,8 +453,9 @@ nav a {
   background-color: white;
   font-size: 20px;
   border: solid 2px rgb(255, 213, 0);
-  font-family: 'Inter', sans-serif;
-  font-weight: 150;
+  // font-family: 'Inter', sans-serif;
+  font-family: 'Oswald', sans-serif;
+  // font-weight: 150;
   box-shadow: 10px 10px 40px rgba(127, 126, 79, 0.482);
   transition: transform .3s ease;
   cursor: pointer;
@@ -447,12 +465,11 @@ nav a {
   transform: scale(1.1);
 }
 
-.card__title {
-  // font-family: 'Oswald', sans-serif;
-  font-weight: 800;
-  font-size: 4rem;
-  
+.card_message {
+  padding-top: 1rem;
 }
+
+
 
 .card__image img {
   width: 346px;
@@ -476,7 +493,7 @@ nav a {
   left: 0;
   top: 0;
   // width: 100%; /* Full width */
-  height: 100%; /* Full height */
+  // height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
@@ -523,9 +540,8 @@ nav a {
 }
 
 .modal-header {
-  padding: 10px 16px;
+  padding: 20px 16px;
   text-align: center;
- 
 }
 
 .modal-body {
@@ -534,3 +550,54 @@ nav a {
 .modal-footer {
   padding: 2px 16px;
 }
+
+.buttons {
+  text-align: center;
+}
+
+.home_buttons {
+  text-align: end;
+  padding-top: 2rem;
+  padding-right: 2rem;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+//profile page
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.profileTitle {
+  font-family: 'Edu SA Beginner', cursive;
+  font-size: 4rem;
+  // color: #FE027E;
+  padding-bottom: 20px;
+  padding-top: 50px;
+}
+
+.profile {
+  text-align: center;
+}
+
+.email {
+  font-family: 'Inter', sans-serif;
+  font-weight: 250;
+  padding-bottom: 2rem;
+}
+
+.mycards {
+  margin: 0 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  justify-content:space-between
+}
+
