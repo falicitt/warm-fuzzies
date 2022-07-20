@@ -56,37 +56,35 @@ function CardTitle() {
 
   return edit === true ? (
     <>
-    <nav>
+    <nav className='tituloeditado'>
       <h1 className="title">
-        {cardDetails?.name} {cardDetails?.person_name}
+        {cardDetails?.name} {cardDetails?.person_name} <span className='bottuns-holder btn btn-lg px-3' onClick={() => setEdit(false)}><i className="bi bi-x-circle"></i></span>
       </h1>
     
-    <div className="edit-title">
-      <div>
+      <div className="edit-title">
         <h5 className="display-6 text-warning">Edit Card Title</h5>
+        <form onSubmit={handleSubmit}>
+          <label className="form-label" htmlFor='name'>Card Name</label>
+          <input
+            className="form-control"
+            id='name'
+            name='name'
+            type='text'
+            initialvalue={cardDetails.name}
+            onChange={handleChange}
+          />
+          <label className="form-label" htmlFor='person_name'>Friend Name</label>
+          <input
+            className="form-control"
+            id='person_name'
+            name='person_name'
+            type='text'
+            initialvalue={cardDetails.person_name}
+            onChange={handleChange}
+          />
+          <button className="btn btn-light-outline">Done</button>
+        </form>
       </div>
-      <form onSubmit={handleSubmit}>
-        <label className="form-label" htmlFor='name'>Card Name</label>
-        <input
-          className="form-control"
-          id='name'
-          name='name'
-          type='text'
-          initialvalue={cardDetails.name}
-          onChange={handleChange}
-        />
-        <label className="form-label" htmlFor='person_name'>Friend Name</label>
-        <input
-          className="form-control"
-          id='person_name'
-          name='person_name'
-          type='text'
-          initialvalue={cardDetails.person_name}
-          onChange={handleChange}
-        />
-        <button className="btn btn-light-outline">Done</button>
-      </form>
-    </div>
     </nav>
     </>
   ) : (
@@ -96,7 +94,7 @@ function CardTitle() {
   <div>
     <div className="navbar">
       <h1 className="title">
-        {cardDetails?.name} {cardDetails?.person_name} {!cardStatus && <span className='bottuns-holder btn btn-sm px-3' onClick={handleClick}><i className="bi bi-pencil-fill"></i></span>}
+        {cardDetails?.name} {cardDetails?.person_name} {!cardStatus && <span className='bottuns-holder btn btn-lg px-3' onClick={handleClick}><i className="bi bi-pencil-fill"></i></span>}
       </h1>    
     </div>
   </div>

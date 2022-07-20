@@ -99,8 +99,8 @@ function DisplayCard() {
       <CardTitle />
         <div className="page-component">
           <div className='buttons'>
-            {!cardStatus && <button className="btn btn-outline-secondary btn-sm" onClick={redirectToAdd}>Add a message to this card</button>}  
-            {!cardStatus && <button className="btn btn-outline-secondary btn-sm px-3" onClick={handleComplete}><span><i className="bi bi-check2-square"></i></span> Mark this card as complete</button>}
+            {!cardStatus && <button className="btn btn-outline-secondary btn-sm" onClick={redirectToAdd}>Add a message</button>}  
+            {!cardStatus && <button className="btn btn-outline-secondary btn-sm px-3" onClick={handleComplete}><span><i className="bi bi-check2-square"></i></span> Mark card as complete</button>}
             <button id="myBtn" className="btn btn-outline-secondary btn-sm px-3" onClick={openModal}>Share the card</button>
           </div>
           <div>{cardStatus? <div className='music-back'><div className='music-bar'><Music /></div></div> : <div className='music-bar'>{!<Music />}</div>}</div>
@@ -145,6 +145,7 @@ function DisplayCard() {
                 />
               ) : (
               // WHERE TO PUT CARD CONTENTS
+                <div className='cards-edge'>
                 <div key={message.id} className="card">
                   <div className="card__image mt-2">
                     <img className="card-img-top" src={message.image} alt="" />
@@ -168,6 +169,7 @@ function DisplayCard() {
                   }
                     </div>
                   </div>
+                </div>
                 </div>
               )
             )}

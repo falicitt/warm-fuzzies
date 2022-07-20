@@ -15,7 +15,7 @@ function App() {
  
   return (
     <>
-      <section className='main'>
+      <section >
         <Routes>
           <Route path='/card/:cardUrl/' element={<DisplayCard/>} ></Route>
           <Route path='/' element={<CreateCard />} />
