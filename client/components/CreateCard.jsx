@@ -10,7 +10,30 @@ function CreateCard() {
 
   const token = useSelector((state) => state.loggedInUser.token)
 
-  const { loginWithRedirect } = useAuth0()
+  const isAuthenticated =  useAuth0().isAuthenticated
+  
+  
+  function IfAuthenticated({ children }) {
+    return isAuthenticated ? <>{children}</> : null
+  }
+  
+  function IfNotAuthenticated({ children }) {
+    return !isAuthenticated ? <>{children}</> : null
+  }
+
+  const { logout, loginWithRedirect } = useAuth0()
+
+  function handleLogoff(e) {
+    e.preventDefault()
+    logout()
+  }
+
+  function handleRegister(e) {
+    e.preventDefault()
+    loginWithRedirect({
+      redirectUri:`${window.location.origin}/` 
+    })
+  }
 
   function handleSignIn(e) {
     e.preventDefault()
@@ -48,7 +71,25 @@ function CreateCard() {
 
   return (
     <>
+     <div className="home_buttons">
+      <IfAuthenticated>
+          <a href="/profile" className="btn btn-light btn-sm mx-2" role="button">
+            My Profile
+          </a>
+        
+          <a href="/" onClick={handleLogoff} className="btn btn-light btn-sm mx-2" role="button">
+            Log out
+          </a>
+        </IfAuthenticated>
+        <IfNotAuthenticated>
+          <a href="/" className="btn btn-light btn-sm mx-2" onClick={handleRegister} role="button">Register</a>
+          <a href="/" className="btn btn-light btn-sm mx-2" onClick={handleSignIn} role="button">
+            Log in
+          </a>
+       </IfNotAuthenticated>
+      </div>
       <div className="home">
+     
         <div className="home-form">
           <img src="/logoTallLHSnav.png" className="img-fluid" alt="logo" />
           <p className="lead px-2 mt-2">

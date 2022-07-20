@@ -7,7 +7,6 @@ import { useAuth0 } from '@auth0/auth0-react'
 import AddMessage from './AddMessage'
 import CreateCard from './CreateCard'
 import DisplayCard from './DisplayCard'
-import Nav from './Nav'
 import Profile from './Profile'
 
 function App() {
@@ -16,8 +15,7 @@ function App() {
  
   return (
     <>
-      <section className='main'>
-        <Nav />
+      <section >
         <Routes>
           <Route path='/card/:cardUrl/' element={<DisplayCard/>} ></Route>
           <Route path='/' element={<CreateCard />} />

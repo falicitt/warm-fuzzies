@@ -5,10 +5,11 @@ import Masonry from 'react-smart-masonry'
  
 import { getMessages, deleteMessage } from '../actions/messages'
 import { updateTheCard, getTheCard } from '../apis/cards'
-
+import Music from './Music'
 import CardTitle from './CardTitle'
 import EditMessage from './EditMessage'
-import Music from './Music'
+import Nav from './Nav'
+
 
 
 function DisplayCard() {
@@ -28,6 +29,11 @@ function DisplayCard() {
   const { cardUrl } = useParams()
   const cardId = Number(cardUrl.slice(0, -5))
   const cardString = useSelector((state) => state.card.card_string)
+<<<<<<< HEAD
+=======
+  // console.log(cardUrl)
+  // console.log(cardId)
+>>>>>>> 85fd21621d8f3cb40f3a0cd59697dc2284e7e966
 
   useEffect(() => {
     dispatch(getMessages(cardId))
@@ -80,15 +86,24 @@ function DisplayCard() {
 
   const closeModal = () => {
     setViewModal("none")
+    setCopyButton('copy url')
+  }
+
+  const [ copyButton, setCopyButton ] = useState('copy url')
+  const copyUrl = async () => {
+    const text = `http://localhost:3000/card/${cardUrl}`
+    await navigator.clipboard.writeText(text)
+    setCopyButton('copied to clipboard')
   }
 
   return (
     <>
+      <Nav />
       <CardTitle />
         <div className="page-component">
           <div className='buttons'>
-            {!cardStatus && <button className="btn btn-outline-secondary btn-sm" onClick={redirectToAdd}>Add a message to this card</button>}  
-            {!cardStatus && <button className="btn btn-outline-secondary btn-sm px-3" onClick={handleComplete}><span><i className="bi bi-check2-square"></i></span> Mark this card as complete</button>}
+            {!cardStatus && <button className="btn btn-outline-secondary btn-sm" onClick={redirectToAdd}>Add a message</button>}  
+            {!cardStatus && <button className="btn btn-outline-secondary btn-sm px-3" onClick={handleComplete}><span><i className="bi bi-check2-square"></i></span> Mark card as complete</button>}
             <button id="myBtn" className="btn btn-outline-secondary btn-sm px-3" onClick={openModal}>Share the card</button>
           </div>
           <div>{cardStatus? <div className='music-back'><div className='music-bar'><Music /></div></div> : <div className='music-bar'>{!<Music />}</div>}</div>
@@ -104,7 +119,16 @@ function DisplayCard() {
           </div>
           <div className="modal-body">
             <p>Copy this link and share with your friends to add more messages on it!</p>
+<<<<<<< HEAD
             <p>{`http://localhost:3000/card/${cardUrl}`}</p>
+=======
+            {/* <div className="tooltip"> */}
+            <p>{`http://localhost:3000/card/${cardUrl}`}</p>
+            
+              <button className="btn btn-outline-secondary btn-sm" onClick={copyUrl}>
+                {copyButton}
+              </button>
+>>>>>>> 85fd21621d8f3cb40f3a0cd59697dc2284e7e966
           </div>
           <div className="modal-footer">
             <button className="btn btn-outline-secondary btn-sm" onClick={closeModal}>Close</button>
@@ -128,19 +152,20 @@ function DisplayCard() {
                 />
               ) : (
               // WHERE TO PUT CARD CONTENTS
-                <div key={message.id} className="card">
-                  <div className="card__image mt-2">
-                    <img className="card-img-top" src={message.image} alt="" />
-                  </div>
-                  <div className="card__body">
-                    <div className="card_title">{message.message}</div><br></br>
-                    <p className="from">{message.name}</p>
-                    <div>
-                    {token? 
-                  <>
-                  <button className="btn btn-outline-secondary btn-sm" onClick={() => handleUpdate(message.id)}>Edit</button>
-                  <button className="btn btn-outline-secondary btn-sm" onClick={handleDelete} value={message.id}>Delete</button>
-                  </>
+                <div className='cards-edge'>
+                  <div key={message.id} className="card">
+                    <div className="card__image mt-2">
+                      <img className="card-img-top" src={message.image} alt="" />
+                    </div>
+                    <div className="card__body">
+                      <div className="card_message">{message.message}</div><br></br>
+                        <p className="from">{message.name}</p>
+                      <div>
+                      {token? 
+                        <>
+                    <button className="btn btn-outline-secondary btn-sm" onClick={() => handleUpdate(message.id)}>Edit</button>
+                    <button className="btn btn-outline-secondary btn-sm" onClick={handleDelete} value={message.id}>Delete</button>
+                       </>
                   :
                    message.id === newMessage?.id && 
                   <>
@@ -152,6 +177,7 @@ function DisplayCard() {
                     </div>
                   </div>
                 </div>
+                </div>
               )
             )}
             </Masonry>
@@ -161,6 +187,6 @@ function DisplayCard() {
     </>
   )
 }
-
+      
 export default DisplayCard
 

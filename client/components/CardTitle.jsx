@@ -55,65 +55,47 @@ function CardTitle() {
 
   return edit === true ? (
     <>
-    <nav className="navbar">
-      {/* <a id='logo' href="/">
-        <img src="/logoTallLHSnav.png" alt="logo" className='logo-img'/>
-      </a> */}
+    <nav className='tituloeditado'>
       <h1 className="title">
-        {cardDetails?.name} {cardDetails?.person_name}
+        {cardDetails?.name} {cardDetails?.person_name} <span className='bottuns-holder btn btn-lg px-3' onClick={() => setEdit(false)}><i className="bi bi-x-circle"></i></span>
       </h1>
-      {/* <div className='links'>
-        <a href="/" className="btn btn-light btn-sm my-2" role="button">Register</a>
-        <a href="/" className="btn btn-light btn-sm my-2" role="button">Login</a>
-      </div> */}
-    </nav>
     
-    <div className="edit-title">
-      <div>
+      <div className="edit-title">
         <h5 className="display-6 text-warning">Edit Card Title</h5>
+        <form onSubmit={handleSubmit}>
+          <label className="form-label" htmlFor='name'>Card Name</label>
+          <input
+            className="form-control"
+            id='name'
+            name='name'
+            type='text'
+            initialvalue={cardDetails.name}
+            onChange={handleChange}
+          />
+          <label className="form-label" htmlFor='person_name'>Friend Name</label>
+          <input
+            className="form-control"
+            id='person_name'
+            name='person_name'
+            type='text'
+            initialvalue={cardDetails.person_name}
+            onChange={handleChange}
+          />
+          <button className="btn btn-light-outline">Done</button>
+        </form>
       </div>
-      <form onSubmit={handleSubmit}>
-        <label className="form-label" htmlFor='name'>Card Name</label>
-        <input
-          className="form-control"
-          id='name'
-          name='name'
-          type='text'
-          initialvalue={cardDetails.name}
-          onChange={handleChange}
-        />
-        <label className="form-label" htmlFor='person_name'>Friend Name</label>
-        <input
-          className="form-control"
-          id='person_name'
-          name='person_name'
-          type='text'
-          initialvalue={cardDetails.person_name}
-          onChange={handleChange}
-        />
-        <button className="btn btn-light-outline">Done</button>
-      </form>
-    </div>
+    </nav>
     </>
   ) : (
 
     // SHOW NORMAL CARD TITLE CODE
 
   <div>
-    <nav className="navbar">
-      {/* <a id='logo' href="/">
-        <img src="/logoTallLHSnav.png" alt="logo" className='logo-img'/>
-      </a> */}
+    <div className="navbar">
       <h1 className="title">
-        {cardDetails?.name} {cardDetails?.person_name}
-      </h1>
-      {/* <div className='links'>
-        <a href="/" className="btn btn-light btn-sm my-2" role="button">Register</a>
-        <a href="/" className="btn btn-light btn-sm my-2" role="button">Login</a>
-      </div> */}
-      
-    </nav>
-    {!cardStatus && <button className='bottuns-holder btn btn-outline-secondary btn-sm px-3' onClick={handleClick}>Edit Card</button>}
+        {cardDetails?.name} {cardDetails?.person_name} {!cardStatus && <span className='bottuns-holder btn btn-lg px-3' onClick={handleClick}><i className="bi bi-pencil-fill"></i></span>}
+      </h1>    
+    </div>
   </div>
   )
 }

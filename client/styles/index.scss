@@ -1,103 +1,110 @@
-@import url('http://fonts.cdnfonts.com/css/brandon-grotesque-regular');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@500&display=swap');
+
 
 body {
   // position: absolute;
-  top: 0;
-  left: 0;
-  margin: 0;
-  padding: 20px;
-  font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0px;
 }
 
-button {
-  margin: 1rem;
+.nav-button {
+  margin: 10px 20px;
 }
+
 
 nav a {
   padding: 0 1rem;
 }
 
 // -------------------------  navbar  -------------------------
+
+.caca {
+  position: fixed;
+  background-color: white;
+  // z-index: 4;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-top: 0px;
+  margin-bottom: -10px;
+  margin-left: -200px;
+  padding-right: 100px;
+  padding-left: 20px;
+  padding-bottom: 120px;
+  width: 120%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 3;
+}
+
+.logo1 {
+  position: fixed;
+  z-index: 4;
+  margin-left: 40px;
+  margin-top: 40px;
+}
+
+.botones {
+  position: fixed;
+  z-index: 4;
+  margin-left: 70vw;
+  margin-top: 65px;
+}
+
 .navbar {
   width: 100%;
   display: grid;
+  position: fixed;
   grid-template-columns: repeat(4(1fr, 3fr, 0,5fr, 0,5fr));
-  padding-top: 90px;
-  padding-bottom: 60px;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  // background-color: aqua;
+  margin-top: 88px;
+  z-index: 2;
 }
 
-#logo {
-  img {
-    width: 190px;
-    position: fixed;
-    z-index: 2;
-    background-color: white;
-    margin-top: -15px;
-    margin-left: 30px;
-  }
+
+.card__title {
+  text-align: center;
 }
 
 .title {
   font-family: 'Brandon Grotesque Regular', sans-serif;
-  font-size: 60px;
+  font-size: 5vw;
   background-color: white;
-  position: fixed;
-  z-index: 1;
-  width: 110%;
-  padding-bottom: 90px;
-  padding-top: 90px;
-  padding-left: 570px;
-  margin-top: 30px;
-  margin-left: -20px;
-  color: #FE027E;
-}
-
-.links {
-  position: fixed;
-  z-index: 1;
-  margin-left: 90vw;
-  margin-top: 40px;
-  display: grid;
-  grid-template-rows: repeat(2);
-  a {
-    padding: 10px;
-    font-size: 18px;
-  }
-}
-
-
-.bottuns-holder {
-  z-index: 3;
-  position: fixed;
-  background-color: white;
-  margin-left: 1093px;
-  margin-top: 20px;
-  font-size: 16px;
-}
-
-.edit-title {
   position: fixed;
   z-index: 2;
   width: 100%;
-  margin-top: 50px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 5px;
+  color: #FE027E;
+  margin-top: 160px;
+}
+
+.edit-title {
+  z-index: 3;
+  width: 100%;
+  position: fixed;
+  margin-top: 250px;
   background-image: linear-gradient(white , rgba(246, 246, 245, 0.966));
-  padding-top: 40px;
   padding-left: 34%;
   padding-right: 35%;
   padding-bottom: 10px;
+  padding-top: 20px;
   margin-left: -20px;
 }
 
 .buttons {
-  display: flex;
-  flex-wrap: wrap;
+  display: inline-block;
+  text-align: center;
   position: fixed;
-  z-index: 3;
-  margin-top: -140px;
-  margin-left: 460px;
-  margin-right: 3vw;
+  z-index: 4;
+  margin-top: -280px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   button {
     background-color: white;
     margin-right: 10px;
@@ -105,258 +112,52 @@ nav a {
   }
 }
 
+.tituloeditado {
+  display: grid;
+  grid-template-rows: repeat(2 1fr 2fr);
+}
+
+.editcard {
+  z-index: 4;
+}
+
+.myicon {
+  position: relative;
+  top: 145px;
+  right: 15vw;
+  color: gray;
+}
+
 .music-bar {
-  width: 50%;
-  margin-left: 430px;
-  margin-top: -30px;
+  width: 68%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -320px;
+  text-align: center;
   z-index: 2;
   position: fixed;
 }
 
 .music-back {
+  text-align: center;
   background-color: white;
   width: 100%;
   z-index: 2;
   position: fixed;
-  padding: 30px;
-  margin-top: -90px;
+  padding-top: 60px;
+  padding-bottom: 30px;
+  margin-top: -135px;
 }
 
 // ------------------------- Cards grid ------------------------- 
 
 .cards-margin {
   margin-right: -30px;
-  margin-top: 160px;
-}
-.cards-margin2 {
-  margin-left: 2vw;
-  margin-right: 10vw;
-  margin-top: 40px;
+  margin-top: 400px;
+  margin-left: 8vw;
+  margin-right: 6vw;
 }
 
-// ------------------------- media queries  ------------------------- 
-@media (min-width: 320px)and(max-width: 700px) {
-  .title {
-    font-size: 35px;
-    padding-bottom: 50px;
-    padding-top: 50px;
-    padding-left: 170px;
-  }
-  #logo {
-    margin-left: -10px;
-    margin-top: 0px;
-    img {width: 100px;
-    }
-  }
-  .links {
-    margin-left: 85%;
-    margin-top: -10px;
-    a {
-      font-size: 16px;
-      padding-left: 5px;
-      margin-bottom: -15px;
-      margin-top: -5;
-    }
-  }
-  .bottuns-holder {
-    margin-left: 526px;
-    margin-right: 5px;
-    margin-top: -10px;
-    font-size: 12px;
-  }
-  .buttons {
-    margin-left: 20px;
-    margin-top: -110px;
-    button {
-      background-color: white;
-      margin-right: 5px;
-      font-size: 12px;
-    }
-  }
-  .navbar {
-    padding-top: 40px;
-  }
-  .cards-margin {
-    margin-right: -30px;
-    margin-top: 100px;
-  }
-  .music-bar {
-    margin-left: -15px;
-    margin-top: -30px;
-  }
-  .music-back {
-    padding: 35px;
-    margin-top: -80px;
-  }
-  
-}
-
-@media (min-width: 701px)and(max-width: 850px) {
-  .title {
-    font-size: 42px;
-    padding-bottom: 51px;
-    padding-top: 60px;
-    padding-left: 190px;
-  }
-  #logo {
-    margin-left: -10px;
-    margin-top: 0px;
-    img {width: 120px;
-    }
-  }
-  .links {
-    margin-left: 85%;
-    margin-top: -10px;
-    a {
-      font-size: 16px;
-      padding-left: 5px;
-      margin-bottom: -15px;
-      margin-top: -5;
-    }
-  }
-  .bottuns-holder {
-    margin-left: 596px;
-    margin-right: 5px;
-    margin-top: 0px;
-    font-size: 12px;
-  }
-  .buttons {
-    margin-left: 90px;
-    margin-top: -120px;
-    button {
-      background-color: white;
-      margin-right: 5px;
-      font-size: 12px;
-    }
-  }
-  .navbar {
-    padding-top: 40px;
-  }
-  .cards-margin2 {
-    margin-left: 2vw;
-  }
-  .cards-margin {
-    margin-right: -30px;
-    margin-top: 120px;
-  }
-  .music-bar {
-    margin-left: 60px;
-    margin-top: -30px;
-  }
-  .music-back {
-    padding-top: 40px;
-    padding-bottom: 35px;
-    margin-top: -95px;
-  }
-}
-
-
-@media (min-width: 850px) and (max-width: 1050px) {
-  .title {
-    font-size: 47px;
-    padding-bottom: 82px;
-    padding-left: 250px;
-  }
-  #logo {
-    img {width: 160px;
-    }
-  }
-  .links {
-    margin-left: 86%;
-    margin-top: 35px;
-    a {
-      font-size: 17px;
-      margin-bottom: -7px;
-      margin-top: -5;
-    }
-  }
-  .bottuns-holder {
-    margin-left: 713px;
-    margin-right: 5px;
-    margin-top: 10px;
-    font-size: 14px;
-  }
-  .buttons {
-    margin-left: 130px;
-    margin-top: -125px;
-    button {
-      background-color: white;
-      margin-right: 10px;
-      font-size: 14px;
-    }
-  }
-  .navbar {
-    padding-top: 65px;
-  }
-  .cards-margin2 {
-    margin-left: 4vw;
-    margin-right: 8vw;
-  }
-  .cards-margin {
-    margin-right: -30px;
-    margin-top: 135px;
-  }
-  .music-bar {
-    margin-left: 95px;
-    margin-top: -25px;
-  }
-  .music-back {
-    padding: 30px;
-    margin-top: -90px;
-  }
-
-}
-
-@media (min-width: 1050px) and (max-width: 1400px) {
-  .title {
-    font-size: 55px;
-    padding-bottom: 62px;
-    padding-left: 380px;
-  }
-  #logo {
-    img {width: 160px;
-    }
-  }
-  .links {
-    margin-left: 86%;
-    margin-top: 35px;
-    a {
-      font-size: 17px;
-      margin-bottom: -7px;
-      margin-top: -5;
-    }
-  }
-  .bottuns-holder {
-    margin-left: 846px;
-    margin-right: 5px;
-    margin-top: 20px;
-    font-size: 14px;
-  }
-  .buttons {
-    margin-left: 270px;
-    margin-top: -130px;
-    margin-bottom: 0px;
-    button {
-      background-color: white;
-      margin-right: 10px;
-      font-size: 14px;
-    }
-  }
-  .navbar {
-    padding-top: 65px;
-  }
-  .cards-margin2 {
-    margin-left: 6vw;
-    margin-right: 8vw;
-  }
-  .cards-margin {
-    margin-top: 150px;
-  }
-  .music-bar {
-    margin-left: 238px;
-    margin-top: -30px;
-  }
-}
 
 // ------------------------- home page ------------------------- 
 .home {
@@ -382,12 +183,11 @@ nav a {
 .add-form {
   // position: fixed;
   z-index: 1;
-  width: 100%;
-  margin-top: 120px;
+  width: 40%;
+  margin-top: 280px;
   background-color: white;
-  padding-top: 40px;
-  padding-left: 30%;
-  padding-right: 35%;
+  margin-left: auto;
+  margin-right: auto;
   padding-bottom: 10px;
 }
 
@@ -400,10 +200,6 @@ nav a {
 }
 
 // ------------------------- Display Card ------------------------- 
-.cards-margin {
-  margin-left: 80px;
-  margin-right: 80px;
-}
 
 .card {
   margin: 5px;
@@ -412,23 +208,19 @@ nav a {
   background-color: white;
   font-size: 20px;
   border: solid 2px rgb(255, 213, 0);
+  // font-family: 'Inter', sans-serif;
   font-family: 'Inter', sans-serif;
-  font-weight: 150;
+  // font-weight: 150;
   box-shadow: 10px 10px 40px rgba(127, 126, 79, 0.482);
   transition: transform .3s ease;
   cursor: pointer;
+  z-index: 1;
 }
 
-.card:hover {
-  transform: scale(1.1);
+.card_message {
+  padding-top: 1rem;
 }
 
-.card__title {
-  // font-family: 'Oswald', sans-serif;
-  font-weight: 800;
-  font-size: 4rem;
-  
-}
 
 .card__image img {
   width: 346px;
@@ -452,7 +244,7 @@ nav a {
   left: 0;
   top: 0;
   // width: 100%; /* Full width */
-  height: 100%; /* Full height */
+  // height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
@@ -499,9 +291,8 @@ nav a {
 }
 
 .modal-header {
-  padding: 10px 16px;
+  padding: 20px 16px;
   text-align: center;
- 
 }
 
 .modal-body {
@@ -509,4 +300,79 @@ nav a {
 
 .modal-footer {
   padding: 2px 16px;
+}
+
+.buttons {
+  text-align: center;
+}
+
+.home_buttons {
+  text-align: end;
+  padding-top: 2rem;
+  padding-right: 2rem;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+//profile page
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.profileTitle {
+  font-family: 'Edu SA Beginner', cursive;
+  font-size: 4rem;
+  // color: #FE027E;
+  padding-bottom: 20px;
+  padding-top: 50px;
+}
+
+.profile {
+  text-align: center;
+}
+
+.email {
+  font-family: 'Inter', sans-serif;
+  font-weight: 250;
+  padding-bottom: 2rem;
+}
+
+.mycards {
+  margin: 0 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  justify-content:space-between
+}
+
+.music {
+  position: relative;
+  margin-top: 25%;
+  margin-left: 47%;
+}
+
+.button-position-one {
+  // text-align: center;
+  margin-top: 1%;
+  margin-left: 30%
+
+}
+
+.button-position-two {
+
+  margin-top: 1%;
+  margin-left: 1%
+}
+
+.button-position-three {
+ margin-top: 1%;
+ margin-left: 1%
+
 }
