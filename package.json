@@ -1,8 +1,8 @@
 {
   "name": "warm-fuzzies",
   "version": "0.1.0",
-  "description": "Todo Full Stack",
-  "repository": "https://https://github.com/dev-academy-challenges/todo-full-stack",
+  "description": "Make your friends happy with some nice messages",
+  "repository": "https://github.com/kotare-2022/warm-fuzzies",
   "main": "server/index.js",
   "engines": {
     "node": "16.15.0"

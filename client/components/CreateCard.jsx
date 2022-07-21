@@ -125,12 +125,12 @@ function CreateCard() {
                 aria-describedby="cardTitle"
               />
             </div>
-            <button type="submit" className="btn btn-warning">
+            <button type="submit" className="btn btn-warning mx-0">
               Create
             </button>
           </form>
           :
-            <button className="btn btn-warning rounded-pill" onClick={handleSignIn}>
+            <button className="btn btn-warning mx-0" onClick={handleSignIn}>
              Log In To Create A Card
           </button> 
         }
@@ -140,7 +140,7 @@ function CreateCard() {
             src="example-card-masonry.png"
             className="d-block mx-lg-auto img-fluid"
             alt="warm fuzzy message card"
-            width="700"
+            width="750"
             height="500"
             loading="lazy"
           />

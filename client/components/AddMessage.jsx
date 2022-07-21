@@ -98,7 +98,7 @@ function AddMessage() {
               }
             />
          
-            <div className="mt-2"><button className="btn btn-outline-secondary">Add</button></div>
+            <div className="mt-2"><button className="btn btn-light mx-0">Add</button></div>
           </form>
         </div>
       )}
