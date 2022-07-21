@@ -28,7 +28,7 @@ function DisplayCard() {
   const dispatch = useDispatch()
   const { cardUrl } = useParams()
   const cardId = Number(cardUrl.slice(0, -5))
-  const cardString = useSelector((state) => state.card.card_string)
+  // const cardString = useSelector((state) => state.card.card_string)
   // console.log(cardUrl)
   // console.log(cardId)
 
@@ -69,7 +69,7 @@ function DisplayCard() {
   const handleUpdate = (i) => { setActiveIndex(i) }
 
   const breakpoints = {
-    samll: 400, mobile: 700, tablet: 1100, desktop: 1500
+    samll: 400, mobile: 700, tablet: 1100, desktop: 1200
   }
   
   const stopUpdate = () => { setActiveIndex(null)}

@@ -40,7 +40,7 @@ nav a {
 .logo1 {
   position: fixed;
   z-index: 4;
-  margin-left: 40px;
+  margin-left: 100px;
   margin-top: 40px;
 }
 
@@ -56,7 +56,7 @@ nav a {
   display: grid;
   position: fixed;
   grid-template-columns: repeat(4(1fr, 3fr, 0,5fr, 0,5fr));
-  padding-top: 50px;
+  padding-top: 40px;
   padding-bottom: 100px;
   // background-color: aqua;
   margin-top: 88px;
@@ -70,7 +70,7 @@ nav a {
 
 .title {
   font-family: 'Brandon Grotesque Regular', sans-serif;
-  font-size: 5vw;
+  font-size: 4.0vw;
   background-color: white;
   position: fixed;
   z-index: 2;
@@ -78,7 +78,8 @@ nav a {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: 5px;
+  padding-top: 20px;
+  padding-bottom: 10px;
   color: #FE027E;
   margin-top: 160px;
 }
@@ -154,10 +155,9 @@ nav a {
 .cards-margin {
   margin-right: -30px;
   margin-top: 400px;
-  margin-left: 8vw;
+  margin-left: 3vw;
   margin-right: 6vw;
 }
-
 
 // ------------------------- home page ------------------------- 
 .home {
@@ -204,7 +204,7 @@ nav a {
 .card {
   margin: 5px;
   padding: 1.5rem 1.5rem 0.5rem;
-  width: 350px;
+  width: 320px;
   background-color: white;
   font-size: 20px;
   border: solid 2px rgb(255, 213, 0);
@@ -223,7 +223,7 @@ nav a {
 
 
 .card__image img {
-  width: 346px;
+  width: 316px;
   margin-left: -24px;
   margin-top:-32px;
   margin-bottom: 20px;
