@@ -58,16 +58,19 @@ function CreateCard() {
     const card = newCard
     e.preventDefault()
     dispatch(addCard(card, token))
+    if (cardId) { 
+      navigate(`/card/${cardId}${cardString}/add`)
+    }
   }
 
   const cardId = useSelector((state) => state.card?.id)
   const cardString = useSelector((state) => state.card.card_string)
 
-  useEffect(() => { 
-    if (cardId) { 
-      navigate(`/card/${cardId}${cardString}/add`)
-    }
-  }, [cardId])
+  // useEffect(() => { 
+  //   if (cardId) { 
+  //     navigate(`/card/${cardId}${cardString}/add`)
+  //   }
+  // }, [cardId])
 
   return (
     <>
