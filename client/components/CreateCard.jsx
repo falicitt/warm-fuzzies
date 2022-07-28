@@ -65,9 +65,11 @@ function CreateCard() {
 
   const cardId = useSelector((state) => state.card?.id)
   const cardString = useSelector((state) => state.card.card_string)
+  console.log('cardId 1', cardId)
 
   useEffect(() => { 
     if (cardId) { 
+      console.log('cardId 2', cardId)
       navigate(`/card/${cardId}${cardString}/add`)
     }
   }, [cardId])
