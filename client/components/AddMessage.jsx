@@ -27,14 +27,15 @@ function AddMessage() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if(image) {
-    const formData = new FormData()
-    formData.append('image', image)
-    postImage(formData)
-    .catch((err) => console.log('handle submit error', err))
+    if (image) {
+      const formData = new FormData()
+      formData.append('image', image)
+      postImage(formData)
+        .catch((err) => console.log('handle submit error', err))
     }
-
-    dispatch(createMessage(newMessage))
+    else {
+      dispatch(createMessage(newMessage))
+    }
     navigate(`/card/${cardUrl}`)
       
   }

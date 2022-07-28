@@ -40,6 +40,10 @@ function CreateCard() {
     loginWithRedirect()
   }
 
+  const cardId = useSelector((state) => state.card?.id)
+  const cardString = useSelector((state) => state.card?.card_string)
+  console.log('cardId 1', cardId)
+
   const [newCard, setNewCard] = useState({
     name: '',
     person_name: '',
@@ -55,17 +59,13 @@ function CreateCard() {
   }
 
   const handleSubmit = (e) => {
-    const card = newCard
+    // const card = newCard
     e.preventDefault()
-    dispatch(addCard(card, token))
-    if (cardId) { 
-      navigate(`/card/${cardId}${cardString}/add`)
-    }
+    dispatch(addCard(newCard, token))
+    // if (cardId) { 
+    //   navigate(`/card/${cardId}${cardString}/add`)
+    // }
   }
-
-  const cardId = useSelector((state) => state.card?.id)
-  const cardString = useSelector((state) => state.card.card_string)
-  console.log('cardId 1', cardId)
 
   useEffect(() => { 
     if (cardId) { 
