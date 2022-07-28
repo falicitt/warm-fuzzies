@@ -31,12 +31,17 @@ function AddMessage() {
       const formData = new FormData()
       formData.append('image', image)
       postImage(formData)
+        .then(() => {
+          dispatch(createMessage(newMessage))
+          navigate(`/card/${cardUrl}`)
+    })
         .catch((err) => console.log('handle submit error', err))
     }
     else {
       dispatch(createMessage(newMessage))
+      navigate(`/card/${cardUrl}`)
     }
-    navigate(`/card/${cardUrl}`)
+    
       
   }
 
