@@ -27,15 +27,21 @@ function AddMessage() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if(image) {
-    const formData = new FormData()
-    formData.append('image', image)
-    postImage(formData)
-    .catch((err) => console.log('handle submit error', err))
+    if (image) {
+      const formData = new FormData()
+      formData.append('image', image)
+      postImage(formData)
+        .then(() => {
+          dispatch(createMessage(newMessage))
+          navigate(`/card/${cardUrl}`)
+    })
+        .catch((err) => console.log('handle submit error', err))
     }
-
-    dispatch(createMessage(newMessage))
-    navigate(`/card/${cardUrl}`)
+    else {
+      dispatch(createMessage(newMessage))
+      navigate(`/card/${cardUrl}`)
+    }
+    
       
   }
 
@@ -98,7 +104,7 @@ function AddMessage() {
               }
             />
          
-            <div className="mt-2"><button className="btn btn-outline-secondary">Add</button></div>
+            <div className="mt-2"><button className="btn btn-light mx-0">Add</button></div>
           </form>
         </div>
       )}

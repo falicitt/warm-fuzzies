@@ -1,9 +1,11 @@
-const card = (state = [], action) => {
-  switch (action.type) {
-    case 'CREATE_CARD':
-      return action.payload
-    // case 'SHOW_CARD':
-    //   return action.payload
+import { CREATE_CARD } from '../actions/cards'
+
+const card = (state = null, action) => {
+  const { type, payload } = action
+  console.log('create card payload', payload)
+  switch (type) {
+    case CREATE_CARD:
+      return payload
     default:
       return state
   }

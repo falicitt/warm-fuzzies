@@ -15,23 +15,23 @@ export function addMessage(newMessage) {
 }
 
 export function createMessage(newMessage) {
-    return (dispatch => {
-      postMessage(newMessage)
+  return (dispatch) => {
+    postMessage(newMessage)
       .then((messageDetails) => {
-        dispatch(addMessage(messageDetails))  
+        dispatch(addMessage(messageDetails))
       })
       .catch((err) => {
         const errMessage = err.response?.text || err.message
         console.log(errMessage)
       })
-})
+  }
 }
 
 //get all messages
-export function deleteOneMessage (id) {
+export function deleteOneMessage(id) {
   return {
-    type:DELETE_ONE_MESSAGE,
-    payload: id
+    type: DELETE_ONE_MESSAGE,
+    payload: id,
   }
 }
 

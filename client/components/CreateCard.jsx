@@ -40,6 +40,10 @@ function CreateCard() {
     loginWithRedirect()
   }
 
+  const cardId = useSelector((state) => state.card?.id)
+  const cardString = useSelector((state) => state.card?.card_string)
+  console.log('cardId 1', cardId)
+
   const [newCard, setNewCard] = useState({
     name: '',
     person_name: '',
@@ -55,16 +59,17 @@ function CreateCard() {
   }
 
   const handleSubmit = (e) => {
-    const card = newCard
+    // const card = newCard
     e.preventDefault()
-    dispatch(addCard(card, token))
+    dispatch(addCard(newCard, token))
+    // if (cardId) { 
+    //   navigate(`/card/${cardId}${cardString}/add`)
+    // }
   }
-
-  const cardId = useSelector((state) => state.card?.id)
-  const cardString = useSelector((state) => state.card.card_string)
 
   useEffect(() => { 
     if (cardId) { 
+      console.log('cardId 2', cardId)
       navigate(`/card/${cardId}${cardString}/add`)
     }
   }, [cardId])
@@ -125,12 +130,12 @@ function CreateCard() {
                 aria-describedby="cardTitle"
               />
             </div>
-            <button type="submit" className="btn btn-warning">
+            <button type="submit" className="btn btn-warning mx-0">
               Create
             </button>
           </form>
           :
-            <button className="btn btn-warning rounded-pill" onClick={handleSignIn}>
+            <button className="btn btn-warning mx-0" onClick={handleSignIn}>
              Log In To Create A Card
           </button> 
         }
@@ -140,7 +145,7 @@ function CreateCard() {
             src="example-card-masonry.png"
             className="d-block mx-lg-auto img-fluid"
             alt="warm fuzzy message card"
-            width="700"
+            width="750"
             height="500"
             loading="lazy"
           />
