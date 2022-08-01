@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from 'react-redux'
-import { getCardsByUser } from '../apis/cards'
+import { getCardsByUser, deleteCard } from '../apis/cards'
 import { Link } from 'react-router-dom'
 import Nav from './Nav'
 
@@ -19,6 +19,14 @@ function Profile() {
   }, [auth0Id])
 
   const tf = new Intl.DateTimeFormat('en-NZ')
+
+  const handleDelete =(e) => {
+    const cardId = e.target.value
+    deleteCard(cardId)
+      .then(() => getCardsByUser(auth0Id))
+      .then((cardsArry) => setCards(cardsArry)
+    )
+  }
   
   return (
     <>
@@ -35,6 +43,7 @@ function Profile() {
           <p>{card.name} {card.person_name}</p>
           <p>{tf.format(new Date(card.created_at))}</p>
           </Link>
+          <button className="btn btn-outline-secondary btn-sm" onClick={handleDelete} value={card.id}>Delete</button>
         </li>
        
         )}

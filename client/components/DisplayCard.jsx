@@ -21,7 +21,6 @@ function DisplayCard() {
 
   const handleDelete =(e) => {
     const messageId = e.target.value
-    console.log(messageId)
     dispatch(deleteMessage(messageId, cardId))
   }
 
@@ -108,12 +107,10 @@ function DisplayCard() {
         {/* <!-- Modal content --> */}
         <div className="modal-content">
           <div className="modal-header">
-            {/* <span className="close" onClick={closeModal}>&times;</span> */}
             <h3>Share the love!</h3>
           </div>
           <div className="modal-body">
             <p>Copy this link and share with your friends to add more messages on it!</p>
-            {/* <div className="tooltip"> */}
             <p>{`https://warmfuzzies-nz.herokuapp.com/card/${cardUrl}`}</p>
             
               <button className="btn btn-outline-secondary btn-sm" onClick={copyUrl}>

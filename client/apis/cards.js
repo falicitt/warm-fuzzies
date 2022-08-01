@@ -44,3 +44,10 @@ export function getCardsByUser(userId) {
       console.log(err.message, 'error consuming api getCardsByUser')
     )
 }
+
+export function deleteCard(cardId) {
+  return request
+    .delete(`/api/v1/card/${cardId}`)
+    .then((res) => res.body)
+    .catch((err) => console.log(err.message, 'error consuming api delete card'))
+}

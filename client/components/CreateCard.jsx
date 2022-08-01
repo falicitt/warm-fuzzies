@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-// import { addCard } from '../actions/cards'
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
-
 import { postCard } from '../apis/cards'
 
 function CreateCard() {
-  // const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const token = useSelector((state) => state.loggedInUser.token)
@@ -42,10 +39,6 @@ function CreateCard() {
     loginWithRedirect()
   }
 
-  // const cardId = useSelector((state) => state.card?.id)
-  // const cardString = useSelector((state) => state.card?.card_string)
-  // console.log('cardId 1', cardId)
-
   const [newCard, setNewCard] = useState({
     name: '',
     person_name: '',
@@ -69,13 +62,6 @@ function CreateCard() {
         navigate(`/card/${cardObj.id}${cardObj.card_string}/add`)
       })
   }
-
-  // useEffect(() => { 
-  //   if (cardId) { 
-  //     console.log('cardId 2', cardId)
-  //     navigate(`/card/${cardId}${cardString}/add`)
-  //   }
-  // }, [cardId])
 
   return (
     <>

@@ -40,9 +40,7 @@ function AddMessage() {
     else {
       dispatch(createMessage(newMessage))
       navigate(`/card/${cardUrl}`)
-    }
-    
-      
+    }    
   }
 
   const [cardStatus, setCardStatus] = useState(null)
