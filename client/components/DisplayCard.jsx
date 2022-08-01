@@ -65,7 +65,7 @@ function DisplayCard() {
   const handleUpdate = (i) => { setActiveIndex(i) }
 
   const breakpoints = {
-    samll: 400, mobile: 700, tablet: 1100, desktop: 1200
+    samll: 400, mobile: 700, tablet: 950, desktop: 1300
   }
   
   const stopUpdate = () => { setActiveIndex(null)}
@@ -125,7 +125,7 @@ function DisplayCard() {
       </div>
         <div className="cards-container">
           <div className='cards-margin'>
-            <Masonry breakpoints={breakpoints} columns={{ samall: 1, mobile: 2, tablet: 3, desktop: 4 }} gap={5} autoArrange={true} >     
+            <Masonry breakpoints={breakpoints} columns={{ small: 1, mobile: 2, tablet: 3, desktop: 4 }} gap={5} autoArrange={true} >     
             {messages.map((message) =>
               activeIndex === message.id ? (
                 <EditMessage
@@ -168,8 +168,8 @@ function DisplayCard() {
               )
             )}
             </Masonry>
-          </div>
-        </div>
+            </div>
+            </div>
       </div>    
     </>
   )

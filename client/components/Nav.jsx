@@ -34,15 +34,12 @@ function Nav() {
   
   return (
     <>
-    <nav className='nav'>
-      <div className="container">
-        <header>
-          <div className='caca'>
+    <nav className='caca'>
             <div className='logo1'>
               <a href="/"></a>
               <a href="/"><img className='logoimg' src="/smallLogo.svg" alt="logo"  height="60"/></a>
             </div>
-            <div className="botones col-md-3 text-end">
+            <div className="botones text-end">
               <IfAuthenticated>
                 <a href="/profile" className="btn btn-light btn-sm mx-2" role="button">My Profile</a>
         
@@ -53,9 +50,6 @@ function Nav() {
                 <a href="/" className="btn btn-light btn-sm mx-2" onClick={handleSignIn} role="button">Log in</a>
               </IfNotAuthenticated>
             </div>
-          </div>
-        </header>
-      </div>
     </nav>
     </>
   )

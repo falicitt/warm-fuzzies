@@ -91,7 +91,7 @@ function CardTitle() {
     // SHOW NORMAL CARD TITLE CODE
 
   <div>
-    <div className="navbar">
+    <div>
       <h1 className="title">
         {cardDetails?.name} {cardDetails?.person_name} {!cardStatus && <span className='bottuns-holder btn btn-lg px-3' onClick={handleClick}><i className="bi bi-pencil-fill"></i></span>}
       </h1>    

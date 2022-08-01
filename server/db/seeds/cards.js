@@ -13,7 +13,7 @@ exports.seed = async function (knex) {
       created_at: '2022-07-10 09:24:00',
       complete: false,
       card_string: 'RndkP',
-      added_by_user: 'auth0|62c22897087a31c6a64caada'
+      added_by_user: 'auth0|62c4bdcbfa746b4902039dba',
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ exports.seed = async function (knex) {
       created_at: '2022-07-10 09:24:00',
       complete: false,
       card_string: 'lljeP',
-      added_by_user: 'auth0|62c22897087a31c6a64caada'
+      added_by_user: 'auth0|62c4bdcbfa746b4902039dba',
     },
     {
       id: 3,
@@ -31,7 +31,7 @@ exports.seed = async function (knex) {
       created_at: '2022-07-10 09:24:00',
       complete: false,
       card_string: 'fskdl',
-      added_by_user: 'auth0|62c22897087a31c6a64caada'
+      added_by_user: 'auth0|62c4bdcbfa746b4902039dba',
     },
     {
       id: 4,
@@ -40,7 +40,7 @@ exports.seed = async function (knex) {
       created_at: '2022-07-10 09:24:00',
       complete: false,
       card_string: 'Pmhhd',
-      added_by_user: 'auth0|62c22897087a31c6a64caada'
+      added_by_user: 'auth0|62c4bdcbfa746b4902039dba',
     },
   ])
 }

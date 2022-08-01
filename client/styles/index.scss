@@ -4,122 +4,18 @@
 
 
 body {
-  // position: absolute;
   margin: 0px;
 }
 
-.nav-button {
-  margin: 10px 20px;
-}
-
-
-nav a {
-  padding: 0 1rem;
-}
-
-// -------------------------  navbar  -------------------------
-
 .caca {
-  position: fixed;
-  background-color: white;
-  // z-index: 4;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  margin-top: 0px;
-  margin-bottom: -10px;
-  margin-left: -200px;
-  padding-right: 100px;
-  padding-left: 20px;
-  padding-bottom: 120px;
-  width: 120%;
+margin: 1rem 2rem;
   display: flex;
   justify-content: space-between;
-  z-index: 3;
-}
-
-.logo1 {
-  position: fixed;
-  z-index: 4;
-  margin-left: 100px;
-  margin-top: 40px;
-}
-
-.botones {
-  position: fixed;
-  z-index: 4;
-  margin-left: 70vw;
-  margin-top: 65px;
-}
-
-.navbar {
-  width: 100%;
-  display: grid;
-  position: fixed;
-  grid-template-columns: repeat(4(1fr, 3fr, 0,5fr, 0,5fr));
-  padding-top: 40px;
-  padding-bottom: 100px;
-  // background-color: aqua;
-  margin-top: 80px;
-  z-index: 2;
-}
-
-
-.card__title {
-  text-align: center;
+  align-items: center;
 }
 
 .title {
-  font-family: 'Brandon Grotesque Regular', sans-serif;
-  font-size: 4.0vw;
-  background-color: white;
-  position: fixed;
-  z-index: 2;
-  width: 100%;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 20px;
-  padding-bottom: 10px;
-  color: #FE027E;
-  margin-top: 160px;
-}
-
-.edit-title {
-  z-index: 3;
-  width: 100%;
-  position: fixed;
-  margin-top: 250px;
-  background-image: linear-gradient(white , rgba(246, 246, 245, 0.966));
-  padding-left: 34%;
-  padding-right: 35%;
-  padding-bottom: 10px;
-  padding-top: 20px;
-  margin-left: -20px;
-}
-
-.buttons {
-  display: inline-block;
-  text-align: center;
-  position: fixed;
-  z-index: 4;
-  margin-top: -280px;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  button {
-    background-color: white;
-    margin-right: 10px;
-    font-size: 16px;
-  }
-}
-
-.tituloeditado {
-  display: grid;
-  grid-template-rows: repeat(2 1fr 2fr);
-}
-
-.editcard {
-  z-index: 4;
 }
 
 .myicon {
@@ -139,24 +35,12 @@ nav a {
   position: fixed;
 }
 
-// .music-back {
-//   text-align: center;
-//   background-color: white;
-//   width: 100%;
-//   z-index: 2;
-//   position: fixed;
-//   padding-top: 60px;
-//   padding-bottom: 30px;
-//   margin-top: -135px;
-// }
-
 // ------------------------- Cards grid ------------------------- 
 
 .cards-margin {
-  margin-right: -30px;
-  margin-top: 400px;
-  margin-left: 3vw;
-  margin-right: 6vw;
+  margin: auto;
+  margin-top: 1rem;
+  align-items: center;
 }
 
 // ------------------------- home page ------------------------- 
@@ -202,7 +86,7 @@ nav a {
 // ------------------------- Display Card ------------------------- 
 
 .card {
-  margin: 5px;
+  margin: auto;
   padding: 1.5rem 1.5rem 0.5rem;
   width: 320px;
   background-color: white;
@@ -243,8 +127,6 @@ nav a {
   padding-top: 30vh; /* Location of the box */
   left: 0;
   top: 0;
-  // width: 100%; /* Full width */
-  // height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
@@ -316,7 +198,6 @@ a:hover {
   text-decoration: underline;
 }
 
-
 //profile page
 a {
   text-decoration: none;
@@ -360,14 +241,11 @@ a {
 }
 
 .button-position-one {
-  // text-align: center;
   margin-top: 1%;
   margin-left: 30%
-
 }
 
 .button-position-two {
-
   margin-top: 1%;
   margin-left: 1%
 }
@@ -375,5 +253,4 @@ a {
 .button-position-three {
  margin-top: 1%;
  margin-left: 1%
-
 }
