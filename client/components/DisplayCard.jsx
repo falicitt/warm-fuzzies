@@ -28,9 +28,6 @@ function DisplayCard() {
   const dispatch = useDispatch()
   const { cardUrl } = useParams()
   const cardId = Number(cardUrl.slice(0, -5))
-  // const cardString = useSelector((state) => state.card.card_string)
-  // console.log(cardUrl)
-  // console.log(cardId)
 
   useEffect(() => {
     dispatch(getMessages(cardId))

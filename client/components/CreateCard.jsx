@@ -4,6 +4,8 @@ import { addCard } from '../actions/cards'
 import { useNavigate } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 
+import { postCard, getTheCard } from '../apis/cards'
+
 function CreateCard() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -59,11 +61,12 @@ function CreateCard() {
   }
 
   const handleSubmit = (e) => {
-    // const card = newCard
     e.preventDefault()
-    dispatch(addCard(newCard, token))
+    postCard(newCard, token)
+    .then((cardObj) => navigate(`/card/${cardObj.id}${cardObj.card_string}/add`))
+    // dispatch(addCard(newCard, token))
     // if (cardId) { 
-    //   navigate(`/card/${cardId}${cardString}/add`)
+    //   
     // }
   }
 
