@@ -5,7 +5,9 @@ export function postCard(card, token) {
     .post('/api/v1/card')
     .set('authorization', `Bearer ${token}`)
     .send(card)
-    .then((res) => res.body)
+    .then((res) => {
+      return res.body
+    })
     .catch((err) => console.log(err.message, 'error consuming api postCard'))
 }
 
