@@ -5,7 +5,7 @@ function addMessage(newMessage, db = connection) {
 }
 
 function insertCard(newCard, db = connection) {
-  return db('cards').insert(newCard)
+  return db('cards').insert(newCard, 'id')
 }
 
 function updateCard(id, details, user, db = connection) {
