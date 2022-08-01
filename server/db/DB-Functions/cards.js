@@ -1,18 +1,17 @@
 const connection = require('../connection')
 
 function addMessage(newMessage, db = connection) {
-  return db('messages').insert(newMessage,"id")
+  return db('messages').insert(newMessage, 'id')
 }
 
 function insertCard(newCard, db = connection) {
-  return db('cards').insert(newCard,"id")
+  return db('cards').insert(newCard)
 }
 
 function updateCard(id, details, user, db = connection) {
   return db('cards')
     .where('id', id)
     .then((card) => {
-      console.log('card', card[0])
       authorizeUpdate(card[0], user)
     })
     .then(() => {

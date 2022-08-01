@@ -13,7 +13,7 @@ router.post('/', checkJwt, (req, res) => {
 
   db.insertCard(req.body)
     .then((idArr) => {
-      const id = Number(idArr[0])
+      const id = idArr[0]
       return db.getCardById(id)
     })
     .then((cardObj) => res.json(cardObj))
