@@ -1,7 +1,6 @@
 import request from 'superagent'
 
 export function fetchMessages(cardId) {
-  console.log('api:', cardId)
   return request.get('/api/v1/card/' + cardId).then((resp) => resp.body)
 }
 
@@ -10,7 +9,8 @@ export function postMessage(newMessage) {
     .post('/api/v1/card/:id/add')
     .send(newMessage)
     .then((res) => {
-      return res.body})
+      return res.body
+    })
     .catch((err) => console.log('api error', err))
 }
 

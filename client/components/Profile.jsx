@@ -11,6 +11,7 @@ function Profile() {
   const [ cards, setCards ] = useState([])
 
   useEffect(() => {
+    console.log('auth0id', auth0Id)
     getCardsByUser(auth0Id)
       .then((cardsArry) => {
         setCards(cardsArry)

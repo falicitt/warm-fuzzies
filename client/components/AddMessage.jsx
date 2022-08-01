@@ -51,7 +51,6 @@ function AddMessage() {
     getTheCard(cardId)
     .then((cardObj) => {
       setCardStatus(cardObj.complete)
-      console.log('the cardObj', cardObj.complete)
     })
     .catch(err => console.log(err))
 
