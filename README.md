@@ -1,8 +1,12 @@
+# Warm Fuzzies
+
+## Group Planning Documentation (Team Values)
+
 1. Wellbeing (when I’m stressed ... I need...) (general needs eg. kids, illness, sleep etc)
 - a good laugh - Andrea (she will be screaming "we've failed!")
 - reassurance - Chris (will voice stress)
 - time alone / take breaks - Emma (go quiet, scarily quiet)
-- discuss the problem - Cassie (asking questions and complaining)
+- discuss the problem - Cassie (asking questions)
 
 2. Expectation setting and agreements (what do we each want out of this time, what hours will we keep, what do we do when conflict arises, how will we communicate, especially what hours work will happen over the weekend)
 - finish the MVP
@@ -50,7 +54,7 @@
 - cuppa tea
 
 
-Things to think of WHILE planning your project and AFTER discussing the things above:
+## Group Planning Documentation (Tech)
 1. What is your MVP? How much work do you think it will take to achieve it?
 - a landing page to create a board with the person's name, a page to enter comments/compliments for the person, and a final page to display all the comments. 
 - we'll need 3 routes, a post route for the board table, a post route for comments(texts or images), a get route to display all the comments.
@@ -81,23 +85,9 @@ Things to think of WHILE planning your project and AFTER discussing the things a
 - in the morning
 - whenever I feel ready
 
-7. Will you go outside as a team?
-- possibly
-- we'll do an outside stand-up
-
-8. Documentation. Set up a repo and a readme, start adding things to it
-- done
-
-10. Set up a kanban board (To Do, Up Next, In Progress, Done)
+7. Kanban board (To Do, Up Next, In Progress, Done)
 * [Warm Fuzzies Kanban Board](https://dev-academy-aotearoa.slack.com/archives/C03P9Q5G2CS/p1657682519907639)
 
-
-11. Draw your wireframes, make some user stories, do some DB diagrams, global store plans, etc.
+8. DB diagrams
   ![database diagram](/dbDiagram.png)
 
-12. What data will be interacted with on what pages?
-
-Once you’ve planned the technical side, come show us the following (and make them accessible to us):
-- MVP (what is and is not part of MVP?)
-- Wireframes
-- User Stories
