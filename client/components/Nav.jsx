@@ -41,13 +41,13 @@ function Nav() {
             </div>
             <div className="botones text-end">
               <IfAuthenticated>
-                <a href="/profile" className="btn btn-light btn-sm mx-2" role="button">My Profile</a>
+                <a href="/profile" className="btn btn-sm mx-2" role="button">My Profile</a>
         
-                <a href="/" onClick={handleLogoff} className="btn btn-light btn-sm mx-2" role="button">Log out</a>
+                <a href="/" onClick={handleLogoff} className="btn btn-sm mx-2" role="button">Log out</a>
               </IfAuthenticated>
               <IfNotAuthenticated>
-                <a href="/" className="btn btn-light btn-sm mx-2" onClick={handleRegister} role="button">Register</a>
-                <a href="/" className="btn btn-light btn-sm mx-2" onClick={handleSignIn} role="button">Log in</a>
+                <a href="/" className="btn btn-sm mx-2" onClick={handleRegister} role="button">Register</a>
+                <a href="/" className="btn btn-sm mx-2" onClick={handleSignIn} role="button">Log in</a>
               </IfNotAuthenticated>
             </div>
     </nav>
