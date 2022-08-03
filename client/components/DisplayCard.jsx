@@ -99,7 +99,13 @@ function DisplayCard() {
             {!cardStatus && <button className="btn btn-outline-secondary btn-sm px-3" onClick={handleComplete}><span><i className="bi bi-check2-square"></i></span> Mark card as complete</button>}
             <button id="myBtn" className="btn btn-outline-secondary btn-sm px-3" onClick={openModal}>Share the card</button>
           </div>
-          <div>{cardStatus? <div className='music-back'><div className='music-bar'><Music /></div></div> : <div className='music-bar'>{!<Music />}</div>}</div>
+        <div>{cardStatus ?
+          // <div className='music-back'>
+          // <div className='music-bar'>
+            <Music />
+          // </div>
+        // </div>
+          : <div className='music-bar'>{!<Music />}</div >}</div>
 
       {/* <!-- The Modal --> */}
       <div id="myModal" className="modal" style={{display: viewModal}}> 

@@ -21,6 +21,11 @@ margin: 1rem 2rem;
   color: #FE027E;
 }
 
+.edit-title {
+  width: 25rem;
+  margin: auto
+}
+
 .myicon {
   position: relative;
   top: 145px;
@@ -190,6 +195,10 @@ margin: 1rem 2rem;
   text-align: center;
 }
 
+.btn {
+  margin: 1rem;
+}
+
 .home_buttons {
   text-align: end;
   padding-top: 2rem;
@@ -207,11 +216,10 @@ a {
 }
 
 .profileTitle {
-  font-family: 'Edu SA Beginner', cursive;
+  font-family: 'Gochi Hand';
   font-size: 4rem;
   // color: #FE027E;
   padding-bottom: 20px;
-  padding-top: 50px;
 }
 
 .profile {
@@ -237,9 +245,9 @@ a {
 }
 
 .music {
-  position: relative;
-  margin-top: 25%;
-  margin-left: 47%;
+  margin: auto;
+  text-align: center;
+
 }
 
 .button-position-one {

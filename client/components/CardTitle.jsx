@@ -81,7 +81,7 @@ function CardTitle() {
             initialvalue={cardDetails.person_name}
             onChange={handleChange}
           />
-          <button className="btn btn-light-outline">Done</button>
+          <button className="btn btn-outline-secondary btn-sm">Done</button>
         </form>
       </div>
     </nav>

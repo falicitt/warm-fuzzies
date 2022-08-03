@@ -6,16 +6,15 @@ export default function Music() {
 
   return (
 
-    <>
+    <div className='music'>
     
         <ReactAudioPlayer
           src="/music/wholesome.mp3"
           autoPlay
           controls
-          className='music'
           />
     
-        </>
+        </div>
     
       )
     }
