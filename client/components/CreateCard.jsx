@@ -67,17 +67,17 @@ function CreateCard() {
     <>
      <div className="home_buttons">
       <IfAuthenticated>
-          <a href="/profile" className="btn btn-light btn-sm mx-2" role="button">
+          <a href="/profile" className="btn btn-sm mx-2" role="button">
             My Profile
           </a>
         
-          <a href="/" onClick={handleLogoff} className="btn btn-light btn-sm mx-2" role="button">
+          <a href="/" onClick={handleLogoff} className="btn btn-sm mx-2" role="button">
             Log out
           </a>
         </IfAuthenticated>
         <IfNotAuthenticated>
-          <a href="/" className="btn btn-light btn-sm mx-2" onClick={handleRegister} role="button">Register</a>
-          <a href="/" className="btn btn-light btn-sm mx-2" onClick={handleSignIn} role="button">
+          <a href="/" className="btn btn-sm mx-2" onClick={handleRegister} role="button">Register</a>
+          <a href="/" className="btn btn-sm mx-2" onClick={handleSignIn} role="button">
             Log in
           </a>
        </IfNotAuthenticated>
@@ -132,7 +132,7 @@ function CreateCard() {
         <div className="home-image">
           <img
             src="example-card-masonry.png"
-            className="d-block mx-lg-auto img-fluid"
+            className="d-none d-lg-block mx-lg-auto img-fluid"
             alt="warm fuzzy message card"
             width="750"
             height="500"
